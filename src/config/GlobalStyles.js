@@ -3,11 +3,12 @@ import { createGlobalStyle } from 'styled-components'
 const GlobalStyles = createGlobalStyle`
 
 body {
-    font-family: Arial;
+    font-family: ${props => props.theme.typography.fontFamily}
 }
 
 h1 {
-    font-size: 42px;
+    font-size: ${props => props.theme.typography.h1.fontSize};
+    color: ${props => props.theme.colors.purple};
 }
 
 h2 {
