@@ -70,6 +70,7 @@ function Header(props) {
     width: 90px;
     cursor: pointer;
     display: flex;
+    right: 0px;
     flex-direction: column;
     align-items: center;
     justify-content: center;
