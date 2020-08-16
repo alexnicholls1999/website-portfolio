@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from "styled-components"
 import Logo from "../assets/AZN-logo-dark.png"
+import {Navbar, Container, Nav, Form, NavDropdown, Button, FormControl} from "react-bootstrap";
 import { useLocation } from "react-router-dom";
 
 const StyledNav = styled.nav`
@@ -40,13 +41,12 @@ function Menu(props) {
 
   return (
     <div>
-      <StyledClosedText onClick={onClick}> X </StyledClosedText>
       <StyledNav>
-          <ul>
-            <StyledLi active={true}> Work </StyledLi>
-            <StyledLi> About </StyledLi>
-            <StyledLi> Contact </StyledLi>
-          </ul>
+            <Nav className="ml-auto">
+              <Nav.Link href="#work">Work</Nav.Link>
+              <Nav.Link href="#about">About</Nav.Link>
+              <Nav.Link href="#contact">Contact</Nav.Link>
+            </Nav>
       </StyledNav>
     </div>
   );
@@ -69,49 +69,55 @@ function Header(props) {
   const StyledBurgerMenu = styled.div`
     width: 90px;
     cursor: pointer;
+    z-index: 20;
     display: flex;
     right: 0px;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    hr {
-      margin: 4px  0 0 4px;
+    div {
+      margin: 4px 0 0 4px;
       width: 20%;
       border: 1px solid white;
     }
   `;
 
   const StyledMenuWrapper = styled.div`
-    transform: ${({ open }) => open ? 'translateX(0)' : 'translateX(100%)'};
+    transform: ${({ open }) => (open ? 'translateX(0)' : 'translateX(100%)')};
     height: 100vh;
-    width: 304px;
+    width: 100vw;
     background: black;
-    position: absolute;
+    position: fixed;
     padding-top: 10%;
+    z-index: 1;
     top: 0;
     right: 0;
   `;
 
-  const StyledWrapper = styled.div`
-    width: 100%;
-    background: black;
-    height: 50px;
-    display: flex;
-    justify-content: space-between;
-  `;
-
   return (
+
     <div>
       <StyledMenuWrapper open={open}>
-          <Menu onClick={handleClick}/>
+            <Menu onClick={handleClick}/>
       </StyledMenuWrapper>
-      <StyledWrapper>
+      
+      <Navbar bg="dark" expand="lg">
+        <Container>
+          <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
           <StyledBurgerMenu onClick={handleClick}>
-             <hr />
-             <hr />
-             <hr />
+               <div />
+               <div />
+               <div />
           </StyledBurgerMenu>
-      </StyledWrapper>
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="ml-auto">
+              <Nav.Link href="#work">Work</Nav.Link>
+              <Nav.Link href="#about">About</Nav.Link>
+              <Nav.Link href="#contact">Contact</Nav.Link>
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
     </div>
   );
 }
@@ -122,22 +128,3 @@ Header.propTypes = {
 };
 
 export default Header;
-
-// return (
-//     <div>
-//         <StyledNavbar expand="lg">
-//           <Container>
-//             <Navbar.Brand href="#home"><img src={Logo}/></Navbar.Brand>
-//             <Navbar.Collapse id="basic-navbar-nav">
-//               <Nav className="ml-auto">
-//                 <StyledNavLink href="#home">Work</StyledNavLink>
-//                 <StyledNavLink href="#link">About</StyledNavLink>
-//                 <StyledNavLink href="#contact">Contact</StyledNavLink>
-//               </Nav>
-//             </Navbar.Collapse>
-//           </Container>
-//         </StyledNavbar>
-//     </div>
-//   )
-
-// }
