@@ -103,7 +103,9 @@ function Header(props) {
       
       <Navbar bg="dark" expand="lg">
         <Container>
-          <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+          <Navbar.Brand href="#work">
+            <img src={Logo}/>
+          </Navbar.Brand>
           <StyledBurgerMenu onClick={handleClick}>
                <div />
                <div />
