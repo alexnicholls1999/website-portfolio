@@ -5,49 +5,28 @@ import Logo from "../assets/AZN-logo-dark.png"
 import {Navbar, Container, Nav, Form, NavDropdown, Button, FormControl} from "react-bootstrap";
 import { useLocation } from "react-router-dom";
 
-const StyledNav = styled.nav`
-  ul {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+const StyledNav = styled(Nav)`
+  flex-flow: column nowrap;
+  align-items: center;
+  padding-top: 250px;
 `;
 
-const StyledLi = styled.li`
-  li {
-    margin-bottom: 10%;
-    cursor: pointer;
-    width: 100%;
-    text-align: center;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: black
-`;
-
-const StyledClosedText = styled.p`
-    text-align: right;
-    padding-right: 3%;
-    margin-bottom: 15%;
-    font-size: 18px;
-    cursor: pointer;
+const StyledLi = styled(Nav.Link)`
+  color: white;
+  font-size: 25px;
 `;
 
 function Menu(props) {
 
-  const { onClick } = props;
   const location = useLocation();
 
   return (
-    <div>
-      <StyledNav>
-            <Nav className="ml-auto">
-              <Nav.Link href="#work">Work</Nav.Link>
-              <Nav.Link href="#about">About</Nav.Link>
-              <Nav.Link href="#contact">Contact</Nav.Link>
-            </Nav>
-      </StyledNav>
+    <div>       
+        <StyledNav>
+          <StyledLi href="#work">Work</StyledLi>
+          <StyledLi href="#about">About</StyledLi>
+          <StyledLi href="#contact">Contact</StyledLi>
+        </StyledNav>
     </div>
   );
 }
@@ -75,11 +54,12 @@ function Header(props) {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    div {
-      margin: 4px 0 0 4px;
-      width: 20%;
-      border: 1px solid white;
-    }
+    
+      div {
+        margin: 4px 0 0 4px;
+        width: 20%;
+        border: 1px solid white;
+      }
   `;
 
   const StyledMenuWrapper = styled.div`
