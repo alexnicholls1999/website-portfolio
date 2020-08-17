@@ -46,19 +46,32 @@ function Header(props) {
   };
 
   const StyledBurgerMenu = styled.div`
-    width: 90px;
     cursor: pointer;
     z-index: 20;
     display: flex;
     right: 0px;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    flex-flow: column nowrap;
+    justify-content: space-around;
     
       div {
-        margin: 4px 0 0 4px;
-        width: 20%;
-        border: 1px solid white;
+        width: 2rem;
+        height: 2px;
+        background-color: white;
+
+        &:nth-child(1) {
+          transform: ${({ open }) => open ? 'rotate(45deg)' : 'rotate(0)'};
+        }
+
+        &:nth-child(2) {
+          opacity: ${({ open }) => open ? 0 : 1};
+        }
+
+        &:nth-child(3) {
+          transform: ${({ open }) => open ? 'rotate(-45deg)' : 'rotate(0)'};
+          // margin-top: ${({ open }) => open ? '0px' : '10px'};
+        }
       }
   `;
 
@@ -86,7 +99,7 @@ function Header(props) {
           <Navbar.Brand href="#work">
             <img src={Logo}/>
           </Navbar.Brand>
-          <StyledBurgerMenu onClick={handleClick}>
+          <StyledBurgerMenu onClick={handleClick} open={open}>
                <div />
                <div />
                <div />
