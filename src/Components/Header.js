@@ -1,6 +1,6 @@
-import React from 'react';
+import React, {use} from 'react';
 import PropTypes from 'prop-types';
-import styled from "styled-components"
+import styled from "styled-components";
 import Logo from "../assets/AZN-logo-dark.png"
 import {Navbar, Container, Nav, Form, NavDropdown, Button, FormControl} from "react-bootstrap";
 import { useLocation } from "react-router-dom";
@@ -46,35 +46,39 @@ function Header(props) {
   };
 
   const StyledBurgerMenu = styled.div`
-    cursor: pointer;
+    width: 2rem;
+    height: 2rem;
+    position: fixed;
+    top: 20px;
+    right: 20px;
     z-index: 20;
     display: flex;
-    right: 0px;
-    flex-direction: column;
-    align-items: center;
-    flex-flow: column nowrap;
     justify-content: space-around;
-    
-      div {
-        width: 2rem;
-        height: 2px;
-        background-color: white;
+    flex-flow: column nowrap;
 
-        &:nth-child(1) {
-          transform: ${({ open }) => open ? 'rotate(45deg)' : 'rotate(0)'};
-        }
 
-        &:nth-child(2) {
-          opacity: ${({ open }) => open ? 0 : 1};
-        }
+    div {
+      width: 2rem;
+      height: 0.25rem;
+      background-color: white;
+      border-radius: 10px;
+      transform-origin: 1px;
+      transition: all 1s ease-in;
 
-        &:nth-child(3) {
-          transform: ${({ open }) => open ? 'rotate(-45deg)' : 'rotate(0)'};
-          // margin-top: ${({ open }) => open ? '0px' : '10px'};
-        }
+      &:nth-child(1) {
+        transform: ${({open}) => (open ? "rotate(45deg)" : "rotate{0}")};
       }
-  `;
 
+      &:nth-child(2) {
+        opacity: ${({open}) => (open ? 0 : 1)};
+      }
+
+      &:nth-child(3) {
+        transform: ${({open}) => (open ? "rotate(-45deg)" : "rotate{0}")};
+      }
+    }
+
+`;
   const StyledMenuWrapper = styled.div`
     transform: ${({ open }) => (open ? 'translateX(0)' : 'translateX(100%)')};
     height: 100vh;
