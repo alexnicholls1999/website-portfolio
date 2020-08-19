@@ -25,7 +25,9 @@ function Header(props) {
 
   return (
     <>
-        <Navigationbar onClick={handleClick} open={menuOpen} />
+        <StyledHeader>
+            <Navigationbar onClick={handleClick} open={menuOpen} />
+        </StyledHeader>
     </>
   )
 }

@@ -10,9 +10,7 @@ function App (){
   return(
     <div>
       <ThemeProvider theme={theme}>
-        <Header>
-          <p>Test</p>
-        </Header>
+        <Header/>
         <GlobalStyles />
       </ThemeProvider>
     </div>
