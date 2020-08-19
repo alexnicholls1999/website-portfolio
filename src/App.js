@@ -5,7 +5,7 @@ import {ThemeProvider} from "styled-components";
 import theme from "./config/theme";
 import { Switch, Route, useLocation, Redirect } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Header from "./Components/Header";
+import Navigationbar from "./Components/Navbar";
 
 function App (){
 
@@ -28,7 +28,7 @@ function App (){
   return(
     <div>
       <ThemeProvider theme={theme}>
-        <Header onClick={handleClick} open={menuOpen}/>
+        <Navigationbar onClick={handleClick} open={menuOpen}/>
         <GlobalStyles />
         <div 
           onClick={handleOuterWrapperClick}
