@@ -9,31 +9,31 @@ import Header from "./Components/Header";
 
 function App (){
 
-  const [menuOpen, setMenuOpen] = useState(false);
-  const location = useLocation();
+  // const [menuOpen, setMenuOpen] = useState(false);
+  // const location = useLocation();
   
-  const handleClick = e => {
-    setMenuOpen(!menuOpen);
-  };
+  // const handleClick = e => {
+  //   setMenuOpen(!menuOpen);
+  // };
 
-  const handleOuterWrapperClick = e => {
-    setMenuOpen(false);
-  };
+  // const handleOuterWrapperClick = e => {
+  //   setMenuOpen(false);
+  // };
 
-  useEffect(() => {
-    setMenuOpen(false);
-  }, [location]);
+  // useEffect(() => {
+  //   setMenuOpen(false);
+  // }, [location]);
 
 
   return(
     <div>
       <ThemeProvider theme={theme}>
-        <Header onClick={handleClick} open={menuOpen}/>
+        <Header/>
         <GlobalStyles />
-        <div 
-          onClick={handleOuterWrapperClick}
+        {/* <div 
+          // onClick={handleOuterWrapperClick}
           style={{width: "100vw", horizontalScroll: "none", overflowX: "hidden"}}
-        ></div>
+        ></div> */}
       </ThemeProvider>
     </div>
   )
