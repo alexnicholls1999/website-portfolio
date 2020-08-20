@@ -40,7 +40,7 @@ width: 2rem;
 height: 2rem;
 position: fixed;
 top: 20px;
-right: 20px;
+right: 45px;
 z-index: 20;
 display: flex;
 justify-content: space-around;
