@@ -8,10 +8,8 @@ const StyledHeader = styled.header`
   height: 100vh;
 `; 
 
-
-
 function Header(props) {
-
+  
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
   
@@ -25,9 +23,9 @@ function Header(props) {
 
   return (
     <>
-        <StyledHeader>
-            <Navigationbar onClick={handleClick} open={menuOpen} />
-        </StyledHeader>
+      <StyledHeader>
+          <Navigationbar onClick={handleClick} open={menuOpen} />
+      </StyledHeader>
     </>
   )
 }
