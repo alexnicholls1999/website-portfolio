@@ -68,11 +68,11 @@ function Header(props) {
                     wrapper="b"
                     steps={
                       [
-                        'Front End Developer',
+                        'Front End Developer 🖥',
                         1000,
-                        'UX Designer',
+                        'UX Designer 💡',
                         1000,
-                        'UI Designer',
+                        'UI Designer 🎨',
                         1000
                       ]
                     }
