@@ -1,7 +1,7 @@
 import React, {use} from 'react';
 import PropTypes from 'prop-types';
 import styled from "styled-components";
-import Logo from "../assets/AZN-logo-dark.png"
+import Logo from "../assets/AZN-logo-dark.png";
 import {Navbar, Container, Nav, Form, NavDropdown, Button, FormControl} from "react-bootstrap";
 import { useLocation } from "react-router-dom";
 
@@ -38,13 +38,14 @@ Menu.propTypes = {
 const StyledBurgerMenu = styled.div`
 width: 2rem;
 height: 2rem;
-position: fixed;
-top: 20px;
-right: 45px;
-z-index: 20;
+position: relative;
+top: 5px;
+// float: left;
+z-index: 1;
 display: flex;
 justify-content: space-around;
 flex-flow: column nowrap;
+
 
 
 div {

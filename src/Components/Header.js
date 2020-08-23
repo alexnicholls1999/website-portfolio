@@ -5,12 +5,39 @@ import styled from "styled-components";
 import { Container, Col, Row } from 'react-bootstrap';
 import Typical from "react-typical";
 
+import Mobile from "../assets/mobile.png";
 
+const Skew = styled.div`
+  background-color: #107CDC;
+  height: 50px;
+  transform: skewY(-1deg);
+  margin-top: -1%;
+  position: relative;
+`;
+
+function SkewBorder(){
+ 
+  return(
+    <>
+      <Skew></Skew>
+    </>
+  )
+
+  
+}
 
 const StyledHeader = styled.header`
   background-color: black;
   height: 100vh;
 `; 
+
+const StyledMobile = styled.div`
+  z-index: 1;  
+
+  img {
+    width: 100%;
+  }
+`;
 
 function Header(props) {
   
@@ -30,7 +57,7 @@ function Header(props) {
       <StyledHeader>
           <Navigationbar onClick={handleClick} open={menuOpen} />
           <Container>
-            <Row style={{padding:"10%"}}></Row>
+            <Row style={{padding:"5%"}}></Row>
             <Row>
               <Col lg={7} md={6}>
                 <h1>Alex Zietara Nicholls</h1>
@@ -55,8 +82,11 @@ function Header(props) {
               </Col>
             </Row>
             <Row>
-              <Col lg={7} md={6}>
-                <img src={}/>
+              <Col lg={5} md={4} sm={6}></Col>
+              <Col lg={7} md={8} sm={12}>
+                <StyledMobile className="py-5 ml-auto">
+                    <img src={Mobile}/>  
+                </StyledMobile>
               </Col>
             </Row>
           </Container>
