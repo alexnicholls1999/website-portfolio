@@ -46,7 +46,9 @@ display: flex;
 justify-content: space-around;
 flex-flow: column nowrap;
 
-
+  @media (min-width: 750px) {
+    display: none;
+  }
 
 div {
   width: 2rem;

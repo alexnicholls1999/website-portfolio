@@ -8,7 +8,7 @@ body {
 
 h1 {
     font-size: ${props => props.theme.typography.h1.fontSize};
-    color: ${props => props.theme.colors.purple};
+    color: ${props => props.theme.colors.white};
 }
 
 h2 {
@@ -19,9 +19,13 @@ h3 {
     font-size: 32px;
 }
 
-h4 {
+h4 { 
     font-size: 19px;
 }
+
+p {
+    color: ${props => props.theme.colors.white};
+} 
 
 `
 

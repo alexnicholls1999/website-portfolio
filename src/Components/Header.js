@@ -3,7 +3,8 @@ import Navigationbar from "../Components/Navbar";
 import { Switch, Route, useLocation, Redirect } from "react-router-dom";
 import styled from "styled-components";
 import { Container, Col, Row } from 'react-bootstrap';
-import Typical from "react-typical";
+import Typewriter from "../Components/typewriter";
+import Parallax from 'react-rellax';
 
 import Mobile from "../assets/mobile.png";
 
@@ -26,22 +27,10 @@ function SkewBorder(){
   
 }
 
-const StyledHeader = styled.header`
-  background-color: black;
-  height: 100vh;
-`; 
-
-const StyledMobile = styled.div`
-  z-index: 1;  
-
-  img {
-    width: 100%;
-  }
-`;
-
 function Header(props) {
-  
+
   const [menuOpen, setMenuOpen] = useState(false);
+  const [offset, setOffset] = useState(0);
   const location = useLocation();
   
   const handleClick = e => {
@@ -52,6 +41,34 @@ function Header(props) {
     setMenuOpen(false);
   }, [location]);
 
+  useEffect(() => {
+    function handleScroll() {
+      setOffset(window.pageYOffset);
+    }
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [offset]);
+
+  const StyledHeader = styled.header`
+  background-color: black;
+  height: 100vh;
+`; 
+
+  const StyledMobile = styled.div`
+  z-index: 1;  
+  transform: translateY(${offset /100}%);
+
+
+  img {
+    width: 100%;
+  }
+`;
+
+
   return (
     <>
       <StyledHeader>
@@ -60,37 +77,24 @@ function Header(props) {
             <Row style={{padding:"5%"}}></Row>
             <Row>
               <Col lg={7} md={6}>
-                <h1>Alex Zietara Nicholls</h1>
-                <p>I am a {' '}
-
-                  <Typical
-                    loop={Infinity}
-                    wrapper="b"
-                    steps={
-                      [
-                        'Front End Developer 🖥',
-                        1000,
-                        'UX Designer 💡',
-                        1000,
-                        'UI Designer 🎨',
-                        1000
-                      ]
-                    }
+                  <h1>Alex Zietara Nicholls</h1>
+                  <Typewriter
+                    heading={'I am a'}
+                    dataText={["Front End Developer 🧑‍💻", "UX Designer 🕵️‍💡🚀", "UI Designer 👨‍🎨🎨"]}
                   />
-
-                </p>
               </Col>
             </Row>
             <Row>
               <Col lg={5} md={4} sm={6}></Col>
               <Col lg={7} md={8} sm={12}>
                 <StyledMobile className="py-5 ml-auto">
-                    <img src={Mobile}/>  
+                      <img src={Mobile}/>  
                 </StyledMobile>
               </Col>
             </Row>
           </Container>
       </StyledHeader>
+      <SkewBorder/>
     </>
   )
 }

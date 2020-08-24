@@ -1,6 +1,6 @@
 const theme = {
     colors: {
-        purple: '#BC9CFF'
+        white: 'white',
     },
     typography: {
         fontFamily: 'Arial',
