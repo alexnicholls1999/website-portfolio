@@ -4,9 +4,10 @@ import { Switch, Route, useLocation, Redirect } from "react-router-dom";
 import styled from "styled-components";
 import { Container, Col, Row } from 'react-bootstrap';
 import Typewriter from "../Components/typewriter";
-import Parallax from 'react-rellax';
 
 import Mobile from "../assets/mobile.png";
+
+const [offset, setOffset] = useState(0);
 
 const Skew = styled.div`
   background-color: #107CDC;
@@ -27,10 +28,25 @@ function SkewBorder(){
   
 }
 
+const StyledHeader = styled.header`
+background-color: black;
+height: 100vh;
+`; 
+
+const StyledMobile = styled.div`  
+  z-index: 1 !important;
+  position: relative;
+
+  img {
+      width: 100%;
+      transform: translateY(${offset * 500}%);
+  }
+}
+`;
+
 function Header(props) {
 
   const [menuOpen, setMenuOpen] = useState(false);
-  const [offset, setOffset] = useState(0);
   const location = useLocation();
   
   const handleClick = e => {
@@ -53,22 +69,6 @@ function Header(props) {
     };
   }, [offset]);
 
-  const StyledHeader = styled.header`
-  background-color: black;
-  height: 100vh;
-`; 
-
-  const StyledMobile = styled.div`
-  z-index: 1;  
-  transform: translateY(${offset /100}%);
-
-
-  img {
-    width: 100%;
-  }
-`;
-
-
   return (
     <>
       <StyledHeader>
@@ -87,7 +87,7 @@ function Header(props) {
             <Row>
               <Col lg={5} md={4} sm={6}></Col>
               <Col lg={7} md={8} sm={12}>
-                <StyledMobile className="py-5 ml-auto">
+                <StyledMobile className="py-5 ml-auto" >
                       <img src={Mobile}/>  
                 </StyledMobile>
               </Col>
