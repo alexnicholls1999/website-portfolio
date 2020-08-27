@@ -7,8 +7,6 @@ import Typewriter from "../Components/typewriter";
 
 import Mobile from "../assets/mobile.png";
 
-const [offset, setOffset] = useState(0);
-
 const Skew = styled.div`
   background-color: #107CDC;
   height: 50px;
@@ -34,12 +32,12 @@ height: 100vh;
 `; 
 
 const StyledMobile = styled.div`  
-  z-index: 1 !important;
+  z-index: 1;
   position: relative;
+  // padding-top: 25%;
 
   img {
       width: 100%;
-      transform: translateY(${offset * 500}%);
   }
 }
 `;
@@ -47,6 +45,7 @@ const StyledMobile = styled.div`
 function Header(props) {
 
   const [menuOpen, setMenuOpen] = useState(false);
+
   const location = useLocation();
   
   const handleClick = e => {
@@ -57,18 +56,17 @@ function Header(props) {
     setMenuOpen(false);
   }, [location]);
 
-  useEffect(() => {
-    function handleScroll() {
-      setOffset(window.pageYOffset);
-    }
 
+  const [offsetY, setOffsetY] = useState(0);
+  const handleScroll = () => setOffsetY(window.pageYOffset);
+
+  useEffect(() => {
     window.addEventListener("scroll", handleScroll);
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [offset]);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
+  
   return (
     <>
       <StyledHeader>
@@ -87,7 +85,7 @@ function Header(props) {
             <Row>
               <Col lg={5} md={4} sm={6}></Col>
               <Col lg={7} md={8} sm={12}>
-                <StyledMobile className="py-5 ml-auto" >
+                <StyledMobile className="ml-auto" style={{ transform: `translateY(${offsetY * 0.25}px)`}}>
                       <img src={Mobile}/>  
                 </StyledMobile>
               </Col>

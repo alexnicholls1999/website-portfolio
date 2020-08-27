@@ -103,7 +103,7 @@ function Navigationbar(props) {
             <Menu onClick={handleClick}/>
       </StyledMenuWrapper>
       
-      <Navbar bg="dark" expand="lg">
+      <Navbar bg={black} expand="lg">
         <Container>
           <Navbar.Brand href="#work">
             <img src={Logo}/>
