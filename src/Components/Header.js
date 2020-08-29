@@ -75,7 +75,7 @@ function Header(props) {
             <Row style={{padding:"5%"}}></Row>
             <Row>
               <Col lg={7} md={6}>
-                  <h1>Alex Zietara Nicholls</h1>
+                  <h1>Alexander Zietara Nicholls</h1>
                   <Typewriter
                     heading={'I am a'}
                     dataText={["Front End Developer 🧑‍💻", "UX Designer 🕵️‍💡🚀", "UI Designer 👨‍🎨🎨"]}
@@ -85,7 +85,7 @@ function Header(props) {
             <Row>
               <Col lg={5} md={4} sm={6}></Col>
               <Col lg={7} md={8} sm={12}>
-                <StyledMobile className="ml-auto" style={{ transform: `translateY(${offsetY * 0.25}px)`}}>
+                <StyledMobile className="ml-auto" style={{ transform: `translateY(${offsetY * 0.2}px)`}}>
                       <img src={Mobile}/>  
                 </StyledMobile>
               </Col>

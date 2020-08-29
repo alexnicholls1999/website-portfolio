@@ -14,6 +14,12 @@ const StyledNav = styled(Nav)`
   flex-flow: column nowrap;
   align-items: center;
   padding-top: 250px;
+  color: white !important;
+
+  @media (min-width: 750px) {
+    display: none;
+  }
+
 `;
 
 const StyledLi = styled(Nav.Link)`
@@ -119,9 +125,9 @@ function Navigationbar(props) {
           </StyledBurgerMenu>
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ml-auto">
-              <Nav.Link href="#work">Work</Nav.Link>
-              <Nav.Link href="#about">About</Nav.Link>
-              <Nav.Link href="#contact">Contact</Nav.Link>
+              <Nav.Link style={{color: "white"}} href="#work">Work</Nav.Link>
+              <Nav.Link style={{color: "white"}} href="#about">About</Nav.Link>
+              <Nav.Link style={{color: "white"}} href="#contact">Contact</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
