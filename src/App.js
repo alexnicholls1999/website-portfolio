@@ -38,7 +38,7 @@ function App (){
 
   const intersection = useIntersection(sectionRef, {
     root: null,
-    rootMargin: '1200px',
+    rootMargin: '1500px',
     threshold: 1
   });
 
@@ -62,8 +62,8 @@ function App (){
   };
 
   intersection && intersection.isIntersecting
-    ? fadeIn(".fadeIn")
-    : fadeOut(".fadeIn");
+    ? fadeIn(".active")
+    : fadeOut(".active");
 
 
   return(
@@ -77,14 +77,14 @@ function App (){
           <Row>
               <Col xl={6} lg={6} md={6}>
                 <a href="#" className="d-block mb-4 h-100">
-                  <Tile className="fadeIn">
+                  <Tile className="active">
                       <img className="img-fluid" src={ProjectA}/>
                   </Tile>
                 </a>
               </Col>
               <Col xl={6} lg={6} md={6}>
                 <a href="#" className="d-block mb-4 h-100">
-                  <Tile className="fadeIn">
+                  <Tile className="active">
                       <img className="img-fluid" src={ProjectB}/>
                   </Tile>
                 </a>
@@ -93,14 +93,14 @@ function App (){
             <Row>
               <Col xl={6} lg={6} md={6}>
                 <a href="#" className="d-block mb-4 h-100">
-                  <Tile className="fadeIn">
+                  <Tile className="active">
                       <img className="img-fluid" src={ProjectC}/>
                   </Tile>
                 </a>
               </Col> 
               <Col xl={6} lg={6} md={6}>
                 <a href="#" className="d-block mb-4 h-100">
-                  <Tile className="fadeIn">
+                  <Tile className="active">
                       <img className="img-fluid" src={ProjectD}/>
                   </Tile>
                 </a>

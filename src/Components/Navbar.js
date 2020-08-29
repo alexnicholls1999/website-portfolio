@@ -5,6 +5,11 @@ import Logo from "../assets/AZN-logo-dark.png";
 import {Navbar, Container, Nav, Form, NavDropdown, Button, FormControl} from "react-bootstrap";
 import { useLocation } from "react-router-dom";
 
+// const Dark = {
+//   color: "white !important"
+// }
+
+
 const StyledNav = styled(Nav)`
   flex-flow: column nowrap;
   align-items: center;
@@ -12,7 +17,7 @@ const StyledNav = styled(Nav)`
 `;
 
 const StyledLi = styled(Nav.Link)`
-  color: white;
+  color: ${({ theme }) => theme.colors.white};
   font-size: 25px;
 `;
 
@@ -41,7 +46,7 @@ height: 2rem;
 position: relative;
 top: 5px;
 // float: left;
-z-index: 1;
+z-index: 2;
 display: flex;
 justify-content: space-around;
 flex-flow: column nowrap;
@@ -53,7 +58,7 @@ flex-flow: column nowrap;
 div {
   width: 2rem;
   height: 0.25rem;
-  background-color: white;
+  background-color: ${({ theme }) => theme.colors.white};
   border-radius: 10px;
   transform-origin: 1px;
   transition: all .3s ease-in;
@@ -77,10 +82,10 @@ const StyledMenuWrapper = styled.div`
   transition: all .75s ease-in;
   height: 100vh;
   width: 100vw;
-  background: black;
+  background: ${({ theme }) => theme.colors.black};
   position: fixed;
   padding-top: 10%;
-  z-index: 1;
+  z-index: 2;
   top: 0;
   right: 0;
 `;
@@ -95,7 +100,6 @@ function Navigationbar(props) {
     onClick(e);
   };
 
-
   return (
 
     <div>
@@ -103,7 +107,7 @@ function Navigationbar(props) {
             <Menu onClick={handleClick}/>
       </StyledMenuWrapper>
       
-      <Navbar bg={black} expand="lg">
+      <Navbar expand="lg">
         <Container>
           <Navbar.Brand href="#work">
             <img src={Logo}/>

@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import styled from 'styled-components';
 import { Container , Col, Row } from "react-bootstrap";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {faFacebookSquare, faLinkedin, faInstagram, faDribbble} from '@fortawesome/free-brands-svg-icons'
+import {faLinkedin, faInstagram, faDribbble} from '@fortawesome/free-brands-svg-icons'
 
 const SocialMedia = () => (
     <>
@@ -27,7 +27,6 @@ const StyledFooterBorder = styled.div`
 
 
 const StyledFooter = styled.footer`
-
     background-color: #107CDC;
     color: white;
     height: 480px;

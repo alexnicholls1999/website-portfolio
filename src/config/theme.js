@@ -1,8 +1,7 @@
 const theme = {
     colors: {
         white: 'white',
-
-        
+        black: 'black'
     },
     typography: {
         fontFamily: 'Arial',
