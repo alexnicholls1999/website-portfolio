@@ -1,6 +1,6 @@
-import React, {useRef} from 'react';
-import {useIntersection} from "react-use";
-import gsap from "gsap";
+import React, {useRef, useEffect, useState} from 'react';
+import {useIntersection, useGetSetState} from "react-use";
+import gsap, {TweenLite, Power4} from "gsap";
 import GlobalStyles from "./config/GlobalStyles";
 import styled, {ThemeProvider} from "styled-components";
 import theme from "./config/theme";
@@ -17,8 +17,6 @@ import ProjectA from "./assets/Projects/Project_A.png";
 import ProjectB from "./assets/Projects/Project_B.png";
 import ProjectC from "./assets/Projects/Project_C.gif";
 import ProjectD from "./assets/Projects/Project_D.gif";
-import { element } from 'prop-types';
-
 
 const HeaderBorder = styled.div`
   padding: 15%;
@@ -29,12 +27,16 @@ const HeaderBorder = styled.div`
 const Projects = styled.main`
   padding-bottom: 10%;
   background-color: white;
+  
 `;
+
 
 function App (){
 
   const sectionRef = useRef(null);
+  const tileRef = useRef(null);
 
+  const [hover, setHover] = useState(false);
 
   const intersection = useIntersection(sectionRef, {
     root: null,
@@ -72,13 +74,13 @@ function App (){
       <ThemeProvider theme={theme}>
         <Header/>
         <HeaderBorder/>
-        
+    
           <Projects ref={sectionRef}>
           <Container>
           <Row>
               <Col xl={6} lg={6} md={6}>
                 <a href="#" className="d-block mb-4 h-100">
-                  <Tile className="active">
+                  <Tile ref={tileRef}  className="active">
                       <img className="img-fluid" src={ProjectA}/>
                   </Tile>
                 </a>
@@ -89,14 +91,14 @@ function App (){
                       <img className="img-fluid" src={ProjectB}/>
                   </Tile>
                 </a>
-              </Col>
+              </Col> 
             </Row>
             <Row>
               <Col xl={6} lg={6} md={6}>
                 <a href="#" className="d-block mb-4 h-100">
                   <Tile className="active">
                       <img className="img-fluid" src={ProjectC}/>
-                  </Tile>
+                  </Tile> 
                 </a>
               </Col> 
               <Col xl={6} lg={6} md={6}>

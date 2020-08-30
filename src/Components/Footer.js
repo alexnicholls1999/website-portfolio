@@ -2,14 +2,16 @@ import React, {useState, useEffect} from 'react';
 import styled from 'styled-components';
 import { Container , Col, Row } from "react-bootstrap";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {faLinkedin, faInstagram, faDribbble} from '@fortawesome/free-brands-svg-icons'
+import {faLinkedin, faInstagram, faDribbble, faBehance, faBehanceSquare} from '@fortawesome/free-brands-svg-icons'
+
 
 const SocialMedia = () => (
     <>
         <StyledSocialMedia>
-            <FontAwesomeIcon className="px-2" size="3x" icon={faLinkedin} />
-            <FontAwesomeIcon className="px-2" size="3x" icon={faInstagram} />
-            <FontAwesomeIcon className="px-2" size="3x" icon={faDribbble} />
+        <FontAwesomeIcon className="fab px-2" size="3x" icon={faBehanceSquare}/>
+            <FontAwesomeIcon className="fab px-2" size="3x" icon={faDribbble}/>
+            <FontAwesomeIcon className="fab px-2" size="3x" icon={faInstagram} />
+            <FontAwesomeIcon className="fab px-2" size="3x" icon={faLinkedin} />
         </StyledSocialMedia>
     </>
 )
@@ -52,7 +54,16 @@ const StyledSocialMedia = styled.div`
 
     text-align: center;
     padding: 0;
+    
 
+    .fab{
+        transition: 0.25s linear;
+
+        :hover {
+            transform: scale(1.5);
+        }
+    }
+    
     @media (min-width: 750px) {
         padding: 35px;
     }
@@ -80,6 +91,7 @@ function Footer() {
           <StyledFooterBorder/>
           <StyledFooter>
             <Container>
+                <Row style={{padding: "2.5%"}}></Row>
                 <Row className="p-5">
                     <Col lg={4}>
                         <ContactInfo>

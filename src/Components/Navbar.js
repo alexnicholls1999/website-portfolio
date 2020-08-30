@@ -16,9 +16,6 @@ const StyledNav = styled(Nav)`
   padding-top: 250px;
   color: white !important;
 
-  @media (min-width: 750px) {
-    display: none;
-  }
 
 `;
 
@@ -57,7 +54,7 @@ display: flex;
 justify-content: space-around;
 flex-flow: column nowrap;
 
-  @media (min-width: 750px) {
+  @media (min-width: 990px) {
     display: none;
   }
 
@@ -115,7 +112,7 @@ function Navigationbar(props) {
       
       <Navbar expand="lg">
         <Container>
-          <Navbar.Brand href="#work">
+          <Navbar.Brand href="#work" style={{zIndex: "2"}}>
             <img src={Logo}/>
           </Navbar.Brand>
           <StyledBurgerMenu onClick={handleClick} open={open}>

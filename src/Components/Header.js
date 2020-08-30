@@ -75,10 +75,10 @@ function Header(props) {
             <Row style={{padding:"5%"}}></Row>
             <Row>
               <Col lg={7} md={6}>
-                  <h1>Alexander Zietara Nicholls</h1>
+                  <h1>Alex Zietara Nicholls.</h1>
                   <Typewriter
                     heading={'I am a'}
-                    dataText={["Front End Developer 🧑‍💻", "UX Designer 🕵️‍💡🚀", "UI Designer 👨‍🎨🎨"]}
+                    dataText={["Front End Developer", "UX Designer", "UI Designer"]}
                   />
               </Col>
             </Row>

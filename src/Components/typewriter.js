@@ -47,8 +47,8 @@ export default class Typewriter extends Component {
     render() {
         return (
             <div>
-                <p> {this.props.heading } {''}
-                    <span>{ this.state.text }</span>
+                <p style={{fontSize: "1.5em"}}> {this.props.heading } {''}
+                    <span>{ this.state.text }.</span>
                 </p>            
             </div>
         )

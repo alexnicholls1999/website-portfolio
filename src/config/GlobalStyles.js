@@ -8,7 +8,9 @@ body {
 
 h1 {
     font-size: ${props => props.theme.typography.h1.fontSize};
+    font-weight: ${props => props.theme.typography.h1.fontWeight};
     color: ${props => props.theme.colors.white};
+
 }
 
 h2 {
