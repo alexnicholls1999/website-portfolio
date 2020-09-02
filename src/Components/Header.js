@@ -87,7 +87,7 @@ function Header(props) {
               <Col lg={7} md={8} sm={12}>
                 <StyledMobile className="ml-auto" style={{ transform: `translateY(${offsetY * 0.2}px)`}}>
                       <img src={Mobile}/>  
-                </StyledMobile>
+                </StyledMobile> 
               </Col>
             </Row>
           </Container>
@@ -96,5 +96,8 @@ function Header(props) {
     </>
   )
 }
+
+
+
 
 export default Header;
