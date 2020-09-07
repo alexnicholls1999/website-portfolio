@@ -64,8 +64,8 @@ function App (){
   };
 
   intersection && intersection.isIntersecting
-    ? fadeIn(".active")
-    : fadeOut(".active");
+    ? fadeIn(".fadeIn")
+    : fadeOut(".fadeIn");
 
 
     
@@ -80,14 +80,14 @@ function App (){
           <Row>
               <Col xl={6} lg={6} md={6}>
                 <a href="#" className="d-block mb-4 h-100">
-                  <Tile ref={tileRef}  className="active">
+                  <Tile className="fadeIn">
                       <img className="img-fluid" src={ProjectA}/>
                   </Tile>
                 </a>
               </Col>
               <Col xl={6} lg={6} md={6}>
                 <a href="#" className="d-block mb-4 h-100">
-                  <Tile className="active">
+                  <Tile className="fadeIn">
                       <img className="img-fluid" src={ProjectB}/>
                   </Tile>
                 </a>
@@ -96,14 +96,14 @@ function App (){
             <Row>
               <Col xl={6} lg={6} md={6}>
                 <a href="#" className="d-block mb-4 h-100">
-                  <Tile className="active">
+                  <Tile className="fadeIn">
                       <img className="img-fluid" src={ProjectC}/>
                   </Tile> 
                 </a>
               </Col> 
               <Col xl={6} lg={6} md={6}>
                 <a href="#" className="d-block mb-4 h-100">
-                  <Tile className="active">
+                  <Tile className="fadeIn">
                       <img className="img-fluid" src={ProjectD}/>
                   </Tile>
                 </a>

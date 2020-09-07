@@ -1,9 +1,10 @@
-import React, {use} from 'react';
+import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 import styled from "styled-components";
 import Logo from "../assets/AZN-logo-dark.png";
 import {Navbar, Container, Nav, Form, NavDropdown, Button, FormControl} from "react-bootstrap";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link} from "react-router-dom";
+import classnames from 'classnames';
 
 // const Dark = {
 //   color: "white !important"
@@ -21,7 +22,8 @@ const StyledNav = styled(Nav)`
 
 const StyledLi = styled(Nav.Link)`
   color: ${({ theme }) => theme.colors.white};
-  font-size: 25px;
+  font-size: 25px;gi
+  text-decoration: none;
 `;
 
 function Menu(props) {
@@ -31,9 +33,9 @@ function Menu(props) {
   return (
     <div>       
         <StyledNav>
-          <StyledLi href="#work">Work</StyledLi>
-          <StyledLi href="#about">About</StyledLi>
-          <StyledLi href="#contact">Contact</StyledLi>
+          <StyledLi as={Link} to="/work">Work</StyledLi>
+          <StyledLi as={Link} to="/about">About</StyledLi>
+          <StyledLi href="mailto:azini@live.co.uk">Contact</StyledLi>
         </StyledNav>
     </div>
   );
@@ -110,7 +112,7 @@ function Navigationbar(props) {
             <Menu onClick={handleClick}/>
       </StyledMenuWrapper>
       
-      <Navbar expand="lg">
+      <Navbar expand="lg" bg="none" variant="dark">
         <Container>
           <Navbar.Brand href="#work" style={{zIndex: "2"}}>
             <img src={Logo}/>
@@ -121,10 +123,10 @@ function Navigationbar(props) {
                <div />
           </StyledBurgerMenu>
           <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="ml-auto">
-              <Nav.Link style={{color: "white"}} href="#work">Work</Nav.Link>
-              <Nav.Link style={{color: "white"}} href="#about">About</Nav.Link>
-              <Nav.Link style={{color: "white"}} href="#contact">Contact</Nav.Link>
+            <Nav className="ml-auto" activeKey="/work">
+                <Nav.Link as={Link} eventKey="/work" to="/work">Work</Nav.Link>
+                <Nav.Link as={Link} eventKey="/about" to="/about">About</Nav.Link>
+                <Nav.Link href="mailto:azini@live.co.uk">Contact</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
