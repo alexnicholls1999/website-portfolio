@@ -4,38 +4,44 @@ import styled from "styled-components";
 import Logo from "../assets/AZN-logo-dark.png";
 import {Navbar, Container, Nav, Form, NavDropdown, Button, FormControl} from "react-bootstrap";
 import { useLocation, Link} from "react-router-dom";
-import classnames from 'classnames';
 
-// const Dark = {
-//   color: "white !important"
-// }
+// Firebase 
 
+import useAuth from "../services/firebase/useAuth";
+import firebase from "firebase/app";
 
 const StyledNav = styled(Nav)`
   flex-flow: column nowrap;
   align-items: center;
   padding-top: 250px;
-  color: white !important;
-
-
 `;
 
 const StyledLi = styled(Nav.Link)`
-  color: ${({ theme }) => theme.colors.white};
-  font-size: 25px;gi
+  color: ${props => props.primary ? "white" : "#107CDC"};
+  font-size: 25px;
+  padding: 10px;
   text-decoration: none;
 `;
 
 function Menu(props) {
 
+  const {onClick, open, user} = props;
   const location = useLocation();
+
+  const { signOut } = useAuth(firebase.auth);
+
+  const handleSignOutClick = () => {
+    signOut();
+  }
+
 
   return (
     <div>       
         <StyledNav>
-          <StyledLi as={Link} to="/work">Work</StyledLi>
-          <StyledLi as={Link} to="/about">About</StyledLi>
+          <StyledLi active={location.pathname === "/work"} as={Link} to="/work">Work</StyledLi>
+          <StyledLi active={location.pathname === "/about"} as={Link} to="/about">About</StyledLi>
           <StyledLi href="mailto:azini@live.co.uk">Contact</StyledLi>
+          <Button onClick={handleSignOutClick}>Log Out</Button>
         </StyledNav>
     </div>
   );
@@ -63,7 +69,7 @@ flex-flow: column nowrap;
 div {
   width: 2rem;
   height: 0.25rem;
-  background-color: ${({ theme }) => theme.colors.white};
+  background-color: ${props => props.primary ? "white" : "#107CDC"};
   border-radius: 10px;
   transform-origin: 1px;
   transition: all .3s ease-in;
@@ -87,7 +93,7 @@ const StyledMenuWrapper = styled.div`
   transition: all .75s ease-in;
   height: 100vh;
   width: 100vw;
-  background: ${({ theme }) => theme.colors.black};
+  background: ${props => props.primary ? "black" : "white"};
   position: fixed;
   padding-top: 10%;
   z-index: 2;
@@ -98,12 +104,19 @@ const StyledMenuWrapper = styled.div`
 
 function Navigationbar(props) {
 
-  const {onClick, open} = props;
+  const {onClick, open, user} = props;
   
+  const { signOut } = useAuth(firebase.auth);
+
+
   const handleClick = (e) => {
     e.preventDefault();
     onClick(e);
   };
+
+  const handleSignOutClick = () => {
+    signOut();
+  }
 
   return (
 
@@ -112,10 +125,10 @@ function Navigationbar(props) {
             <Menu onClick={handleClick}/>
       </StyledMenuWrapper>
       
-      <Navbar expand="lg" bg="none" variant="dark">
+      <Navbar expand="lg" bg={props.bg} variant={props.variant}>
         <Container>
           <Navbar.Brand href="#work" style={{zIndex: "2"}}>
-            <img src={Logo}/>
+            <img src={props.Logo}/>
           </Navbar.Brand>
           <StyledBurgerMenu onClick={handleClick} open={open}>
                <div />
@@ -123,10 +136,11 @@ function Navigationbar(props) {
                <div />
           </StyledBurgerMenu>
           <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="ml-auto" activeKey="/work">
-                <Nav.Link as={Link} eventKey="/work" to="/work">Work</Nav.Link>
+            <Nav className="ml-auto" activeKey={props.activeKey}>
+                <Nav.Link as={Link} eventKey="/" to="/">Work</Nav.Link>
                 <Nav.Link as={Link} eventKey="/about" to="/about">About</Nav.Link>
                 <Nav.Link href="mailto:azini@live.co.uk">Contact</Nav.Link>
+                <Button onClick={handleSignOutClick}>Log Out</Button>
             </Nav>
           </Navbar.Collapse>
         </Container>
@@ -137,7 +151,8 @@ function Navigationbar(props) {
 
 Navigationbar.propTypes = {
   onClick: PropTypes.func.isRequired,
-  open: PropTypes.bool.isRequired
+  open: PropTypes.bool.isRequired,
+  signOut: PropTypes.func.isRequired
 };
 
 export default Navigationbar;

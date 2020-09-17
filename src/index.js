@@ -5,6 +5,10 @@ import {
   } from "react-router-dom";
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import "bootstrap/dist/css/bootstrap.min.css";
+import "shards-ui/dist/css/shards.min.css";
+import './assets/shards-dashboards.1.1.0.min.css';
+
 
 ReactDOM.render(<Router><App /></Router>, document.getElementById('root'));
 

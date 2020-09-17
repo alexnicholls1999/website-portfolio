@@ -8,22 +8,47 @@ import LightLogo from "../assets/AZN-logo-light.png";
 import ProfilePicture from "../assets/profile_picture.JPG";
 
 // Components
-import Header from "../Components/Header";
-import Tile from "../Components/Tile";
-import Navbar from "../Components/Navbar";
-import { Container , Col, Row } from "react-bootstrap";
+
+import { Container , Col, Row , Button} from "react-bootstrap";
 import Footer from "../Components/Footer";
 import Slider from "../Components/Medium/Slider.js"
+import Navigationbar from '../Components/Navbar';
+import Bookshelf from '../Components/Book';
+
+// Links
+
+import CV from "../assets/My_CV.pdf";
 
 const AboutMe = styled.div `
 
     h1 {
+
         color: ${({ theme }) => theme.colors.blue};
     }
 
     p {
         color: ${({ theme }) => theme.colors.blue};
     }
+
+`;
+
+
+const StyledButton = styled(Button)`
+
+    color: ${({ theme }) => theme.colors.blue};
+    border: 4px solid !important;
+    border-radius: 15px;
+    height: 50px;
+    width: 180px;
+    box-shadow: 0px 6px 30px rgba(0, 0, 0, .17);
+    font-weight: bold;
+    font-size: 15px;
+
+    :hover{
+        background-color: ${({ theme }) => theme.colors.blue};
+        border-color: ${({ theme }) => theme.colors.blue} !important;
+    }
+
 
 `;
 
@@ -39,6 +64,11 @@ const Profile = styled.div `
         transform: skew(0.5deg);
     }
     
+`;
+
+const Main = styled.main`
+    background-color: ${({ theme }) => theme.colors.white};
+    padding-bottom: 10%;
 `;
 
 const BgProfile = styled.div`
@@ -84,23 +114,24 @@ function About(props) {
     useEffect(() => {
       setMenuOpen(false);
     }, [location]);
-
+    
     return (
         <>
-            <Container>
-                <Navbar logo={LightLogo} hamcolor={"#107CDC"} onClick={handleClick} open={menuOpen}/>
+        <Main> 
+        <Navigationbar activeKey="/about" bg="none" variant="primary" Logo={LightLogo} onClick={handleClick} open={menuOpen}/>
+            <Container> 
                 <Row className="p-5">
                     <Col sm="12"></Col>
                 </Row>
 
                 <Row>
-                    <Col lg="7">
+                    <Col lg="7" md="6" sm="12">
                         <AboutMe>
                             <h1> About Me </h1>
                             <p className="py-1">I am currently an under-graduate student at Southampton Solent University studying for a BSc (Hons) in Web Design and Development and have just successfully completed year 2. Southampton Solent encourages students to seek industry placements and I am looking for an opportunity to consolidate my knowledge and skills and gain work experience in the ﬁeld. My intention is to graduate with both academic and practical skills but also a greater understanding of the industry. I have developed a range of skills within front end development including Sketch, InVision and Hype. I see my future in the design industry and aspire to be a UX/UI designer, however, I am also a competent programmer who is keen to develop my programming skills.</p>
                         </AboutMe>
                     </Col>
-                    <Col md="8" lg="5" sm="12">
+                    <Col lg="4" md="6" sm="12">
                         <Profile>
                             <BgProfile/>
                             <img src={ProfilePicture}/>
@@ -117,11 +148,25 @@ function About(props) {
                     <Icon backgroundImage={IconImages.illustrator}/>
                 </Row>
                 <Row className="py-5">
-                    <p className="text-center" style={{color: "#107CDC"}}> Currently I am at Southampton Solent Unversity studying BSc (Hons) in Web Design and Development. I have just finished my second year achieving 3 As in Interactive Design, Human Computer Interaction Design and Digital Marketing and 3 Cs in Graduate and Professional Development, Web Site Design and Developing for the Internet. I am now planning a ‘gap year’ to gain some industry experience prior to returning to complete my final year with the aim of graduating in the summer of 2021. </p>
-                </Row>
+                    <p className="text-center" style={{color: "#107CDC"}}> Currently I am at Southampton Solent Unversity studying BSc (Hons) in Web Design and Development. I have just finished my second year achieving 3 As in Interactive Design, Human Computer Interaction Design and Digital Marketing and 3 Cs in Graduate and Professional Development, Web Site Design and Developing for the Internet. I am now planning a ‘gap year’ to gain some industry experience prior to returning to complete my final year with the aim of graduating in the summer of 2021. </p>    
+                </Row>             
+
+                {/* <Slider/> */}
+
+                <Bookshelf/>
+
+                <Row className="justify-content-center">
+                    <p style={{fontWeight: "bold", paddingTop: "10%", color: "#107CDC"}}>Want to view my CV?</p> 
+                </Row>        
+
+                <div className="py-3 text-center">
+                    <a href={CV} target="_blank"><StyledButton variant="outline-primary">View CV</StyledButton>{' '}</a>
+                </div>
             
-                <Slider />
-            </Container>        
+
+            </Container>   
+        </Main>     
+        <Footer/>
         </>
     )
 }

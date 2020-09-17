@@ -1,11 +1,10 @@
 import React, {useRef, useEffect, useState} from 'react';
 import {useIntersection, useGetSetState} from "react-use";
 import { Switch, Route, useLocation, Redirect } from "react-router-dom";
-import gsap, {TweenLite, Power4} from "gsap";
+import gsap, {TweenLite, Power3} from "gsap";
 import styled from "styled-components";
 
 // Components
-import Header from "../Components/Header";
 import Tile from "../Components/Tile";
 import { Container , Col, Row } from "react-bootstrap";
 import Footer from "../Components/Footer";
@@ -102,43 +101,43 @@ function Work(props) {
 
 
     const sectionRef = useRef(null);
-    const tileRef = useRef(null);
-  
-    const [hover, setHover] = useState(false);
   
     const intersection = useIntersection(sectionRef, {
       root: null,
-      rootMargin: '1500px',
+      rootMargin: '1000px',
       threshold: 1
     });
   
     const fadeIn = element => {
-      gsap.to(element, 1, {
+      TweenLite.to(element, 1, {
+        autoAlpha: 1,
         opacity: 1,
         y: -60,
-        ease: "power4.out",
-        stagger: {
-          amount: 1
-        }
-      });
+        ease: Power3.easeOut
+      })
     };
   
     const fadeOut = element => {
-      gsap.to(element, 1, {
+      TweenLite.to(element, 1, {
+        autoAlpha: 0,
+        ease: Power3.easeOut,
         opacity: 0,
         y: -20,
-        ease: "power4.out"
-      });
+      })
     };
   
     intersection && intersection.isIntersecting
-      ? fadeIn(".active")
-      : fadeOut(".active");
+      ? fadeIn(".fadeIn")
+      : fadeOut(".fadeIn");
+
+    // // intersection && intersection.intersectionRatio < 1 
+    // // fadeIn(".fadeIn");
+
   
     return (
     <>
         <StyledHeader>
-          <Navigationbar logo={DarkLogo} hamcolor={"white"} onClick={handleClick} open={menuOpen} />
+          <Navigationbar activeKey="/" bg="none" variant="dark" Logo={DarkLogo} hamcolor={"white"} onClick={handleClick} open={menuOpen} />
            <Container>
             <Row style={{padding:"5%"}}></Row>
             <Row>
@@ -164,37 +163,39 @@ function Work(props) {
         <HeaderBorder/>
           <Projects ref={sectionRef}>
           <Container>
-          <Row>
+            <Row>
               <Col xl={6} lg={6} md={6}>
                 <a href="#" className="d-block mb-4 h-100">
-                  <Tile className="active">
+                  <Tile className="fadeIn">
                       <img className="img-fluid" src={ProjectA}/>
-                  </Tile>
+                  </Tile> 
                 </a>
-              </Col>
+              </Col> 
               <Col xl={6} lg={6} md={6}>
                 <a href="#" className="d-block mb-4 h-100">
-                  <Tile className="active">
+                  <Tile className="fadeIn">
                       <img className="img-fluid" src={ProjectB}/>
                   </Tile>
                 </a>
               </Col> 
             </Row>
+
+
             <Row>
               <Col xl={6} lg={6} md={6}>
                 <a href="#" className="d-block mb-4 h-100">
-                  <Tile className="active">
+                  <Tile className="fadeIn">
                       <img className="img-fluid" src={ProjectC}/>
                   </Tile> 
                 </a>
               </Col> 
               <Col xl={6} lg={6} md={6}>
                 <a href="#" className="d-block mb-4 h-100">
-                  <Tile className="active">
+                  <Tile className="fadeIn">
                       <img className="img-fluid" src={ProjectD}/>
                   </Tile>
                 </a>
-              </Col>
+              </Col> 
             </Row>
             </Container>
           </Projects>

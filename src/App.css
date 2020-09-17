@@ -3,3 +3,20 @@
 .navbar {
     color: white !important;
 }
+
+
+
+.one h5{
+    top: -5px !important;
+    font-size: 15px !important;
+}
+
+
+.two h5{
+    top: -5px !important;
+    font-size: 15px !important;
+}
+
+.active {
+    padding: 10px !important;
+}

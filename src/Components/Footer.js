@@ -30,12 +30,19 @@ const StyledFooterBorder = styled.div`
 
 const StyledFooter = styled.footer`
     background-color: #107CDC;
-    color: white;
     height: 480px;
     bottom: 0;
     position: fixed;
     width: 100%;
     z-index: -1;
+
+    
+    color: ${props => props.theme.colors.white};
+
+    p {
+    color: ${props => props.theme.colors.white};
+    }
+
 `;
 
 const ContactInfo = styled.div`

@@ -9,7 +9,8 @@ WebFont.load({
 const theme = {
     colors: {
         white: 'white',
-        black: 'black'
+        black: 'black',
+        blue: '#107CDC'
     },
     typography: {
         fontFamily: 'Open Sans',
