@@ -1,7 +1,7 @@
 import React, {useRef, useEffect, useState} from 'react';
 import {useIntersection, useGetSetState} from "react-use";
 import { Switch, Route, useLocation, Redirect } from "react-router-dom";
-import gsap, {TweenLite, Power3} from "gsap";
+import {TweenLite, Power3} from "gsap";
 import styled from "styled-components";
 
 // Components
@@ -104,7 +104,7 @@ function Work(props) {
   
     const intersection = useIntersection(sectionRef, {
       root: null,
-      rootMargin: '1000px',
+      rootMargin: '1800px',
       threshold: 1
     });
   
@@ -130,14 +130,10 @@ function Work(props) {
       ? fadeIn(".fadeIn")
       : fadeOut(".fadeIn");
 
-    // // intersection && intersection.intersectionRatio < 1 
-    // // fadeIn(".fadeIn");
-
-  
     return (
     <>
         <StyledHeader>
-          <Navigationbar activeKey="/" bg="none" variant="dark" Logo={DarkLogo} hamcolor={"white"} onClick={handleClick} open={menuOpen} />
+          <Navigationbar primary activeKey="/" bg="none" variant="dark" Logo={DarkLogo} hamcolor={"white"} onClick={handleClick} open={menuOpen} />
            <Container>
             <Row style={{padding:"5%"}}></Row>
             <Row>

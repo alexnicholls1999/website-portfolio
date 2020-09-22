@@ -4,8 +4,10 @@ import {useState} from "react";
 function useAuth(fbAuth) {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [user, setUser] = useState({});
+    const [loading, setLoading] = useState(true);
     
     fbAuth().onAuthStateChanged(fbUser => {
+        setLoading(false);
         if (fbUser) {
             setIsAuthenticated(true);
             debugger;
@@ -24,8 +26,9 @@ function useAuth(fbAuth) {
     return {
         isAuthenticated,
         user,
+        loading,
         signInEmailUser,
-        signOut
+        signOut,
     };
 }
 

@@ -14,7 +14,7 @@ import useAuth from "./services/firebase/useAuth";
 import Login from "./Views/Login";
 import Work from "./Views/Work";
 import About from "./Views/About";
-import Navbar from "./Components/Navbar";
+import Loader from "./Components/Loader";
 
 // Firebase 
 
@@ -23,7 +23,7 @@ import "firebase/auth";
 import "firebase/firestore";
 import firebaseConfig from "./config/firebase";
 
-let initAttemptedRoute = "/";
+let initAttemptedRoute = "/"
 
 function Protected({ authenticated, children, ...rest }) {
   initAttemptedRoute = useLocation().pathname;
@@ -75,8 +75,13 @@ function App() {
   }
 
 
-  const { isAuthenticated, signInEmailUser} = useAuth(firebase.auth);
+  const { isAuthenticated, signInEmailUser, loading} = useAuth(firebase.auth);
 
+
+  if (loading) {
+    return  <Loader />;
+  } 
+ 
 
   return (
     <ThemeProvider theme={theme}>

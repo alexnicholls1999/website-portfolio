@@ -10,22 +10,41 @@ import { useLocation, Link} from "react-router-dom";
 import useAuth from "../services/firebase/useAuth";
 import firebase from "firebase/app";
 
-const StyledNav = styled(Nav)`
-  flex-flow: column nowrap;
-  align-items: center;
-  padding-top: 250px;
+const StyledNav = styled.nav`
+  ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20%;
+  }
 `;
 
-const StyledLi = styled(Nav.Link)`
-  color: ${props => props.primary ? "white" : "#107CDC"};
+const StyledLi = styled.li`
+  margin: 10px;
+  width: 100%;
+  text-align: center;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 25px;
-  padding: 10px;
-  text-decoration: none;
+
+`;
+
+const StyledLink = styled(Link)`
+  color: ${props => props.primary ? "white" : "#107CDC"};
+
+  :hover {
+    font-size: 27.5px;
+    transition: linear .3s ease in-out;
+    color: ${props => props.primary ? "white" : "#107CDC"};
+    text-decoration: none;
+  }
+  
 `;
 
 function Menu(props) {
 
-  const {onClick, open, user} = props;
   const location = useLocation();
 
   const { signOut } = useAuth(firebase.auth);
@@ -38,10 +57,23 @@ function Menu(props) {
   return (
     <div>       
         <StyledNav>
-          <StyledLi active={location.pathname === "/work"} as={Link} to="/work">Work</StyledLi>
-          <StyledLi active={location.pathname === "/about"} as={Link} to="/about">About</StyledLi>
-          <StyledLi href="mailto:azini@live.co.uk">Contact</StyledLi>
-          <Button onClick={handleSignOutClick}>Log Out</Button>
+          <ul>
+            <StyledLi active={location.pathname === "/"}>
+              {" "}
+              <StyledLink to="/"> Work </StyledLink>{" "}
+            </StyledLi>
+
+            <StyledLi active={location.pathname === "/About"}>
+              {" "}
+              <StyledLink to="/About"> About </StyledLink>{" "}
+            </StyledLi>
+
+            <StyledLi>
+              {" "}
+              <StyledLink href="/mailto:azini@live.co.uk"> Contact </StyledLink>{" "}
+            </StyledLi>  
+            <Button style={{marginTop: "15px"}} onClick={handleSignOutClick}>Log Out</Button>
+          </ul>
         </StyledNav>
     </div>
   );
@@ -99,6 +131,10 @@ const StyledMenuWrapper = styled.div`
   z-index: 2;
   top: 0;
   right: 0;
+  
+  @media (min-width: 990px) {
+    display: none;
+  }
 `;
 
 
@@ -121,7 +157,7 @@ function Navigationbar(props) {
   return (
 
     <div>
-      <StyledMenuWrapper open={open}>
+      <StyledMenuWrapper primary={props.primary} open={open}>
             <Menu onClick={handleClick}/>
       </StyledMenuWrapper>
       
@@ -130,7 +166,7 @@ function Navigationbar(props) {
           <Navbar.Brand href="#work" style={{zIndex: "2"}}>
             <img src={props.Logo}/>
           </Navbar.Brand>
-          <StyledBurgerMenu onClick={handleClick} open={open}>
+          <StyledBurgerMenu primary={props.primary} onClick={handleClick} open={open}>
                <div />
                <div />
                <div />
@@ -139,8 +175,8 @@ function Navigationbar(props) {
             <Nav className="ml-auto" activeKey={props.activeKey}>
                 <Nav.Link as={Link} eventKey="/" to="/">Work</Nav.Link>
                 <Nav.Link as={Link} eventKey="/about" to="/about">About</Nav.Link>
-                <Nav.Link href="mailto:azini@live.co.uk">Contact</Nav.Link>
-                <Button onClick={handleSignOutClick}>Log Out</Button>
+                <Nav.Link href="mailto:azini@live.co.uk">Contact</Nav.Link> 
+                <Button style={{marginLeft: "15px"}} onClick={handleSignOutClick}>Log Out</Button>
             </Nav>
           </Navbar.Collapse>
         </Container>
