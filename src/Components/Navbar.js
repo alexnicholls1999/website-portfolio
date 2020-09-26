@@ -16,6 +16,7 @@ const StyledNav = styled.nav`
     flex-direction: column;
     align-items: center;
     margin-top: 20%;
+
   }
 `;
 
@@ -28,16 +29,14 @@ const StyledLi = styled.li`
   justify-content: center;
   align-items: center;
   font-size: 25px;
-
 `;
+ const StyledLink = styled(Link)`
 
-const StyledLink = styled(Link)`
-  color: ${props => props.primary ? "white" : "#107CDC"};
+  color: ${({ theme, primary }) => primary ? theme.colors.white : theme.colors.blue};
 
   :hover {
     font-size: 27.5px;
     transition: linear .3s ease in-out;
-    color: ${props => props.primary ? "white" : "#107CDC"};
     text-decoration: none;
   }
   
@@ -60,17 +59,17 @@ function Menu(props) {
           <ul>
             <StyledLi active={location.pathname === "/"}>
               {" "}
-              <StyledLink to="/"> Work </StyledLink>{" "}
+              <StyledLink primary={props.primary} to="/"> Work </StyledLink>{" "}
             </StyledLi>
 
             <StyledLi active={location.pathname === "/About"}>
               {" "}
-              <StyledLink to="/About"> About </StyledLink>{" "}
+              <StyledLink primary={props.primary} to="/About"> About </StyledLink>{" "}
             </StyledLi>
 
             <StyledLi>
               {" "}
-              <StyledLink href="/mailto:azini@live.co.uk"> Contact </StyledLink>{" "}
+              <StyledLink primary={props.primary} href="/mailto:azini@live.co.uk"> Contact </StyledLink>{" "}
             </StyledLi>  
             <Button style={{marginTop: "15px"}} onClick={handleSignOutClick}>Log Out</Button>
           </ul>
@@ -101,7 +100,7 @@ flex-flow: column nowrap;
 div {
   width: 2rem;
   height: 0.25rem;
-  background-color: ${props => props.primary ? "white" : "#107CDC"};
+  background-color: ${({ theme, primary }) => primary ? theme.colors.white : theme.colors.blue};
   border-radius: 10px;
   transform-origin: 1px;
   transition: all .3s ease-in;
@@ -125,7 +124,7 @@ const StyledMenuWrapper = styled.div`
   transition: all .75s ease-in;
   height: 100vh;
   width: 100vw;
-  background: ${props => props.primary ? "black" : "white"};
+  background: ${({ theme, primary }) => primary ? theme.colors.black : theme.colors.white};;
   position: fixed;
   padding-top: 10%;
   z-index: 2;
@@ -158,7 +157,7 @@ function Navigationbar(props) {
 
     <div>
       <StyledMenuWrapper primary={props.primary} open={open}>
-            <Menu onClick={handleClick}/>
+            <Menu primary={props.primary} onClick={handleClick}/>
       </StyledMenuWrapper>
       
       <Navbar expand="lg" bg={props.bg} variant={props.variant}>

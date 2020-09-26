@@ -1,7 +1,7 @@
 import React, {useRef, useEffect, useState} from 'react';
 import {useIntersection, useGetSetState} from "react-use";
 import { Switch, Route, useLocation, Redirect } from "react-router-dom";
-import {TweenLite, Power3} from "gsap";
+import gsap from "gsap";
 import styled from "styled-components";
 
 // Components
@@ -104,23 +104,23 @@ function Work(props) {
   
     const intersection = useIntersection(sectionRef, {
       root: null,
-      rootMargin: '1800px',
+      rootMargin: '1200px',
       threshold: 1
     });
   
     const fadeIn = element => {
-      TweenLite.to(element, 1, {
+      gsap.to(element, 1, {
         autoAlpha: 1,
         opacity: 1,
         y: -60,
-        ease: Power3.easeOut
+        ease: "power4.out",
       })
     };
   
     const fadeOut = element => {
-      TweenLite.to(element, 1, {
+      gsap.to(element, 1, {
         autoAlpha: 0,
-        ease: Power3.easeOut,
+        ease: "power4.out",
         opacity: 0,
         y: -20,
       })
@@ -133,7 +133,7 @@ function Work(props) {
     return (
     <>
         <StyledHeader>
-          <Navigationbar primary activeKey="/" bg="none" variant="dark" Logo={DarkLogo} hamcolor={"white"} onClick={handleClick} open={menuOpen} />
+          <Navigationbar primary activeKey="/" bg="none" variant="dark" Logo={DarkLogo} onClick={handleClick} open={menuOpen} />
            <Container>
             <Row style={{padding:"5%"}}></Row>
             <Row>
