@@ -1,6 +1,6 @@
 import React, {useRef, useEffect, useState} from 'react';
 import {useIntersection, useGetSetState} from "react-use";
-import { Switch, Route, useLocation, Redirect } from "react-router-dom";
+import { useLocation, Link} from "react-router-dom";
 import gsap from "gsap";
 import styled from "styled-components";
 
@@ -161,18 +161,18 @@ function Work(props) {
           <Container>
             <Row>
               <Col xl={6} lg={6} md={6}>
-                <a href="#" className="d-block mb-4 h-100">
+                <Link to="/" className="d-block mb-4 h-100">
                   <Tile className="fadeIn">
                       <img className="img-fluid" src={ProjectA}/>
                   </Tile> 
-                </a>
+                </Link>
               </Col> 
               <Col xl={6} lg={6} md={6}>
-                <a href="#" className="d-block mb-4 h-100">
+                <Link to="/vintagemovies" className="d-block mb-4 h-100">
                   <Tile className="fadeIn">
                       <img className="img-fluid" src={ProjectB}/>
                   </Tile>
-                </a>
+                </Link>
               </Col> 
             </Row>
 

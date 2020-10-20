@@ -3,9 +3,6 @@ import {Card, CardBody} from 'shards-react';
 import ShortenText from './ShortenText';
 import ToText from './Totext';
 
-// // import { faUser, faCalendarAlt } from '@fontawesome/free-solid-svg-icons';
-// import { FontAwesomeIcon } from '@fontawesome/react-fontawesome';
-
 
 export default function MediumCard(props) {
     var shortMonthName = new Intl.DateTimeFormat('en-UK', {

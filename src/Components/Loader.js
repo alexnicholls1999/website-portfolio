@@ -11,7 +11,7 @@ const StyledWrapper = styled.div`
   flex-direction: column;
 }`
 
-const  Loader = () => {
+const Loader = () => {
     return (
         <StyledWrapper>
             <ClipLoader

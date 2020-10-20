@@ -15,6 +15,7 @@ import Login from "./Views/Login";
 import Work from "./Views/Work";
 import About from "./Views/About";
 import Loader from "./Components/Loader";
+import VintageMovies from "./Views/VintageMovies";
 
 // Firebase 
 
@@ -97,6 +98,9 @@ function App() {
         </RedirectToDash>
         <Protected authenticated={isAuthenticated} path="/about">
           <About />
+        </Protected>
+        <Protected authenticated={isAuthenticated} path="/vintagemovies">
+          <VintageMovies />
         </Protected>
       </Switch>
     </ThemeProvider>

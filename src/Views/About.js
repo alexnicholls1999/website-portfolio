@@ -118,7 +118,7 @@ function About(props) {
     return (
         <>
         <Main> 
-        <Navigationbar activeKey="/about" bg="none" variant="primary" Logo={LightLogo} onClick={handleClick} open={menuOpen}/>
+            <Navigationbar activeKey="/about" bg="none" variant="primary" Logo={LightLogo} onClick={handleClick} open={menuOpen}/>
             <Container> 
                 <Row className="p-5">
                     <Col sm="12"></Col>
@@ -151,7 +151,7 @@ function About(props) {
                     <p className="text-center" style={{color: "#107CDC"}}> Currently I am at Southampton Solent Unversity studying BSc (Hons) in Web Design and Development. I have just finished my second year achieving 3 As in Interactive Design, Human Computer Interaction Design and Digital Marketing and 3 Cs in Graduate and Professional Development, Web Site Design and Developing for the Internet. I am now planning a ‘gap year’ to gain some industry experience prior to returning to complete my final year with the aim of graduating in the summer of 2021. </p>    
                 </Row>             
 
-                {/* <Slider/> */}
+                <Slider/>
 
                 <Bookshelf/>
 
