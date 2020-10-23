@@ -57,7 +57,7 @@ function VintageMovies() {
       setMenuOpen(false);
     }, [location]);
 
-    const data = [{"name": "test1"}, {"name":"test2"}];
+    const data = [{"userstory": "User Story A. As a user I want to be recommended Movies/TV shows based on interest"}, {"userstory":"User Story B. As a user I want to be able to see the latest Movies/TV shows"}, {"userstory" : "User Story C. As a user I want to be able to see most popular Movies/TV shows"}];
 
 
     return (
@@ -82,6 +82,9 @@ function VintageMovies() {
                 <Container>            
                     <Row className="p-5"/>
                     <Title title="Vintage Movies: SmartTV and Mobile App Clickable Prototype" description="Vintage Movies is a copyright free online streaming company and appointed me a UX/UI designer, to create a new logo and modern design concept for Samsung SmartTV and Apple's iPhone. This blog will cover the design process taken, explaining and walking through each stage from research and competitive analysis to designs and user feedback."/>
+                    
+                    <Row className="p-5"/>
+                    
                     <BulletPoint data={data}/>
                 </Container>
             </Main>
