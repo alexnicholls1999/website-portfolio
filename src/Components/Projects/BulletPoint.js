@@ -13,7 +13,7 @@ const StyledBulletPointList = styled.div`
 const StyledUl = styled.ul`
     padding-left: 10%;
 
-    p {
+    p, li {
         color: black;
     }
 

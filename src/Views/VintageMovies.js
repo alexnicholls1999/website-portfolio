@@ -9,11 +9,16 @@ import Navbar from '../Components/Navbar';
 import Title from '../Components/Projects/Title';
 import BulletPoint from '../Components/Projects/BulletPoint';
 import Text from '../Components/Projects/Text';
+import Wallpaper from '../Components/Projects/Wallpaper';
+
 
 // Images
 
 import MobileTVCover from '../assets/Projects/Vintage Movies/mobile_tv_cover.png';
 import VMLogoCropped from '../assets/Projects/Vintage Movies/VM_logo_-_cropped.png';
+import HTA from "../assets/Projects/Vintage Movies/HTA.png";
+import Wireframes from "../assets/Projects/Vintage Movies/wireframes.png";
+import Wireframes_TV from "../assets/Projects/Vintage Movies/wireframes_tv.png";
 
 // Navbar Logo
 import DarkLogo from "../assets/AZN-logo-dark.png";
@@ -83,15 +88,33 @@ function VintageMovies() {
             </StyledVMHeader>
             <Main>
                 <Container>            
-                    <Row className="p-5"/>
-                    <Title title="Vintage Movies: SmartTV and Mobile App Clickable Prototype" description="Vintage Movies is a copyright free online streaming company and appointed me a UX/UI designer, to create a new logo and modern design concept for Samsung SmartTV and Apple's iPhone. This blog will cover the design process taken, explaining and walking through each stage from research and competitive analysis to designs and user feedback."/>
-                    
+                    <Row className="p-5">
+                        <Title title="Vintage Movies: SmartTV and Mobile App Clickable Prototype" description="Vintage Movies is a copyright free online streaming company and appointed me a UX/UI designer, to create a new logo and modern design concept for Samsung SmartTV and Apple's iPhone. This blog will cover the design process taken, explaining and walking through each stage from research and competitive analysis to designs and user feedback."/>
+                    </Row>
                     <Row className="p-5">
                         <Text title="User Stories" text="User stories were used to gain user research to help Vintage Movies have a better understanding on what features and user needs may impact on our design decisions and rationale."/>
                         <BulletPoint text="Epic 1. As a user I want to be able to have a wide range of Movies/TV  shows to choose from." data={data}/>
-                    </Row>
-                    
+                        <BulletPoint text="Epic 2. As a user I want to be able to have a wide range of Movies/TV  shows to choose from." data={data}/>
+                    </Row>                    
                 </Container>
+                
+                <Container>
+                    <Row className="p-5">
+                        <Text title="Hierachal Task Analysis"/>
+                    </Row>
+                </Container>
+                <Wallpaper src={HTA}/>
+
+                <Container>
+                    <Row className="p-5">
+                        <Text title="Wireframes"/>
+                    </Row>
+                </Container>
+                <Wallpaper src={Wireframes}/>
+                <Wallpaper src={Wireframes_TV}/>
+
+                
+
             </Main>
         </>
     )
