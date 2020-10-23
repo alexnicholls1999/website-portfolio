@@ -8,6 +8,7 @@ import {Link, useLocation} from 'react-router-dom';
 import Navbar from '../Components/Navbar';
 import Title from '../Components/Projects/Title';
 import BulletPoint from '../Components/Projects/BulletPoint';
+import Text from '../Components/Projects/Text';
 
 // Images
 
@@ -24,7 +25,9 @@ const StyledVMHeader = styled.header`
 `;
 
 const StyledWallpaper = styled.div`
-    
+    img {
+        width: 100%;
+    }
 `;
 
 const VMCropped = styled.div`
@@ -83,9 +86,11 @@ function VintageMovies() {
                     <Row className="p-5"/>
                     <Title title="Vintage Movies: SmartTV and Mobile App Clickable Prototype" description="Vintage Movies is a copyright free online streaming company and appointed me a UX/UI designer, to create a new logo and modern design concept for Samsung SmartTV and Apple's iPhone. This blog will cover the design process taken, explaining and walking through each stage from research and competitive analysis to designs and user feedback."/>
                     
-                    <Row className="p-5"/>
+                    <Row className="p-5">
+                        <Text title="User Stories" text="User stories were used to gain user research to help Vintage Movies have a better understanding on what features and user needs may impact on our design decisions and rationale."/>
+                        <BulletPoint text="Epic 1. As a user I want to be able to have a wide range of Movies/TV  shows to choose from." data={data}/>
+                    </Row>
                     
-                    <BulletPoint data={data}/>
                 </Container>
             </Main>
         </>

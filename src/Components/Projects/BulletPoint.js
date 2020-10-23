@@ -2,26 +2,37 @@ import React from 'react';
 import styled from 'styled-components';
 import {Row, Col} from 'react-bootstrap';
 
+const StyledBulletPointList = styled.div`
+
+    p { 
+        color: black;
+    
+    }
+`;
+
 const StyledUl = styled.ul`
     padding-left: 10%;
+
+    p {
+        color: black;
+    }
 
 `;
 
 
 function BulletPoint(props) {
 
-    const {data} = props;
+    const {data, text} = props;
 
     return (
-        <>
-            <Row className="px-5">
-                <StyledUl>
-                    {data.map(function(d, idx){
-                        return (<li key={idx}>{d.userstory}</li>)
-                    })}
-                </StyledUl>
-            </Row>
-        </>
+        <StyledBulletPointList>  
+            <p>{text}</p>
+            <StyledUl>
+                {data.map(function(d, idx){
+                    return (<li key={idx}>{d.userstory}</li>)
+                })}
+            </StyledUl>
+        </StyledBulletPointList>
     )
 }
 

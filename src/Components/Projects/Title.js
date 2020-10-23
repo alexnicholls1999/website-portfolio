@@ -17,13 +17,11 @@ const Title = (props) => {
     
     return (
         <>
-            <Row className="p-5">
-                <StyledTitle>
-                    <h1>{title}</h1>
-                    <p>{description}</p>
-                    <img src={src} alt={alt}/>
-                </StyledTitle>
-            </Row>
+            <StyledTitle>
+                <h1>{title}</h1>
+                <p>{description}</p>
+                <img src={src} alt={alt}/>
+            </StyledTitle>
         </>
     )
 }
