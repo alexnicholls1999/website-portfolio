@@ -10,6 +10,7 @@ import Title from '../Components/Projects/Title';
 import BulletPoint from '../Components/Projects/BulletPoint';
 import Text from '../Components/Projects/Text';
 import Wallpaper from '../Components/Projects/Wallpaper';
+import ColorScheme from '../Components/Projects/ColorScheme';
 
 
 // Images
@@ -113,8 +114,8 @@ function VintageMovies() {
                 <Wallpaper src={Wireframes}/>
                 <Wallpaper src={Wireframes_TV}/>
 
+                <ColorScheme />
                 
-
             </Main>
         </>
     )

@@ -23,7 +23,7 @@ import Mobile from "../assets/mobile.png";
 import ProjectA from "../assets/Projects/Project_A.png";
 import ProjectB from "../assets/Projects/Project_B.png";
 import ProjectC from "../assets/Projects/Project_C.gif";
-import ProjectD from "../assets/Projects/Project_D.gif";
+import ProjectD from "../assets/Projects/Project_D.png";
 
 // Styled Components
 
