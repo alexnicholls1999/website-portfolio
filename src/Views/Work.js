@@ -179,11 +179,11 @@ function Work(props) {
 
             <Row>
               <Col xl={6} lg={6} md={6}>
-                <a href="#" className="d-block mb-4 h-100">
+                <Link to="/webco" className="d-block mb-4 h-100">
                   <Tile className="fadeIn">
                       <img className="img-fluid" src={ProjectC}/>
                   </Tile> 
-                </a>
+                </Link>
               </Col> 
               <Col xl={6} lg={6} md={6}>
                 <a href="#" className="d-block mb-4 h-100">

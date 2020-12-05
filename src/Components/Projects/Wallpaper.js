@@ -6,17 +6,17 @@ import Text from './Text';
 
 const StyledWallpaper = styled.div`
     img {
-        width: 100%
+        width: 100%;
     }
 `;
 
 function Wallpaper(props) {
 
-    const {title , src, alt} = props;
+    const {title , image, alt} = props;
 
     return (
         <StyledWallpaper>              
-            <img src={src} alt={alt}/>
+            <img src={image} alt={alt}/>
         </StyledWallpaper>
     )
 }

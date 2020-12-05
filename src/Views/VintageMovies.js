@@ -11,6 +11,10 @@ import BulletPoint from '../Components/Projects/BulletPoint';
 import Text from '../Components/Projects/Text';
 import Wallpaper from '../Components/Projects/Wallpaper';
 import ColorScheme from '../Components/Projects/ColorScheme';
+import Gallery from '../Components/Projects/Gallery';
+import Section from '../Components/Projects/Section';
+import AdditionalInfo from '../Components/Projects/AdditionalInfo';
+import Footer from '../Components/Footer';
 
 
 // Images
@@ -20,9 +24,18 @@ import VMLogoCropped from '../assets/Projects/Vintage Movies/VM_logo_-_cropped.p
 import HTA from "../assets/Projects/Vintage Movies/HTA.png";
 import Wireframes from "../assets/Projects/Vintage Movies/wireframes.png";
 import Wireframes_TV from "../assets/Projects/Vintage Movies/wireframes_tv.png";
+import VM_Logo from "../assets/Projects/Vintage Movies/vintage_movies_logo.png";
+import VM_Logo_Fib from "../assets/Projects/Vintage Movies/Vintage_Movies_Fibonacci_Sequence.png";
+import Mobile1 from "../assets/Projects/Vintage Movies/mobile1.png";
+import Mobile2 from "../assets/Projects/Vintage Movies/mobile2.png";
+import Mobile3 from "../assets/Projects/Vintage Movies/mobile3.png";
+import LoginPageTV from "../assets/Projects/Vintage Movies/Login_Page_samsung_d8000_front.png";
+import VMPhone from "../assets/Projects/Vintage Movies/phone_vm.png";
+import TVMobile from "../assets/Projects/Vintage Movies/tv_mobile.png";
 
 // Navbar Logo
 import DarkLogo from "../assets/AZN-logo-dark.png";
+
 
 
 const StyledVMHeader = styled.header`
@@ -43,12 +56,21 @@ const VMCropped = styled.div`
     img {
         top: 0;
         position: relative;
-        width: 320px;
+        width: 100%;
     }
 `;
 
 const Main = styled.div`
 
+    background-color: white;
+
+`;
+
+const Typography = styled.div`
+
+`;
+
+const FontStyles = styled.div`
 
 `;
 
@@ -115,8 +137,83 @@ function VintageMovies() {
                 <Wallpaper src={Wireframes_TV}/>
 
                 <ColorScheme />
+
+                <Typography>
+                    <Container>
+                        <Row className="p-5">
+                            <h2>Typography</h2>
+                        </Row>
+                        <Row className="p-5">
+                            <Col lg={6}>
+                                <h3>Font Styles</h3>
+                                <FontStyles>
+                                    <label>Header 1</label>
+                                    <h1>Header 1</h1>
+                                    <label>Header 2</label>
+                                    <h2>Header 2</h2>
+                                    <label>Header 3</label>
+                                    <h3>Header 3</h3>
+                                    <label>Hyperlink Style</label><br/>
+                                    <a href="#">Hyperlink</a>
+                                </FontStyles>
+
+                            </Col>
+                            <Col lg={6}>
+                                <h3>Paragraph</h3>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos laboriosam eos minima consectetur nemo labore adipisci perspiciatis eius fuga id?</p>
+                            </Col>
+                        </Row>
+                        <Row className="p-5">
+                            <Col lg={6}>
+                                <h3>Numbered List</h3>
+                                <BulletPoint data={data}/>
+                            </Col>
+                            <Col lg={6}>
+                                <h3>BulletPoint List</h3>
+                                <BulletPoint data={data}/>
+                            </Col>
+                        </Row>
+                    </Container>
+                </Typography>
                 
-            </Main>
+                <Container>
+                    <Row className="p-5">
+                        <Text title="Logo"/>
+                    </Row>
+                    <Row className="p-5 justify-content-center">
+                        <Text src={VM_Logo}/>
+                    </Row>
+                    <Row className="p-5 justify-content-center">
+                        <Text src={VM_Logo_Fib}/>
+                    </Row>
+                </Container>
+
+                <Gallery 
+                 title="Watch on the go with your mobile"
+                 lg={4}
+                 md={4}
+                 imageA={Mobile1}
+                 imageB={Mobile2}
+                 imageC={Mobile3}
+                />
+                
+                <Gallery
+                    title="Watch through the comfort of your home"
+                    titleClassName="ml-auto"
+                    lg={12}
+                    md={10}
+                    imageA={LoginPageTV}
+                />
+
+                <Section title="Find your favourite Films and TV Shows" text="Browse all the old Films or TV Shows you love to watch. Our search system provides you a range of different options to do this." imglg={6} image={VMPhone} imageClassName="w-75"/>
+
+                <Section title="Continue" text="Fed up of having to forward a movie or tv show to where you left off. Unlike our competitors, Vintage Movies provides a continue watching system to allow users to resume from the last watch point." imglg={12} image={TVMobile} imageClassName="p-5 w-100"/>
+
+                <AdditionalInfo />
+
+                <div className="p-5"></div>
+           </Main>
+           <Footer/>
         </>
     )
 }

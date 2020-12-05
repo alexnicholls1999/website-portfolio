@@ -28,8 +28,8 @@ function BulletPoint(props) {
         <StyledBulletPointList>  
             <p>{text}</p>
             <StyledUl>
-                {data.map(function(d, idx){
-                    return (<li key={idx}>{d.userstory}</li>)
+                {data.map((d, index) =>{
+                    return (<li key={index}>{d.userstory}</li>)
                 })}
             </StyledUl>
         </StyledBulletPointList>

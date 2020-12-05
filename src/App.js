@@ -16,6 +16,7 @@ import Work from "./Views/Work";
 import About from "./Views/About";
 import Loader from "./Components/Loader";
 import VintageMovies from "./Views/VintageMovies";
+import Webco from "./Views/Webco";
 
 // Firebase 
 
@@ -101,6 +102,9 @@ function App() {
         </Protected>
         <Protected authenticated={isAuthenticated} path="/vintagemovies">
           <VintageMovies />
+        </Protected>
+        <Protected authenticated={isAuthenticated} path="/webco">
+          <Webco />
         </Protected>
       </Switch>
     </ThemeProvider>
