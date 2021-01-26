@@ -172,8 +172,10 @@ function Navigationbar(props) {
           </StyledBurgerMenu>
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ml-auto" activeKey={props.activeKey}>
-                <Nav.Link as={Link} eventKey="/" to="/">Work</Nav.Link>
-                <Nav.Link as={Link} eventKey="/about" to="/about">About</Nav.Link>
+                <Nav.Item>
+                  <Nav.Link as={Link} to="/">Work</Nav.Link>
+                </Nav.Item>
+                <Nav.Link as={Link} to="/about">About</Nav.Link>
                 <Nav.Link href="mailto:azini@live.co.uk">Contact</Nav.Link> 
                 <Button style={{marginLeft: "15px"}} onClick={handleSignOutClick}>Log Out</Button>
             </Nav>

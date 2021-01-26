@@ -1,6 +1,5 @@
 import {useState} from "react";
 
-
 function useAuth(fbAuth) {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [user, setUser] = useState({});
