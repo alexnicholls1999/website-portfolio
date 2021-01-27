@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { useField } from "formik";
+import { useField, Field} from "formik";
 
-const StyledInput = styled.input`
+const StyledInput = styled(Field)`
     position: absolute;
     width: 100%;
     height: 100%;
@@ -18,9 +18,11 @@ const StyledInput = styled.input`
 `;
 
 
-function Input() {
+function Input(props) {
 
-    return <StyledInput />
+    const {name} = props;
+
+    return <StyledInput name={name}/>
 
 }
 

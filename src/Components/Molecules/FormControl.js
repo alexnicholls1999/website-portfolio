@@ -32,8 +32,7 @@ function FormControl(props) {
   return (
         <StyledFormControl>
           <Label label={labelText} />
-          {/* <Field name={name} {...Props}/> */}
-          <Input />
+          <Input name={name} {...Props} />
         </StyledFormControl>
     )
 }

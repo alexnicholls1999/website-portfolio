@@ -27,13 +27,15 @@ function Navigationbar(props) {
         signOut();
     }
 
-    return (
-        <StyledCollapse id="basic-navbar-nav">
-            <StyledNav>
-                <Button text="Log Out" onClick={handleSignOutClick} />
-            </StyledNav>
-        </StyledCollapse>
-    )
+    // return (
+    //     <StyledCollapse id="basic-navbar-nav">
+    //         <StyledNav>
+                
+    //         </StyledNav>
+    //     </StyledCollapse>
+    // )
+
+    return <Button text="Log Out" onClick={handleSignOutClick} /> 
 }
 
 Navigationbar.propTypes = {
