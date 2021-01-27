@@ -10,7 +10,7 @@ const theme = {
     colors: {
         white: 'white',
         black: 'black',
-        blue: '#107CDC'
+        blue: '#035ce2'
     },
     typography: {
         fontFamily: 'Open Sans',

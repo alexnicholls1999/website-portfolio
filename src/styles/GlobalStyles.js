@@ -7,7 +7,7 @@ const GlobalStyles = createGlobalStyle`
     h1 {
         font-size: ${props => props.theme.typography.h1.fontSize};
         font-weight: ${props => props.theme.typography.h1.fontWeight};
-        color: ${props => props.theme.colors.black};
+        color: ${props => props.theme.colors.white};
     }
     h2 {
         font-size: 32px;
