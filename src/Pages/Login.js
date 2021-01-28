@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import LoginForm from '../Components/Organisms/LoginForm'
 import styled from 'styled-components';
 import PropTypes from "prop-types";
+import Logo from '../Components/Atoms/Logo';
 
 
 
@@ -14,9 +15,6 @@ function Login(props) {
     const handleSubmit = async data => {
         const {email, password} = data;
 
-        console.log(data);
-
-        debugger;
         try {
             await signInEmailUser(email, password);
         } catch (error) {
@@ -26,8 +24,9 @@ function Login(props) {
     }
 
     return (
-        <>
-            <h1>Login</h1>
+        <>            
+        
+            <Logo />
             <LoginForm serverError={error} onSubmit={handleSubmit} />
         </>
     )

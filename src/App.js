@@ -1,4 +1,4 @@
-import './App.css';
+import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import Work from './Pages/Work';
