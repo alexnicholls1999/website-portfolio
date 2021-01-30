@@ -15,13 +15,13 @@ const ButtonToolbarWrapper = styled.div`
         display: -webkit-flex;
         display: -ms-flexbox;
         display: flex;
-        width: 400px;
+        width: 300px;
         margin: 0 auto;
         padding: 5%;
     }
 `;
 
-const Mailto = styled.a`
+const Mailto = styled(Link)`
 
     padding: 0;
     width: 100%;
@@ -29,11 +29,26 @@ const Mailto = styled.a`
 
 `
 
-function ButtonToolbar(props) {
+function ButtonMailTo({ mailto }) {
+
+    const handleContactClick = (e) => {
+        window.location = mailto;
+        e.preventDefault();
+    }
+
+    return (
+        <Mailto
+            onClick={handleContactClick}
+        >
+            <Button text="Contact"/>
+        </Mailto>
+    )
+}
+
+function ButtonToolbar() {
 
     const { signOut } = useAuth(firebase.auth);
     
-    const [mailto, setMailto ] = useState(false)
 
     const handleSignOutClick = () => {
         signOut();
@@ -42,8 +57,8 @@ function ButtonToolbar(props) {
 
     return (
         <ButtonToolbarWrapper>
-            <Button text="Contact" style={{marginRight: "10px"}} />
-            <Button text="Logout" onClick={handleSignOutClick}/>
+            <ButtonMailTo mailto="mailto:azini@live.co.uk"/>
+            <Button style={{marginLeft: "10px"}} text="Logout" onClick={handleSignOutClick}/>
         </ButtonToolbarWrapper>
     )
 }

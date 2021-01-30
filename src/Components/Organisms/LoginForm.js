@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useState, useEffect, useRef} from 'react';
 import PropTypes from 'prop-types';
 import { Formik, Form, useFormik, Field } from 'formik';
 import * as yup from "yup";
+
+import useShrink from "./../../reacthooks/useShrink";
+import emailRef from "./../../reacthooks/useShrink";
+import passwordRef from "./../../reacthooks/useShrink";
 
 // Components
 import Button from '../Atoms/Button';
@@ -15,13 +19,43 @@ const loginFormSchema = yup.object({
 
 function LoginForm(props) {
     const {onSubmit, serverError, active} = props;
-    
 
+    const [state, setState] = useState({
+        email: '',
+        password: '',
+    });
 
-    // const { register, handleSubmit, errors} = useFormik({validationSchema:loginFormSchema})    
-    const handleInnerSubmit = data => {
-        onSubmit(data)
+    const inputLabel = useRef(null);
+    const [isShrinked, setIsShrinked] = useState(false)
+
+    const handleChange = (e) => {
+        setState({
+            ...state,
+            [e.target.name]: e.target.value
+        })
+
+        console.log(state)
+
     }
+
+    useEffect(() => {
+        if (state.email.length > 1 || state.password.length > 1) {
+            setIsShrinked(true)
+        }
+
+        setIsShrinked(false);
+        console.log(state.email, state.password);
+        console.log(isShrinked);
+
+    }, [state])
+
+
+    const handleInnerSubmit = data => {
+        // onSubmit(data)
+        console.log(data);
+    }
+
+
 
     const errorPadding = serverError => serverError !== ' ' ? ({padding: '5%'}) : null
 
@@ -37,8 +71,8 @@ function LoginForm(props) {
             }}
         >
             <Form autoComplete="off">
-                <FormControl labelText="Email" name="email"/>
-                <FormControl labelText="Password" name="password"/> 
+                <FormControl labelText="Email" name="email" shrink={isShrinked} value={state.email} onChange={handleChange}/>
+                <FormControl labelText="Password" name="password" shrink={isShrinked} value={state.password} onChange={handleChange}/> 
 
                 {/* <Field type="text" name="email"/>
 

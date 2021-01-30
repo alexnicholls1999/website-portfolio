@@ -12,7 +12,6 @@ const StyledButton = styled.button`
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    margin-top: 6%;
     border: none;
     width: 100%;
     font-size: 15px;
