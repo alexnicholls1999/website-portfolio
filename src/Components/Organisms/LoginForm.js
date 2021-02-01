@@ -39,13 +39,13 @@ function LoginForm(props) {
     }
 
     useEffect(() => {
-        if (state.email.length > 1 || state.password.length > 1) {
-            setIsShrinked(true)
+        if (state.email === "" || state.password === "") {
+            setIsShrinked(false)
+            console.log("blur")
+        } else {
+            setIsShrinked(true);
+            console.log("focus")
         }
-
-        setIsShrinked(false);
-        console.log(state.email, state.password);
-        console.log(isShrinked);
 
     }, [state])
 
