@@ -1,23 +1,66 @@
-import React, {useState, useRef } from 'react'
+import { useState, useRef, useEffect } from "react";
+import { useFormik } from "formik";
 
-function useShrink() {
-    const [shrink, setIsShrinked] = useState(false);
-    const emailRef = useRef(null);
-    const passwordRef = useRef(null);
 
-    if (emailRef.length < 0) {
-        setIsShrinked(true);
-        console.log(shrink);
+export default function useShrink() {
+
+    const [isEmailShrinked, setIsEmailShrinked] = useState(false);
+    const [isPasswordShrinked, setIsPasswordShrinked] = useState(false);
+
+    const formik = useFormik({
+        initialValues: {
+            email: '',
+            password: ''
+        },
+        onSubmit: values => {
+            console.log(values)
+        }
+    })
+
+    const inputEmailRef = useRef();
+    const inputPasswordRef = useRef();
+
+    const handleEmailOnFocus = () => {
+        inputEmailRef.current.focus(setIsEmailShrinked(true));
+    };
+
+    const handleEmailOnBlur = () => {
+        if (formik.values.email.length === 0) {
+            inputEmailRef.current.blur(setIsEmailShrinked(false));
+        }
     }
 
-    setIsShrinked(false);
+    const handlePasswordOnFocus = () => {
+        inputPasswordRef.current.focus(setIsPasswordShrinked(true));
+    };
+
+    const handlePasswordOnBlur = () => {
+        if (formik.values.password.length === 0) {
+            inputPasswordRef.current.blur(setIsPasswordShrinked(false));
+        }
+    }
+
+    useEffect(() => {
+        if (formik.values.email.length > 0) {
+            setIsEmailShrinked(true)
+        }
+
+        if (formik.values.password.length > 0) {
+            setIsPasswordShrinked(true)
+        }
+    }, [formik.values.email, formik.values.password ]);
+
 
     return {
-        shrink, 
-        emailRef,
-        passwordRef
+        formik,
+        inputEmailRef,
+        inputPasswordRef,
+        isEmailShrinked,
+        isPasswordShrinked,
+        handleEmailOnBlur,
+        handleEmailOnFocus,
+        handlePasswordOnBlur,
+        handlePasswordOnFocus,
     }
 
 }
-
-export default useShrink

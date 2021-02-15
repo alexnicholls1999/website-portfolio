@@ -1,98 +1,113 @@
-import React, { useState, useEffect, useRef} from 'react';
-import PropTypes from 'prop-types';
-import { Formik, Form, useFormik, Field } from 'formik';
-import * as yup from "yup";
+import React, {useEffect, useRef, useState} from 'react'
+import PropTypes from "prop-types"
+import useShrink from '../../reacthooks/useShrink'
+import { Formik, useFormik } from 'formik'
+import Button from '../Atoms/Button'
+import ErrorMessage from '../Atoms/ErrorMessage'
+import FormControl from '../Molecules/FormControl'
+import * as Yup from "yup";
+import ErrorLabel from '../Atoms/ErrorLabel'
 
-import useShrink from "./../../reacthooks/useShrink";
-import emailRef from "./../../reacthooks/useShrink";
-import passwordRef from "./../../reacthooks/useShrink";
-
-// Components
-import Button from '../Atoms/Button';
-import FormControl from '../Molecules/FormControl';
-import ErrorMessage from '../Atoms/ErrorMessage';
-
-const loginFormSchema = yup.object({
-    email: yup.string().email('Please enter a valid email address').required('Please enter email!'),
-    password: yup.string().min(5, 'Password must be at 5 characters long').required('Please enter a password!')
-})
+const LoginSchema = Yup.object({
+    email: Yup.string().min(2, "Too Short!").required("Required!"),
+    password: Yup.string().min(2, "Too Short!").required("Required!")
+});
 
 function LoginForm(props) {
-    const {onSubmit, serverError, active} = props;
 
-    const [state, setState] = useState({
-        email: '',
-        password: '',
-    });
+    const {onSubmit, serverError} = props;
 
-    const inputLabel = useRef(null);
-    const [isShrinked, setIsShrinked] = useState(false)
+    const [isEmailShrinked, setIsEmailShrinked] = useState(false);
+    const [isPasswordShrinked, setIsPasswordShrinked] = useState(false);
 
-    const handleChange = (e) => {
-        setState({
-            ...state,
-            [e.target.name]: e.target.value
-        })
+    const formik = useFormik({
+        initialValues: {
+            email: '',
+            password: ''
+        },
+        validationSchema: LoginSchema,
+        onSubmit: data => {
+            handleInnerSubmit(data);
+        }
+    })
 
-        console.log(state)
+    const handleInnerSubmit = data => {
+        onSubmit(data);
+    }
 
+    const inputEmailRef = useRef();
+    const inputPasswordRef = useRef();
+
+    const handleEmailOnFocus = () => {
+        inputEmailRef.current.focus(setIsEmailShrinked(true));
+    };
+
+    const handleEmailOnBlur = () => {
+        if (formik.values.email.length === 0) {
+            inputEmailRef.current.blur(setIsEmailShrinked(false));
+        }
+    }
+
+    const handlePasswordOnFocus = () => {
+        inputPasswordRef.current.focus(setIsPasswordShrinked(true));
+    };
+
+    const handlePasswordOnBlur = () => {
+        if (formik.values.password.length === 0) {
+            inputPasswordRef.current.blur(setIsPasswordShrinked(false));
+        }
     }
 
     useEffect(() => {
-        if (state.email === "" || state.password === "") {
-            setIsShrinked(false)
-            console.log("blur")
-        } else {
-            setIsShrinked(true);
-            console.log("focus")
+        if (formik.values.email.length > 0) {
+            setIsEmailShrinked(true)
         }
 
-    }, [state])
+        if (formik.values.password.length > 0) {
+            setIsPasswordShrinked(true)
+        }
+    }, [formik.values.email, formik.values.password ]);
 
-
-    const handleInnerSubmit = data => {
-        // onSubmit(data)
-        console.log(data);
-    }
-
-
-
-    const errorPadding = serverError => serverError !== ' ' ? ({padding: '5%'}) : null
 
     return (
-        <Formik 
-            initialValues= {{
-                email: '',
-                password: ''
-            }}       
-            onSubmit={data => {
-                handleInnerSubmit(data);
-                // console.log(data)
-            }}
-        >
-            <Form autoComplete="off">
-                <FormControl labelText="Email" name="email" shrink={isShrinked} value={state.email} onChange={handleChange}/>
-                <FormControl labelText="Password" name="password" shrink={isShrinked} value={state.password} onChange={handleChange}/> 
+        <form autoComplete="off" onSubmit={formik.handleSubmit}>
+            <FormControl 
+                shrunk={isEmailShrinked}
+                onFocus={handleEmailOnFocus}
+                onBlur={handleEmailOnBlur}
+                labelName="Email"
+                name="email"
+                value={formik.values.email}
+                onChange={formik.handleChange}
+                InputRef={inputEmailRef}
+            />
 
-                {/* <Field type="text" name="email"/>
+            <ErrorLabel errorMessage={formik.errors.email}/>
 
-                <Field type="text" name="password"/> */}
+            <FormControl 
+                shrunk={isPasswordShrinked}
+                onFocus={handlePasswordOnFocus}
+                onBlur={handlePasswordOnBlur}
+                labelName="Password"
+                name="password"
+                value={formik.values.password}
+                onChange={formik.handleChange}
+                InputRef={inputPasswordRef}
+            />
 
-                
-                <div className="p-3"></div>
+            <ErrorLabel errorMessage={formik.errors.password}/>
 
-                <ErrorMessage style={errorPadding(serverError)}>
-                    {serverError}    
-                </ErrorMessage>                
-                
-                <Button type="submit" text="Login"/>
- 
-            </Form>
-        </Formik>
+            <div className="p-1"></div>
+
+            <ErrorMessage>{serverError}</ErrorMessage>
+            
+            <Button type="submit" text="LOGIN"/>
+            
+        </form>
     )
 }
 
-LoginForm.propTypes = { 
+LoginForm.propTypes = {
     onSubmit: PropTypes.func.isRequired,
     error: PropTypes.string
 }
@@ -101,4 +116,5 @@ LoginForm.defaultProps = {
     serverError: ' '
 }
 
-export default LoginForm;
+
+export default LoginForm

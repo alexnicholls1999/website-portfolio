@@ -9,6 +9,7 @@ const ServerError = styled.div`
     margin-bottom: 25px;
     margin-top: -10px;
     text-align: center;
+    width: 100%;
 `;
 
 function ErrorMessage({children, style, active}) {

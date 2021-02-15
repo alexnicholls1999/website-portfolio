@@ -15,6 +15,8 @@ function Login(props) {
     const handleSubmit = async data => {
         const {email, password} = data;
 
+        console.log(data);
+
         try {
             await signInEmailUser(email, password);
         } catch (error) {

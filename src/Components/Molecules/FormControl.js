@@ -13,37 +13,37 @@ const StyledFormControl = styled.div`
   margin: 25px 0;
   border-bottom: 2px solid white;
 
-  &:after, &:before {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    width: 0;
-    height: 2px;
-    background-color: #38d39f;
-    transition: .3s ease-in-out;
-  }
 
 `
 
 function FormControl(props) {
 
-  const { labelText , name, ...Props} = props;
+  const { 
+    labelName , 
+    shrunk, 
+    InputRef 
+  } = props;
 
   return (
         <StyledFormControl>
-          <Label label={labelText} />
-          <Input name={name} {...Props} />
+          <Label shrunk={shrunk} text={labelName} />
+          <br/>
+          <Input 
+            InputRef={InputRef}
+            {...props}
+          />
         </StyledFormControl>
     )
 }
 
 FormControl.propTypes = {
-  labelText: PropTypes.string,
-  name: PropTypes.string
+  labelName: PropTypes.string,
+  shrunk: PropTypes.bool
 }
 
 FormControl.defaultProps = {
-  labelText: ' '
+  labelName: ' ',
+  shrunk: false
 }
 
 export default FormControl;

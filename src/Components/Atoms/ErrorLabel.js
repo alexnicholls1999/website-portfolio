@@ -1,16 +1,24 @@
-import React from 'react'
-import { ErrorMessage, useField } from "formik";
+import React from 'react';
+import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-function ErrorLabel(props) {
-    const [field, meta] = useField(props);
+const StyledErrorLabel = styled.p`
+    color: red;
 
-    return (
-        <>
-            <ErrorMessage name={field.name} />
-        </>
-    )
+
+`;
+
+function ErrorLabel({errorMessage}) {
+    
+    return <StyledErrorLabel>{errorMessage}</StyledErrorLabel>
 }
 
+ErrorLabel.defaultProps = {
+    errorMessage: ' '
+}
 
-export default ErrorLabel
+ErrorLabel.propTypes = {
+    errorMessage: PropTypes.string.isRequired
+}
+
+export default ErrorLabel;
