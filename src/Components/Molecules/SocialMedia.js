@@ -5,7 +5,13 @@ import styled from "styled-components"
 
 const StyledSocialMedia = styled.div`
     color: white;
-    float: right;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    @media (min-width: 768px) {
+        justify-content: flex-end;
+    }
 `;
 
 function SocialMedia() {

@@ -3,6 +3,7 @@ import Header from '../Organisms/Header'
 import styled from 'styled-components';
 import Hero from '../Organisms/Hero';
 import { Container } from 'react-bootstrap';
+import Footer from '../Organisms/Footer';
 
 const MainWrapper = styled.div`
     background-color: #0F0F0F;
@@ -16,7 +17,7 @@ function MainLayout({children}) {
             <Container>
                 {children}
             </Container>
-
+            <Footer />
         </MainWrapper>
     )
 }
