@@ -13,61 +13,21 @@ const LoginSchema = Yup.object({
     password: Yup.string().min(2, "Too Short!").required("Required!")
 });
 
-function LoginForm(props) {
+function LoginForm({onSubmit, serverError}) {
 
-    const {onSubmit, serverError} = props;
+    const {
+        formik,
+        inputEmailRef,
+        inputPasswordRef,
+        isEmailShrinked,
+        isPasswordShrinked,
+        handleEmailOnBlur,
+        handleEmailOnFocus,
+        handlePasswordOnFocus,
+        handlePasswordOnBlur
+    } = useShrink(onSubmit);
 
-    const [isEmailShrinked, setIsEmailShrinked] = useState(false);
-    const [isPasswordShrinked, setIsPasswordShrinked] = useState(false);
-
-    const formik = useFormik({
-        initialValues: {
-            email: '',
-            password: ''
-        },
-        validationSchema: LoginSchema,
-        onSubmit: data => {
-            handleInnerSubmit(data);
-        }
-    })
-
-    const handleInnerSubmit = data => {
-        onSubmit(data);
-    }
-
-    const inputEmailRef = useRef();
-    const inputPasswordRef = useRef();
-
-    const handleEmailOnFocus = () => {
-        inputEmailRef.current.focus(setIsEmailShrinked(true));
-    };
-
-    const handleEmailOnBlur = () => {
-        if (formik.values.email.length === 0) {
-            inputEmailRef.current.blur(setIsEmailShrinked(false));
-        }
-    }
-
-    const handlePasswordOnFocus = () => {
-        inputPasswordRef.current.focus(setIsPasswordShrinked(true));
-    };
-
-    const handlePasswordOnBlur = () => {
-        if (formik.values.password.length === 0) {
-            inputPasswordRef.current.blur(setIsPasswordShrinked(false));
-        }
-    }
-
-    useEffect(() => {
-        if (formik.values.email.length > 0) {
-            setIsEmailShrinked(true)
-        }
-
-        if (formik.values.password.length > 0) {
-            setIsPasswordShrinked(true)
-        }
-    }, [formik.values.email, formik.values.password ]);
-
+    
 
     return (
         <form autoComplete="off" onSubmit={formik.handleSubmit}>

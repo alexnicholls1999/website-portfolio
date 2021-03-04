@@ -33,8 +33,7 @@ function App() {
         </Protected>
         <RedirectToLogin authenticated={isAuthenticated} initAttemptedRoute={initAttemptedRoute} path="/login">
           <LoginLayout>
-            <Login signInEmailUser={signInEmailUser}
-            />
+            <Login signInEmailUser={signInEmailUser} />
           </LoginLayout>
         </RedirectToLogin>
       </Switch>

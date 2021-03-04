@@ -2,20 +2,23 @@ import { useState, useRef, useEffect } from "react";
 import { useFormik } from "formik";
 
 
-export default function useShrink() {
+export default function useShrink(onSubmit) {
 
     const [isEmailShrinked, setIsEmailShrinked] = useState(false);
     const [isPasswordShrinked, setIsPasswordShrinked] = useState(false);
+
+    const handleInnerSubmit = (data) => {onSubmit(data)}
 
     const formik = useFormik({
         initialValues: {
             email: '',
             password: ''
         },
-        onSubmit: values => {
-            console.log(values)
+        onSubmit: data => {
+            handleInnerSubmit(data)
         }
     })
+
 
     const inputEmailRef = useRef();
     const inputPasswordRef = useRef();

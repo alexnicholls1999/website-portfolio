@@ -14,7 +14,7 @@ function getTypingSpeed(currentState) {
   return currentState.isDeleting ? 150 : 30;
 }
 
-export default function useType() {
+export default function useType(messages) {
   const [state, setState] = useState({
     text: "",
     message: "",
@@ -38,9 +38,25 @@ export default function useType() {
     return () => clearTimeout(timer);
   }, [state.isDeleting]);
 
+  useEffect(() => {
+    if (!state.isDeleting && state.text === state.message) {
+      setTimeout(() => {
+        setState((cs) => ({
+          ...cs,
+          isDeleting: true
+        }));
+      }, 500);
+    } else if (state.isDeleting && state.text === "") {
+      setState((cs) => ({
+        ...cs, // cs means currentState
+        isDeleting: false,
+        loopNum: cs.loopNum + 1,
+        message: getMessage(cs, messages)
+      }));
+    }
+  }, [state.text, state.message, state.isDeleting, messages]);
+
   return {
-    state,
-    setState,
-    getMessage
+    state
   };
 }
