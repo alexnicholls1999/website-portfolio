@@ -3,8 +3,9 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 const StyledErrorLabel = styled.p`
+    padding-top: 5px;
     color: red;
-
+    opacity: 0;
 
 `;
 

@@ -1,38 +1,81 @@
-import React from 'react';
+import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 import Input from '../Atoms/Input';
 import Label from '../Atoms/Label';
-import { Field } from 'formik';
-import ErrorLabel from '../Atoms/ErrorLabel';
 import styled from 'styled-components';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+
+
+const eye = <FontAwesomeIcon icon={faEye}/>
+const eyeHidden = <FontAwesomeIcon icon={faEyeSlash}/>
+
 
 const StyledFormControl = styled.div`
   position: relative;
-  width: 316px;
+  width: 250px;
   padding: 5px 0;
-  margin: 25px 0;
+  // margin: 25px 0;
   border-bottom: 2px solid white;
 
+  @media (min-width: 765px) {
+    width: 300px;
+  }
 
-`
+`;
 
-function FormControl(props) {
+const Eye = styled.i`
+  position: absolute;
+  top: 5%;
+  right: 10px;
+  color: white;
 
-  const { 
-    labelName , 
-    shrunk, 
-    InputRef 
-  } = props;
+  :hover {
+    cursor: pointer;
+  }
+
+`;
+
+function FormControl({ labelName, shrunk, InputRef, type, password, ...props}) {
+
+  const [passwordShow, setPasswordShow] = useState(false);
+  const [eyeVisible, setEyeVisible] = useState(false);
+  
+  const togglePasswordVisibilty = () => {
+    setPasswordShow(passwordShow ? false : true);
+    setEyeVisible(eyeVisible ? false : true);
+  }
 
   return (
-        <StyledFormControl>
-          <Label shrunk={shrunk} text={labelName} />
-          <br/>
-          <Input 
-            InputRef={InputRef}
-            {...props}
-          />
-        </StyledFormControl>
+    <>
+        {!password ? (
+          <StyledFormControl>
+            <Label shrunk={shrunk} text={labelName} />
+            <br/>
+            <Input 
+              type={type}
+              InputRef={InputRef}
+              {...props}
+            />
+
+          </StyledFormControl>
+        ) : (
+          <StyledFormControl>
+            <Label shrunk={shrunk} text={labelName} />
+            <br/>
+            <Input 
+              type={passwordShow ? "text" : "password"}
+              InputRef={InputRef}
+              {...props}
+            />
+
+            <Eye onClick={togglePasswordVisibilty}>{eyeVisible ? eyeHidden : eye}</Eye>
+          </StyledFormControl>
+        )}
+    
+    </>
+
+
     )
 }
 

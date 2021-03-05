@@ -5,13 +5,9 @@ import { Formik, useFormik } from 'formik'
 import Button from '../Atoms/Button'
 import ErrorMessage from '../Atoms/ErrorMessage'
 import FormControl from '../Molecules/FormControl'
-import * as Yup from "yup";
 import ErrorLabel from '../Atoms/ErrorLabel'
 
-const LoginSchema = Yup.object({
-    email: Yup.string().min(2, "Too Short!").required("Required!"),
-    password: Yup.string().min(2, "Too Short!").required("Required!")
-});
+
 
 function LoginForm({onSubmit, serverError}) {
 
@@ -40,11 +36,13 @@ function LoginForm({onSubmit, serverError}) {
                 value={formik.values.email}
                 onChange={formik.handleChange}
                 InputRef={inputEmailRef}
+                // style={formik.errors.email && {opacity: "1"}}
             />
 
             <ErrorLabel errorMessage={formik.errors.email}/>
 
             <FormControl 
+                password
                 shrunk={isPasswordShrinked}
                 onFocus={handlePasswordOnFocus}
                 onBlur={handlePasswordOnBlur}
@@ -53,6 +51,7 @@ function LoginForm({onSubmit, serverError}) {
                 value={formik.values.password}
                 onChange={formik.handleChange}
                 InputRef={inputPasswordRef}
+                // style={formik.errors.password && {opacity: "1"}}
             />
 
             <ErrorLabel errorMessage={formik.errors.password}/>
