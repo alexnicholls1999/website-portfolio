@@ -5,6 +5,7 @@ import Label from '../Atoms/Label';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import ErrorLabel from '../Atoms/ErrorLabel';
 
 
 const eye = <FontAwesomeIcon icon={faEye}/>
@@ -15,7 +16,6 @@ const StyledFormControl = styled.div`
   position: relative;
   width: 250px;
   padding: 5px 0;
-  // margin: 25px 0;
   border-bottom: 2px solid white;
 
   @media (min-width: 765px) {
@@ -36,7 +36,7 @@ const Eye = styled.i`
 
 `;
 
-function FormControl({ labelName, shrunk, InputRef, type, password, ...props}) {
+function FormControl({ labelName, shrunk, InputRef, type, password, errorLabel, ...props}) {
 
   const [passwordShow, setPasswordShow] = useState(false);
   const [eyeVisible, setEyeVisible] = useState(false);
@@ -49,28 +49,35 @@ function FormControl({ labelName, shrunk, InputRef, type, password, ...props}) {
   return (
     <>
         {!password ? (
-          <StyledFormControl>
-            <Label shrunk={shrunk} text={labelName} />
-            <br/>
-            <Input 
-              type={type}
-              InputRef={InputRef}
-              {...props}
-            />
+          <>
+            <StyledFormControl>
+              <Label shrunk={shrunk} text={labelName} />
+              <br/>
+              <Input 
+                type={type}
+                InputRef={InputRef}
+                {...props}
+              />
+            </StyledFormControl>
 
-          </StyledFormControl>
+            <ErrorLabel errorMessage={errorLabel} />
+          </>
         ) : (
-          <StyledFormControl>
-            <Label shrunk={shrunk} text={labelName} />
-            <br/>
-            <Input 
-              type={passwordShow ? "text" : "password"}
-              InputRef={InputRef}
-              {...props}
-            />
+          <>
+            <StyledFormControl>
+              <Label shrunk={shrunk} text={labelName} />
+              <br/>
+              <Input 
+                type={passwordShow ? "text" : "password"}
+                InputRef={InputRef}
+                {...props}
+              />
 
-            <Eye onClick={togglePasswordVisibilty}>{eyeVisible ? eyeHidden : eye}</Eye>
-          </StyledFormControl>
+              <Eye onClick={togglePasswordVisibilty}>{eyeVisible ? eyeHidden : eye}</Eye>
+            </StyledFormControl>
+
+            <ErrorLabel errorMessage={errorLabel}/>
+          </>
         )}
     
     </>

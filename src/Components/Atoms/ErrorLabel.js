@@ -5,8 +5,10 @@ import PropTypes from 'prop-types';
 const StyledErrorLabel = styled.p`
     padding-top: 5px;
     color: red;
-    opacity: 0;
 
+    p {
+        margin: 0;
+    }
 `;
 
 function ErrorLabel({errorMessage}) {

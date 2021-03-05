@@ -9,7 +9,14 @@ const ServerError = styled.div`
     margin-bottom: 25px;
     margin-top: -10px;
     text-align: center;
-    width: 100%;
+    width: 250px;
+    padding: ${({active}) => active ? "7.5px" : "0px"};
+
+    @media (min-width: 765px) {
+        width: 300px;
+        
+    }
+    
 `;
 
 function ErrorMessage({children, style, active}) {

@@ -36,10 +36,11 @@ function LoginForm({onSubmit, serverError}) {
                 value={formik.values.email}
                 onChange={formik.handleChange}
                 InputRef={inputEmailRef}
+                errorLabel={formik.errors.email}
                 // style={formik.errors.email && {opacity: "1"}}
             />
 
-            <ErrorLabel errorMessage={formik.errors.email}/>
+            {/* <ErrorLabel errorMessage={formik.errors.email}/> */}
 
             <FormControl 
                 password
@@ -51,14 +52,15 @@ function LoginForm({onSubmit, serverError}) {
                 value={formik.values.password}
                 onChange={formik.handleChange}
                 InputRef={inputPasswordRef}
+                errorLabel={formik.errors.password}
                 // style={formik.errors.password && {opacity: "1"}}
             />
 
-            <ErrorLabel errorMessage={formik.errors.password}/>
+            {/* <ErrorLabel errorMessage={formik.errors.password}/> */}
 
             <div className="p-1"></div>
 
-            <ErrorMessage>{serverError}</ErrorMessage>
+            <ErrorMessage active={serverError}>{serverError}</ErrorMessage>
             
             <Button type="submit" text="LOGIN"/>
             
