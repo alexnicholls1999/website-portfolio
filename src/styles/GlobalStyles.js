@@ -1,10 +1,18 @@
 import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyles = createGlobalStyle`
+    html, body, #root {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
     body {
         font-family: ${props => props.theme.typography.fontFamily};
         background-color: #0F0F0F;
     }
+
+
     h1 {
         font-size: ${props => props.theme.typography.h1.fontSize};
         font-weight: ${props => props.theme.typography.h1.fontWeight};
