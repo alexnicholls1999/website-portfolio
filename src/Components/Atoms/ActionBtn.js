@@ -18,14 +18,11 @@ const StyledActionBtn = styled.div`
     align-items: center;
     justify-content: center;
 
-    // &:after {
-    //     content: '';
-    //     display: block;
-    //     background: ${({theme}) => theme.colors.white};
-    //     height: 30%;
-    //     width: 30%;
-    //     border-radius: 50%;
-    // }
+
+    @media(min-width: 768px){
+        display: none;
+    }
+
 
 
 `;
