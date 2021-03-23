@@ -1,29 +1,34 @@
 import React from 'react'
-import styled from 'styled-components';
-import Tile from './../Atoms/Tile';
 import { Row, Col } from "react-bootstrap";
 
+import FadeIn from '../../Animations/FadeIn';
 
-function Projects(props) {
+import Tile from './../Atoms/Tile';
 
-    const {projectImg, projectImgB, projectAlt} = props;
+
+function Projects({projectImg, projectImgB}) {
 
     return (
         <>
             <Row>
-                <Col xl={6} lg={6} md={6}>
-                    <Tile>
-                        <img src={projectImg} alt={projectAlt}/>
-                    </Tile>
-                    <br />
+                <Col md={6} sm={6}>
+                    <FadeIn>
+                        <Tile>
+                            <img src={projectImg} alt="project"/>
+                        </Tile>
+                        <br />
+                    </FadeIn>
                 </Col>
-                <Col xl={6} lg={6} md={6}>
-                    <Tile>
-                        <img src={projectImgB} alt={projectAlt}/>
-                    </Tile>
+                    
+                <Col md={6} sm={6}>
+                    <FadeIn>
+                        <Tile>
+                            <img src={projectImgB} alt="project"/>
+                        </Tile>
+                    </FadeIn>    
                 </Col>
             </Row>
-            <br/>
+            <br />
         </>
     )
 }

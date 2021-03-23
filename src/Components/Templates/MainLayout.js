@@ -11,13 +11,26 @@ import MenuModal from '../Atoms/MenuModal';
 import HorizontalScrollbar from '../Atoms/HorizontalScrollbar';
 import ButtonToolbar from '../Molecules/ButtonToolbar';
 
+const Main = styled(a.div)`
+
+
+`;
+
 const MainWrapper = styled.div`
     background-color: #0F0F0F;
     width: 100%;
     margin: 0;
-    padding:  10%;
     display: block;
+
 `;
+
+const MenuTitle = styled.h2`
+    font-size: 20px;
+    text-transform: capitalize;
+    font-weight: bold;
+
+`;
+
 
 function MainLayout({children}) {
 
@@ -26,9 +39,10 @@ function MainLayout({children}) {
 
     return (
         <>
-            <a.div onClick={() => close()} style={bgStyle}>
+            {/* <a.div onClick={() => close()} style={bgStyle}>
+                
                 <MainWrapper> 
-                    <p>Hopefully this works now?</p>
+                    <Padding />
                     <Header /> 
                     <Hero />
                         <Container>
@@ -38,13 +52,37 @@ function MainLayout({children}) {
                     <Footer />
                 </MainWrapper>
             </a.div>
+             */}
+            <Main onClick={() => close()} style={bgStyle}>
+                <MainWrapper>
+                    <Header /> 
+                    
+                    <Hero />
+
+                    <Container>
+                            {children}
+                    </Container>
+                     
+                    <Footer /> 
+                </MainWrapper>
+
+
+                {/* <Header /> 
+                <Hero />
+                    <Container>
+                        {children}
+                    </Container>
+                    
+                <Footer /> */}
+            </Main>
+
             <ActionBtn onClick={open}/>
             <MenuModal 
                 {...bind()}
                 style={{ display, bottom: `calc(-100vh + ${height - 100}px)`, y }}
             >
                 <HorizontalScrollbar />
-                <h2>MENU</h2>
+                <MenuTitle>MENU</MenuTitle>
                 <ButtonToolbar />
             </MenuModal>
         </>

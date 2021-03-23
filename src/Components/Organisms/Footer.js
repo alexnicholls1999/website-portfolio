@@ -11,6 +11,11 @@ const StyledFooter = styled.footer`
     bottom: 0;
     width: 100%;
     padding-top: 5%;
+    padding-bottom: 25%;
+
+    @media (min-width: 768px){ 
+        padding-bottom: 0;
+    }
 `;
 
 function Footer() {

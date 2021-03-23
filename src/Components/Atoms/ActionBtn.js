@@ -1,19 +1,14 @@
 import React from 'react';
 import styled from "styled-components";
-import { faPlus } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Hamburger from './Hamburger';
+import Button from "./Button";
 
-const StyledActionBtn = styled.div`
+const StyledActionBtnWrapper = styled.div`
     position: fixed;
     z-index: 100;
-    bottom: 80px;
+    bottom: 7.5vh;
     right: 40px;
     height: 48px;
-    width: 48px;
-    border-radius: 25px;
-    background: ${({theme}) => theme.colors.blue};
-    box-shadow: 0px 0px 5px 5px ${({theme}) => theme.colors.blue};
+    width: 150px;
     display: flex; 
     align-items: center;
     justify-content: center;
@@ -31,9 +26,9 @@ const StyledActionBtn = styled.div`
 
 function ActionBtn({onClick}) {
     return (
-    <StyledActionBtn onClick={onClick}>
-        <Hamburger />
-    </StyledActionBtn>
+    <StyledActionBtnWrapper onClick={onClick}>
+        <Button onClick={onClick} text="MENU"/>
+    </StyledActionBtnWrapper>
     )
 }
 

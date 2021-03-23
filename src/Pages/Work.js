@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import ProjectList from "./../Components/Organisms/ProjectList";
 import Button from "./../Components/Atoms/Button";
-import { Container, Row, Col } from 'react-bootstrap';
+import FadeIn from '../Animations/FadeIn';
 
 const StyledContainer = styled.div`
 
@@ -23,8 +23,10 @@ function Work() {
         <StyledContainer>
             <div className="p-5"></div>
             <ProjectList />
-            <div className="p-2"></div>
-            <Button text="View CV"/>
+            <div className="p-5"></div>
+            <FadeIn>
+                <Button text="View CV"/>
+            </FadeIn>
             <div className="p-5"></div>
         </StyledContainer>
     )

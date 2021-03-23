@@ -1,8 +1,19 @@
 import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyles = createGlobalStyle`
-    html, body, #root {
+    * {
+        box-sizing: border-box;
+        -webkit-tap-highlight-color: transparent;
+        -webkit-user-select: none;
+        user-select: none;
+        -webkit-user-drag: none;
+    }
+    
+    html,
+    body,
+    #root {
         width: 100%;
+        overflow-x: hidden;
         margin: 0;
         padding: 0;
     }

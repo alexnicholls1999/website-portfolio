@@ -39,7 +39,7 @@ export function useSwipeDown(){
     const bgStyle = {
         transform: y.to(
             [0, height],
-            ["translateY(-8%) scale(1.16)", "translateY(0px) scale(1.05)"]
+            ["translateY(-8%) scale(1.16)", "translateY(0%) scale(1)"]
           ),
           opacity: y.to([0, height], [0.4, 1], "clamp")
     }

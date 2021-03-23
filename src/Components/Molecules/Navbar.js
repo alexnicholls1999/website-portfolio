@@ -18,7 +18,7 @@ const StyledNav = styled(Nav)`
 `;
 
 
-function Navigationbar(props) {
+function Navigationbar() {
 
     // return (
     //     <StyledCollapse id="basic-navbar-nav">
