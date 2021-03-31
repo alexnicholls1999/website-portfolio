@@ -6,14 +6,14 @@ import FadeIn from '../../Animations/FadeIn';
 import Tile from './../Atoms/Tile';
 
 
-function Projects({projectImg, projectImgB}) {
+function Projects({onClickA, onClickB, projectImg, projectImgB}) {
 
     return (
         <>
             <Row>
                 <Col md={6} sm={6}>
                     <FadeIn>
-                        <Tile>
+                        <Tile onClick={onClickA}>
                             <img src={projectImg} alt="project"/>
                         </Tile>
                         <br />
@@ -22,7 +22,7 @@ function Projects({projectImg, projectImgB}) {
                     
                 <Col md={6} sm={6}>
                     <FadeIn>
-                        <Tile>
+                        <Tile onClick={onClickB}>
                             <img src={projectImgB} alt="project"/>
                         </Tile>
                     </FadeIn>    
