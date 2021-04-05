@@ -2,7 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import ProjectList from "./../Components/Organisms/ProjectList";
 import Button from "./../Components/Atoms/Button";
+import Modal from "./../Components/Atoms/Modal";
 import FadeIn from '../Animations/FadeIn';
+import useProjects from '../reacthooks/useProjects';
 
 const StyledContainer = styled.div`
 
@@ -19,6 +21,7 @@ const StyledContainer = styled.div`
 `;
 
 function Work() {
+
     return (
         <StyledContainer>
             <div className="p-5"></div>
@@ -28,6 +31,7 @@ function Work() {
                 <Button text="View CV"/>
             </FadeIn>
             <div className="p-5"></div>
+   
         </StyledContainer>
     )
 }

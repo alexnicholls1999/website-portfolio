@@ -7,9 +7,11 @@ import { Container } from 'react-bootstrap';
 import Footer from '../Organisms/Footer';
 import ActionBtn from '../Atoms/ActionBtn';
 import { useSwipeDown } from '../../reacthooks/useSwipeDown';
+import Modal from "../Atoms/Modal";
 import MenuModal from '../Atoms/MenuModal';
 import HorizontalScrollbar from '../Atoms/HorizontalScrollbar';
 import ButtonToolbar from '../Molecules/ButtonToolbar';
+import useProjects from '../../reacthooks/useProjects';
 
 const Main = styled(a.div)`
 
@@ -34,6 +36,7 @@ const MenuTitle = styled.h2`
 
 function MainLayout({children}) {
 
+    const { state, showSPA } = useProjects();
     const {y, height, display, bgStyle, close, open, bind} = useSwipeDown()
 
 
@@ -85,6 +88,8 @@ function MainLayout({children}) {
                 <MenuTitle>MENU</MenuTitle>
                 <ButtonToolbar />
             </MenuModal>
+
+
         </>
 
     )
