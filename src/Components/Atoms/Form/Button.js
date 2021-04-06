@@ -1,13 +1,9 @@
-import React from "react";
+import React from 'react';
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
-function Button(props) {
-
-  const {onClick, text, ...args} = props;
-    
-  const StyledButton = styled.button`
-    height: 44.63px;
+const StyledButton = styled.button`
+    height: 45px;
     background: #107CDC;
     border-radius: 7px;
     color: white;
@@ -15,15 +11,19 @@ function Button(props) {
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    margin-top: 6%;
     border: none;
     width: 100%;
     font-size: 15px;
-  `;
+    font-weight: 700;
+    box-shadow: 0px 0px 17px 2px #107CDC;
+`;
 
-  return(  
-    <StyledButton onClick={onClick} {...args}> {text} </StyledButton>
-  )
+function Button({onClick, text}) {
+    return <StyledButton onClick={onClick}>{text}</StyledButton>
+}
+
+Button.defaultProps = {
+    onClick: () => {}
 }
 
 Button.propTypes = {
@@ -31,8 +31,4 @@ Button.propTypes = {
     text: PropTypes.string.isRequired
 }
 
-Button.defaultProps = {
-    onClick: () => {}
-}
-
-export default Button;
+export default Button
