@@ -3,6 +3,7 @@ import styled from "styled-components";
 import PropTypes from "prop-types";
 import { Container } from "react-bootstrap";
 import SocialMedia from '../Molecules/SocialMedia';
+import TypeWriter from '../Atoms/TypeWriter';
 
 const StyledHero = styled.div`
   margin-top: -10px;
@@ -36,7 +37,7 @@ function Hero({ project, img }) {
                 <StyledHero>
                     <Container>
                         <br />
-                        <h3>I am a UX Designer.</h3>
+                        <TypeWriter heading={"I am a"} messages={["Front End Developer.", "UX Designer.", "UI Designer."]} />
                         <p>I am currently an under-graduate student at Southampton Solent University studying for a BSc (Hons) in Web Design and Development and have just successfully completed year 2. Southampton Solent encourages students to seek industry placements and I am looking for an opportunity to consolidate my knowledge and skills and gain work experience in the ﬁeld. My intention is to graduate with both academic and practical skills but also a greater understanding of the industry. I have developed a range of skills within front end development including Sketch, InVision and Hype. I see my future in the design industry and aspire to be a UX/UI designer, however, I am also a competent programmer who is keen to develop my programming skills.</p>
                         <div className="p-2"></div>
                         <SocialMedia />

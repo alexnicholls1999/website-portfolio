@@ -23,16 +23,48 @@ const StyledButton = styled.button`
     }
 `;
 
-function Button({onClick, text}) {
-    return <StyledButton onClick={onClick}>{text}</StyledButton>
+const StyledActionBtn = styled.div`
+  position: fixed;
+  bottom: 80px;
+  right: 40px;
+  height: 48px;
+  width: 150px;
+  border-radius: 5px;
+  background: #107cdc;
+  box-shadow: 0px 3px 30px 0px #107cdc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 15px;
+  font-weight: 700;
+
+  @media (min-width: 768px) {
+    display: none;
+  }
+`;
+
+function Button({onClick, menuButton , text}) {
+    return (
+        <>
+            {menuButton ? (
+                <StyledActionBtn onClick={onClick}>MENU</StyledActionBtn> 
+            ) : (
+                <StyledButton onClick={onClick}>{text}</StyledButton>
+            )}
+        </>
+    )
 }
 
 Button.defaultProps = {
-    onClick: () => {}
+    onClick: () => {},
+    menuButton: false,
+    text: ""
 }
 
 Button.propTypes = {
     onClick: PropTypes.func,
+    menuButton: PropTypes.bool,
     text: PropTypes.string.isRequired
 }
 

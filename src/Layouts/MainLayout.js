@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
+import { a } from "react-spring";
 import { Container } from "react-bootstrap";
-
 
 import Modal from "../Components/Atoms/Modal";
 import Header from "../Components/Organisms/Header";
@@ -11,11 +11,13 @@ import Footer from "../Components/Organisms/Footer";
 
 import ProjectLayout from "./ProjectLayout";
 import SPA from "../Pages/SPA";
+import { useSwipeDown } from "../react-hooks/useSwipeDown";
+import Button from "../Components/Atoms/Buttons/Button";
 
-const StyledWork = styled.div`
-    // position: absolute;
-    // height: 100vh;
-    // width: 100vw;
+const StyledWork = styled(a.div)`
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
 `;
 
 function MainLayout({
@@ -29,9 +31,11 @@ function MainLayout({
     showWebco,
     showYourGym
 }) {
+
+    const { bind, open, close, bgStyle, display, height, y } = useSwipeDown(); 
     return (
         <>
-            <StyledWork>
+            <StyledWork onClick={() => close()} style={bgStyle}>
                 <Header />
                 <Hero />
                 <div className="p-5"></div>
@@ -44,6 +48,16 @@ function MainLayout({
                 <ProjectLayout onClose={showSPA}>
                     <SPA />
                 </ProjectLayout>
+            </Modal>
+
+            <Button menuButton onClick={open} />
+
+            <Modal 
+                menuModal
+                {...bind()}
+                style={{display, bottom: `calc(-100vh + ${height - 100}px)`, y}}
+            >
+                <h2>MENU</h2>
             </Modal>
         </>
     )

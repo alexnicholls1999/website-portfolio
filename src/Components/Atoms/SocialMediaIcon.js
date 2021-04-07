@@ -9,12 +9,12 @@ function SocialMediaIcon({socialmedia}) {
 
 SocialMediaIcon.defaultProps = {
     path: "",
-    socialmedia: ""
+    socialmedia: {}
 }
 
 SocialMediaIcon.propTypes = {
     path: PropTypes.string,
-    socialmedia: PropTypes.string
+    socialmedia: PropTypes.object
 }
 
 export default SocialMediaIcon
