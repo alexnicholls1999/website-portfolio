@@ -12,13 +12,16 @@ function App() {
 
   return (
     <Switch>
-      <Route path="/">
+      <Route exact path="/">
         <MainLayout 
           showSPA={showSPA}
           spa={state.spa}
         >
           <Work showSPA={showSPA}/>
         </MainLayout>
+      </Route>
+      <Route path="/login">
+        <h3>Login</h3>
       </Route>
     </Switch>
   );

@@ -16,7 +16,6 @@ const StyledInput = styled.input`
     color: white;
 `;
 
-
 function Input({inputRef, ...props}) {
     return <StyledInput ref={inputRef} {...props}/>
 }
