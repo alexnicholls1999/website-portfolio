@@ -1,29 +1,22 @@
 import styled from "styled-components";
-import PropTypes from "prop-types";
 
 const Tile = styled.div`
     
     border-radius: 20px;
     box-shadow: 0px 5px 17px rgba(0, 0, 0, 0.4);
-    background: ${(props) => `url(${props.projectImg}) no-repeat center`};
-    height: 500px;
-
-    &:hover {
+    
+    img {
+        position: relative;
         border-radius: 20px;
-        transform: scale(1.025);
-        transition: .5s ease;
-        border: 6px solid #107CDC;
-        box-shadow: 0px 5px 17px #107CDC;
+        width: 100%;
+    
+        :hover {
+          transform: scale(1.025);
+          transition: 0.5s ease;
+          box-shadow: 0px 5px 17px #107CDC;
+          border: 4px solid #107CDC;
+        }
     }
 `;
-
-Tile.defaultProps = {
-    projectImg: ""
-}
-
-Tile.propTypes = {
-    projectImg: PropTypes.string
-}
-
 
 export default Tile;

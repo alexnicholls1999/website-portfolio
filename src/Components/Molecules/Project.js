@@ -3,11 +3,16 @@ import PropTypes from "prop-types";
 import { Col } from "react-bootstrap";
 
 import Tile from "./../Atoms/Tile"
+import FadeIn from '../../Animation/FadeIn';
 
 function Project({ onClick, projectImg}) {
     return (
         <Col md={6} sm={6}>
-            <Tile onClick={onClick} projectImg={projectImg}/>
+            <FadeIn>
+                <Tile onClick={onClick}>
+                    <img src={projectImg} alt='project'/>
+                </Tile>
+            </FadeIn>
             <br/>
         </Col>
     )

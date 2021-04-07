@@ -15,7 +15,12 @@ const StyledButton = styled.button`
     width: 100%;
     font-size: 15px;
     font-weight: 700;
-    box-shadow: 0px 0px 17px 2px #107CDC;
+
+    &:hover {
+        box-shadow: 0px 0px 17px 2px #107CDC;
+        transform: scale(1.025);
+        transition: 0.5s ease;
+    }
 `;
 
 function Button({onClick, text}) {

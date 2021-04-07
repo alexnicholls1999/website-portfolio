@@ -3,9 +3,14 @@ import styled from "styled-components";
 import PropTypes from "prop-types";
 import { Container } from "react-bootstrap";
 
+
+import Modal from "../Components/Atoms/Modal";
 import Header from "../Components/Organisms/Header";
 import Hero from "../Components/Organisms/Hero";
 import Footer from "../Components/Organisms/Footer";
+
+import ProjectLayout from "./ProjectLayout";
+import SPA from "../Pages/SPA";
 
 const StyledWork = styled.div`
     // position: absolute;
@@ -29,10 +34,17 @@ function MainLayout({
             <StyledWork>
                 <Header />
                 <Hero />
+                <div className="p-5"></div>
                 <Container>{children}</Container>
                 <div className="p-5"></div>
                 <Footer />
             </StyledWork>
+
+            <Modal show={spa}>
+                <ProjectLayout onClose={showSPA}>
+                    <SPA />
+                </ProjectLayout>
+            </Modal>
         </>
     )
 }

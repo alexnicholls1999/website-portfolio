@@ -8,6 +8,7 @@ import SocialMedia from '../Molecules/SocialMedia';
 
 const StyledFooter = styled.footer`
     background-color: black;
+    color: white;
     bottom: 0;
     width: 100%;
     padding-top: 5%;
