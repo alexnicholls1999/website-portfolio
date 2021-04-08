@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import PropTypes from "prop-types";
-// import LoginForm from '../Components/Organisms/LoginForm'
-// import Logo from '../Components/Atoms/Logo';
+import Logo from '../Components/Atoms/Logo';
+import LoginForm from '../Components/Organisms/LoginForm';
 
 function Login({signInEmailUser}) {
     const [error, setError] = useState();
@@ -23,7 +23,7 @@ function Login({signInEmailUser}) {
         <>            
         
             <Logo />
-            <LoginForm serverError={error} onSubmit={handleSubmit} />
+            <LoginForm serverError={error} onSubmit={handleSubmit}/>
         </>
     )
 }

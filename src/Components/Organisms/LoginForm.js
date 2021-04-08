@@ -1,17 +1,18 @@
-import React, {useEffect, useRef, useState} from 'react'
+import React from 'react'
 import PropTypes from "prop-types"
-import useShrink from '../../reacthooks/useShrink'
-import { Formik, useFormik } from 'formik'
-import Button from '../Atoms/Button'
-import ErrorMessage from '../Atoms/ErrorMessage'
+import ErrorMessage from '../Atoms/Form/ErrorMessage'
 import FormControl from '../Molecules/FormControl'
+import Button from '../Atoms/Buttons/Button'
+import useShrink from "./../../react-hooks/useShrink"
+import useLogin from '../../react-hooks/useLogin'
 
 
 
 function LoginForm({onSubmit, serverError}) {
 
-    const {
-        formik,
+    const { formik } = useLogin(onSubmit);
+
+    const {        
         inputEmailRef,
         inputPasswordRef,
         isEmailShrinked,
@@ -20,9 +21,7 @@ function LoginForm({onSubmit, serverError}) {
         handleEmailOnFocus,
         handlePasswordOnFocus,
         handlePasswordOnBlur
-    } = useShrink(onSubmit);
-
-    
+    } = useShrink(formik);
 
     return (
         <form autoComplete="off" onSubmit={formik.handleSubmit}>
@@ -34,12 +33,9 @@ function LoginForm({onSubmit, serverError}) {
                 name="email"
                 value={formik.values.email}
                 onChange={formik.handleChange}
-                InputRef={inputEmailRef}
-                errorLabel={formik.errors.email}
-                // style={formik.errors.email && {opacity: "1"}}
+                inputRef={inputEmailRef}
+                errorMessage={formik.errors.email}
             />
-
-            {/* <ErrorLabel errorMessage={formik.errors.email}/> */}
 
             <FormControl 
                 password
@@ -50,18 +46,15 @@ function LoginForm({onSubmit, serverError}) {
                 name="password"
                 value={formik.values.password}
                 onChange={formik.handleChange}
-                InputRef={inputPasswordRef}
-                errorLabel={formik.errors.password}
-                // style={formik.errors.password && {opacity: "1"}}
+                inputRef={inputPasswordRef}
+                errorMessage={formik.errors.password}
             />
-
-            {/* <ErrorLabel errorMessage={formik.errors.password}/> */}
 
             <div className="p-1"></div>
 
-            <ErrorMessage active={serverError}>{serverError}</ErrorMessage>
+            <ErrorMessage>{serverError}</ErrorMessage>
             
-            <Button type="submit" text="LOGIN"/>
+            <Button type="submit" text="LOGIN" />
             
         </form>
     )

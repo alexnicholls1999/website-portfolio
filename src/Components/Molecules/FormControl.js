@@ -1,11 +1,10 @@
 import React, {useState} from 'react';
 import PropTypes from 'prop-types';
-import Input from '../Atoms/Input';
-import Label from '../Atoms/Label';
+import Input from '../Atoms/Form/Input';
+import Label from '../Atoms/Form/Label';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
-import ErrorLabel from '../Atoms/ErrorLabel';
 
 
 const eye = <FontAwesomeIcon icon={faEye}/>
@@ -32,7 +31,7 @@ const Eye = styled.i`
   }
 `;
 
-function FormControl({ labelName, shrunk, InputRef, type, password, errorLabel, ...props}) {
+function FormControl({ labelName, shrunk, inputRef, type, password, errorMessage, ...props}) {
 
   const [passwordShow, setPasswordShow] = useState(false);
   const [eyeVisible, setEyeVisible] = useState(false);
@@ -51,7 +50,7 @@ function FormControl({ labelName, shrunk, InputRef, type, password, errorLabel, 
               <br/>
               <Input 
                 type={type}
-                InputRef={InputRef}
+                inputRef={inputRef}
                 {...props}
               />
             </StyledFormControl>
@@ -65,13 +64,13 @@ function FormControl({ labelName, shrunk, InputRef, type, password, errorLabel, 
               <br/>
               <Input 
                 type={passwordShow ? "text" : "password"}
-                InputRef={InputRef}
+                inputRef={inputRef}
                 {...props}
               />
               <Eye onClick={togglePasswordVisibilty}>{eyeVisible ? eyeHidden : eye}</Eye>
             </StyledFormControl>
 
-            <ErrorLabel errorMessage={errorMessage}/>
+            <Label errorLabel errorMessage={errorMessage}/>
           </>
         )}
     </>
@@ -80,13 +79,18 @@ function FormControl({ labelName, shrunk, InputRef, type, password, errorLabel, 
 
 FormControl.defaultProps = {
   labelName: ' ',
-  password: '',
-  shrunk: false
+  password: false,
+  type: '', 
+  shrunk: false,
+  errorMessage: '',
 }
 
 FormControl.propTypes = {
+    shrunk: PropTypes.bool,
+    password: PropTypes.bool,
     labelName: PropTypes.string,
-    shrunk: PropTypes.bool
+    type: PropTypes.string,
+    errorMessage: PropTypes.string,
 }
 
 export default FormControl;

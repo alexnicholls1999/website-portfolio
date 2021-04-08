@@ -35,14 +35,14 @@ function Label({text, shrunk, errorLabel, errorMessage}) {
 
 Label.defaultProps = {
     shrunk: false,
-    error: false,
+    errorLabel: false,
     text: "",
     errorMessage: ""
 }
 
 Label.propTypes = {
     shrunk: PropTypes.bool,
-    error: PropTypes.bool,
+    errorLabel: PropTypes.bool,
     text: PropTypes.string.isRequired,
     errorMessage: PropTypes.string.isRequired
 }

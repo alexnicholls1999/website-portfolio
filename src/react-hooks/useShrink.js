@@ -1,62 +1,52 @@
-import { useState, useEffect, useRef } from "react";
-import * as Yup from "yup";
+import { useState, useRef, useEffect } from "react";
 import { useFormik } from "formik";
+import * as Yup from "yup";
 
 const LoginSchema = Yup.object({
     email: Yup.string().min(2, "Too Short!").required("Required!"),
     password: Yup.string().min(2, "Too Short!").required("Required!")
-})
+});
 
-export default function useShrink(onSubmit) {
+export default function useShrink(form) {
+
     const [isEmailShrinked, setIsEmailShrinked] = useState(false);
     const [isPasswordShrinked, setIsPasswordShrinked] = useState(false);
-    const emailRef = useRef();
-    const passwordRef = useRef();
 
-    const handleInnerSubmit = (data) => {onSubmit(data)}
-
-    const formik = useFormik({
-        initialValues: {
-            email: '',
-            password: ''
-        },
-        validationSchema: LoginSchema,
-        onSubmit: data => {
-            handleInnerSubmit(data)
-        }
-    })
+    const inputEmailRef = useRef();
+    const inputPasswordRef = useRef();
 
     const handleEmailOnFocus = () => {
-        emailRef.current.focus(setIsEmailShrinked(true));
+        inputEmailRef.current.focus(setIsEmailShrinked(true));
+    };
+
+    const handlePasswordOnFocus = () => {
+        inputPasswordRef.current.focus(setIsPasswordShrinked(true));
     };
 
     const handleEmailOnBlur = () => {
-        if (formik.values.email.length === 0) emailRef.current.blur(setIsEmailShrinked(false))
-    }
-
-    const handlePasswordOnFocus = () => {
-        passwordRef.current.blur(setIsPasswordShrinked(true));
+        if (form.values.email.length === 0) inputEmailRef.current.blur(setIsEmailShrinked(false));
     }
 
     const handlePasswordOnBlur = () => {
-        if (formik.values.password.length === 0) passwordRef.current.blur(setIsPasswordShrinked(false))
+        if (form.values.password.length === 0) inputPasswordRef.current.blur(setIsPasswordShrinked(false));
     }
 
     useEffect(() => {
-        if (formik.values.email.length > 0) setIsEmailShrinked(true);
-        if (formik.values.password.length > 0) setIsPasswordShrinked(true);
-    }, [formik.values.email, formik.values.password]);
+        if (form.values.email.length > 0) setIsEmailShrinked(true);
+        if (form.values.password.length > 0) setIsPasswordShrinked(true);
+
+    }, [form.values.email, form.values.password ]);
+
 
     return {
-        formik,
-        emailRef,
-        passwordRef,
+        inputEmailRef,
+        inputPasswordRef,
         isEmailShrinked,
         isPasswordShrinked,
-        handleEmailOnFocus,
         handleEmailOnBlur,
+        handleEmailOnFocus,
+        handlePasswordOnBlur,
         handlePasswordOnFocus,
-        handlePasswordOnBlur
     }
 
 }

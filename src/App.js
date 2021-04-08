@@ -1,7 +1,9 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
+import LoginLayout from "./Layouts/LoginLayout";
 
 import MainLayout from "./Layouts/MainLayout";
+import Login from "./Pages/Login";
 
 import Work from "./Pages/Work";
 import useProjects from "./react-hooks/useProjects";
@@ -21,7 +23,9 @@ function App() {
         </MainLayout>
       </Route>
       <Route path="/login">
-        <h3>Login</h3>
+        <LoginLayout>
+          <Login />
+        </LoginLayout>
       </Route>
     </Switch>
   );
