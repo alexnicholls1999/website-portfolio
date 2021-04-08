@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from "styled-components";
 import {Container} from "react-bootstrap";
+import ButtonControl from '../Molecules/ButtonControl';
 
 const StyledHeader = styled.div`
     background: black;
@@ -15,6 +16,7 @@ function Header() {
         <StyledHeader>
             <Container>
                 <h1>Alex Zietara Nicholls.</h1>
+                <ButtonControl />
             </Container>
         </StyledHeader>
     )

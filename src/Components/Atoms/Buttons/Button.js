@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from "prop-types";
 import styled from "styled-components";
+import { useLocation } from "react-router-dom";
 
 const StyledButton = styled.button`
     height: 45px;
@@ -44,11 +45,25 @@ const StyledActionBtn = styled.div`
   }
 `;
 
-function Button({onClick, menuButton , text}) {
+function Button({onClick, menuButton , mailToButton, mailto, text}) {
+
+    const location = useLocation()
+    
+    const handleContactClick = (e) => {
+        window.location = mailto;
+        e.preventDefault();
+    }
+    
     return (
         <>
             {menuButton ? (
                 <StyledActionBtn onClick={onClick}>MENU</StyledActionBtn> 
+            ) : (
+                <StyledButton onClick={onClick}>{text}</StyledButton>
+            )}
+
+            {mailToButton ? (
+                <StyledButton onClick={handleContactClick}>Contact</StyledButton>
             ) : (
                 <StyledButton onClick={onClick}>{text}</StyledButton>
             )}
@@ -59,13 +74,17 @@ function Button({onClick, menuButton , text}) {
 Button.defaultProps = {
     onClick: () => {},
     menuButton: false,
-    text: ""
+    mailToButton: false,
+    text: "",
+    mailto: ""
 }
 
 Button.propTypes = {
     onClick: PropTypes.func,
     menuButton: PropTypes.bool,
-    text: PropTypes.string.isRequired
+    mailToButton: PropTypes.bool,
+    text: PropTypes.string.isRequired,
+    mailto: PropTypes.string.isRequired
 }
 
 export default Button

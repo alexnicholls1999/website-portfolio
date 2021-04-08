@@ -1,11 +1,4 @@
 import { useState, useRef, useEffect } from "react";
-import { useFormik } from "formik";
-import * as Yup from "yup";
-
-const LoginSchema = Yup.object({
-    email: Yup.string().min(2, "Too Short!").required("Required!"),
-    password: Yup.string().min(2, "Too Short!").required("Required!")
-});
 
 export default function useShrink(form) {
 

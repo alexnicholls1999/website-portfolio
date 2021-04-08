@@ -11,12 +11,12 @@ function Login({signInEmailUser}) {
 
         console.log(data);
 
-        // try {
-        //     await signInEmailUser(email, password);
-        // } catch (error) {
+        try {
+            await signInEmailUser(email, password);
+        } catch (error) {
 
-        //     setError(error.message);
-        // }
+            setError(error.message);
+        }
     }
 
     return (
