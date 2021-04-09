@@ -5,7 +5,7 @@ import ButtonControl from '../Molecules/ButtonControl';
 
 const StyledHeader = styled.div`
     background: black;
-    padding-top: 5px;
+    padding-top: 2vh;
 
     h1 {
         color: white;

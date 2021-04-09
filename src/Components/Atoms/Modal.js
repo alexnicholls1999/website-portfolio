@@ -31,9 +31,9 @@ const StyledMenuModal = styled(a.div)`
   z-index: 100;
   position: fixed;
   padding: 10%;
-  left: 2vw;
+  left: 2.5%;
   height: calc(100vh + 140px);
-  width: 96vw;
+  width: 95%;
   border-radius: 12px 12px 0px;
   box-shadow: 0px 0px 20px 10px black;
   background: #0f0f0f;
