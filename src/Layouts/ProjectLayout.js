@@ -40,7 +40,7 @@ const CloseBtn = styled.h5`
 `;
 
 
-function ProjectLayout({ onClose, children, img }) {
+function ProjectLayout({ onClose, children, img}) {
   const handleonClose = (e) => {
     onClose && onClose(e);
   };
@@ -49,7 +49,7 @@ function ProjectLayout({ onClose, children, img }) {
     <>
       <ProjectWrapper>
         <HeroWrapper>
-          <Hero project img={img} />
+          <Hero project img={img}/>
           <CloseBtn onClick={handleonClose}>CLOSE</CloseBtn>
         </HeroWrapper>
         <ProjectContainer>{children}</ProjectContainer>
@@ -62,13 +62,13 @@ function ProjectLayout({ onClose, children, img }) {
 ProjectLayout.defaultProps = {
     children: undefined,
     onClose: () => {},
-    img: ""
+    img: {}
 }
 
 ProjectLayout.propTypes = {
     children: PropTypes.node.isRequired,
     onClose: PropTypes.func,
-    img: PropTypes.string
+    img: PropTypes.object,
 }
 
 

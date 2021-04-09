@@ -23,13 +23,14 @@ const StyledHeroBorder = styled.div`
 
 const StyledProjectHero = styled.div`
   background: ${(props) => `url(${props.img}) no-repeat center`};
+  background-size: 100%;
   width: 100%;
   height: 100%;
   position: absolute;
   top: 0;
 `;
 
-function Hero({ project, img }) {
+function Hero({ project, img}) {
     return (
         <>
             {!project ? (
@@ -54,12 +55,14 @@ function Hero({ project, img }) {
 
 Hero.defaultProps = {
     project: false,
-    img: " "
+    color: " ",
+    img: {}
 }
 
 Hero.propTypes = {
     project: PropTypes.bool.isRequired,
-    img: PropTypes.string.isRequired
+    color: PropTypes.string,
+    img: PropTypes.object
 }
 
 export default Hero;

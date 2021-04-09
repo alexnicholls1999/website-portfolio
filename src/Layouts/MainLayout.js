@@ -14,6 +14,9 @@ import SPA from "../Pages/SPA";
 import { useSwipeDown } from "../react-hooks/useSwipeDown";
 import Button from "../Components/Atoms/Buttons/Button";
 
+import VMWallpaper from "../assets/vintagemovies/VMWallpaper.png";
+import VintageMovies from "../Pages/VintageMovies";
+
 const StyledWork = styled(a.div)`
     position: absolute;
     height: 100vh;
@@ -47,6 +50,12 @@ function MainLayout({
             <Modal show={spa}>
                 <ProjectLayout onClose={showSPA}>
                     <SPA />
+                </ProjectLayout>
+            </Modal>
+
+            <Modal show={vintagemovies}>
+                <ProjectLayout img={VMWallpaper} onClose={showVintageMovies}>
+                    <VintageMovies />
                 </ProjectLayout>
             </Modal>
 

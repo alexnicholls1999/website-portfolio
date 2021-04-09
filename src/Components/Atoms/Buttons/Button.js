@@ -45,10 +45,8 @@ const StyledActionBtn = styled.div`
   }
 `;
 
-function Button({onClick, menuButton , mailToButton, mailto, text}) {
+function Button({onClick, menuButton , mailToButton, mailto, text, style}) {
 
-    const location = useLocation()
-    
     const handleContactClick = (e) => {
         window.location = mailto;
         e.preventDefault();
@@ -56,16 +54,18 @@ function Button({onClick, menuButton , mailToButton, mailto, text}) {
     
     return (
         <>
-            {menuButton ? (
-                <StyledActionBtn onClick={onClick}>MENU</StyledActionBtn> 
-            ) : (
-                <StyledButton onClick={onClick}>{text}</StyledButton>
-            )}
+
 
             {mailToButton ? (
                 <StyledButton onClick={handleContactClick}>Contact</StyledButton>
             ) : (
-                <StyledButton onClick={onClick}>{text}</StyledButton>
+                <>
+                    {menuButton ? (
+                        <StyledActionBtn onClick={onClick}>MENU</StyledActionBtn> 
+                    ) : (
+                        <StyledButton style={style} onClick={onClick}>{text}</StyledButton>
+                    )}
+                </>
             )}
         </>
     )

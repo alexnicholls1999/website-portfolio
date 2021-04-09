@@ -6,12 +6,17 @@ import firebase from '../../firebase/utils';
 import useAuth from '../../firebase/useAuth';
 
 const ButtonWrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+    display: ${({active}) => (active ? "flex" : "none")};
+
+    @media (min-width: 768px) {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+  
 `;
 
-function ButtonControl() {
+function ButtonControl({menuModal}) {
 
     const { signOut } = useAuth(firebase.auth);
 
@@ -20,8 +25,8 @@ function ButtonControl() {
     }
 
     return (
-        <ButtonWrapper>
-            <Button mailToButton mailTo="mailto:azini@live.co.uk"/>
+        <ButtonWrapper active={menuModal}>
+            <Button mailToButton mailto="mailto:azini@live.co.uk"/>
             <Button style={{marginLeft: "10px"}} text="Logout" onClick={handleSignOutClick} /> 
         </ButtonWrapper>
     )
