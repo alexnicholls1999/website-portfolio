@@ -42,7 +42,8 @@ const ColorText = styled.div`
     color: ${({color}) => (color)};
     text-align: center;
     height: 100%;
-    padding: 10px;
+    padding: 10%;
+    align-items: middle;
 `;
 
 
@@ -96,45 +97,90 @@ function VintageMovies() {
 
            <ColorScheme>
               <Container>
+                <Row>
+                    <h2>Color Scheme</h2>
+                </Row>
+                <Row className="justify-content-center">
+                    <Pallete>
+                        <Color color="#2E2E2E">
+                            <ColorText color="white">
+                                <p>#2E2E2E</p>
+                                <p>RGB (255, 255, 255) </p>
+                            </ColorText>
+                        </Color>
+                    </Pallete>
+                    <Pallete>
+                        <Color color="#FFFFFF">
+                            <ColorText color="black">
+                                <p>#2E2E2E</p>
+                                <p>RGB (255, 255, 255) </p>
+                            </ColorText>
+                        </Color>
+                    </Pallete>
+                    <Pallete>
+                        <Color color="#0B89F5">
+                            <ColorText color="white">
+                                <p>#2E2E2E</p>
+                                <p>RGB (255, 255, 255) </p>
+                            </ColorText>
+                        </Color>
+                    </Pallete>
+                    <Pallete>
+                        <Color color="#000000">
+                            <ColorText color="white">
+                                <p>#2E2E2E</p>
+                                <p>RGB (255, 255, 255) </p>
+                            </ColorText>
+                        </Color>
+                    </Pallete>
+                </Row>
+              </Container>
+              <Container>
                   <Row>
-                      <h2>Color Scheme</h2>
+                      <h2>Typography</h2>
                   </Row>
-                  <Row className="justify-content-center">
-                        <Pallete>
-                            <Color color="#2E2E2E">
-                                <ColorText color="white">
-                                    <p>#2E2E2E</p>
-                                    <p>RGB (255, 255, 255) </p>
-                                </ColorText>
-                            </Color>
-                        </Pallete>
-                        <Pallete>
-                            <Color color="#FFFFFF">
-                                <ColorText color="black">
-                                    <p>#2E2E2E</p>
-                                    <p>RGB (255, 255, 255) </p>
-                                </ColorText>
-                            </Color>
-                        </Pallete>
-                        <Pallete>
-                            <Color color="#0B89F5">
-                                <ColorText color="white">
-                                    <p>#2E2E2E</p>
-                                    <p>RGB (255, 255, 255) </p>
-                                </ColorText>
-                            </Color>
-                        </Pallete>
-                        <Pallete>
-                            <Color color="#000000">
-                                <ColorText color="white">
-                                    <p>#2E2E2E</p>
-                                    <p>RGB (255, 255, 255) </p>
-                                </ColorText>
-                            </Color>
-                        </Pallete>
+                  <Row>
+                      <Col lg={6}>
+                          <h3>Font Styles</h3>
+                          <div>
+                              <label>Header 1</label>
+                              <h1>Header 1</h1>
+                              <label>Header 2</label>
+                              <h2>Header 2</h2>
+                              <label>Header 3</label>
+                              <h3>Header 3</h3>
+                              <label>Hyperlink Style</label><br />
+                              <a href="#">HyperLink</a>
+                          </div>
+                      </Col>
+                      <Col lg={6}>
+                        <h3>Paragraph</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic, in voluptas eum explicabo laboriosam dignissimos voluptatibus doloribus praesentium quos dolore.</p>
+                      </Col>
                   </Row>
-
-                  
+                  <div className="p-3"></div>
+                  <Row>
+                      <Col lg={6}>
+                        <h3>Number List</h3>
+                        <ol>
+                            <li>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam, aut.</li>
+                            <li>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam, aut.</li>
+                            <li>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam, aut.</li>
+                            <li>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam, aut.</li>
+                            <li>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam, aut.</li>
+                        </ol>
+                      </Col>
+                      <Col lg={6}>
+                        <h3>Bullet Point</h3>
+                        <ul>
+                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, dicta?</li>
+                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, dicta?</li>
+                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, dicta?</li>
+                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, dicta?</li>
+                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, dicta?</li>
+                        </ul>
+                      </Col>
+                  </Row>
               </Container>
            </ColorScheme>
         </>
