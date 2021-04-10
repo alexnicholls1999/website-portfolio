@@ -18,9 +18,34 @@ const StyledWireframes = styled.img`
 `;
 
 const ColorScheme = styled.div`
+    padding-top: 5%;
 
-
+    h2 {
+        color: white;
+    }
 `;
+
+const Pallete = styled.div`
+    padding: 7.5px;
+`;
+
+const Color = styled.div`
+    height: 140px;
+    width: 140px;
+    margin: 0 auto;
+    background-color: ${({color}) => (color)};
+    box-shadow: 0px 0px 8px 2px ${({color}) => (color)};
+    border-radius: 6px;
+`;
+
+const ColorText = styled.div`
+    color: ${({color}) => (color)};
+    text-align: center;
+    height: 100%;
+    padding: 10px;
+`;
+
+
 
 function VintageMovies() {
     return (
@@ -70,7 +95,47 @@ function VintageMovies() {
            <StyledWireframes src={WireframesTV}/>
 
            <ColorScheme>
-              
+              <Container>
+                  <Row>
+                      <h2>Color Scheme</h2>
+                  </Row>
+                  <Row className="justify-content-center">
+                        <Pallete>
+                            <Color color="#2E2E2E">
+                                <ColorText color="white">
+                                    <p>#2E2E2E</p>
+                                    <p>RGB (255, 255, 255) </p>
+                                </ColorText>
+                            </Color>
+                        </Pallete>
+                        <Pallete>
+                            <Color color="#FFFFFF">
+                                <ColorText color="black">
+                                    <p>#2E2E2E</p>
+                                    <p>RGB (255, 255, 255) </p>
+                                </ColorText>
+                            </Color>
+                        </Pallete>
+                        <Pallete>
+                            <Color color="#0B89F5">
+                                <ColorText color="white">
+                                    <p>#2E2E2E</p>
+                                    <p>RGB (255, 255, 255) </p>
+                                </ColorText>
+                            </Color>
+                        </Pallete>
+                        <Pallete>
+                            <Color color="#000000">
+                                <ColorText color="white">
+                                    <p>#2E2E2E</p>
+                                    <p>RGB (255, 255, 255) </p>
+                                </ColorText>
+                            </Color>
+                        </Pallete>
+                  </Row>
+
+                  
+              </Container>
            </ColorScheme>
         </>
     )
