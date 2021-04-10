@@ -7,6 +7,12 @@ import {Container, Row, Col} from "react-bootstrap";
 import HTA from "./../assets/vintagemovies/HTA.png";
 import WireframesMobile from "./../assets/vintagemovies/wireframes.png";
 import WireframesTV from "./../assets/vintagemovies/wireframes_tv.png";
+import VMLogo from "./../assets/vintagemovies/vintage_movies_logo.png";
+import VMLogoFib from "./../assets/vintagemovies/Vintage_Movies_Fibonacci_Sequence.png";
+import Mobile1 from "./../assets/vintagemovies/mobile1.png";
+import Mobile2 from "./../assets/vintagemovies/mobile2.png";
+import Mobile3 from "./../assets/vintagemovies/mobile3.png";
+import SamsungTVLarge from "./../assets/vintagemovies/Login_Page_samsung_d8000_front.png"
 
 
 const StyledHTA = styled.img`
@@ -46,7 +52,24 @@ const ColorText = styled.div`
     align-items: middle;
 `;
 
+const LogoVM = styled.div`
+    margin: 0 auto;
+    display: block;
+    
+    img {
+        width: 100%;
+    }
+`;
 
+const VMMobile = styled.div`
+    display: flex;
+    justify-content: center;
+
+    img {
+        width: 75%;
+    }
+
+`;
 
 function VintageMovies() {
     return (
@@ -183,6 +206,61 @@ function VintageMovies() {
                   </Row>
               </Container>
            </ColorScheme>
+
+           <div className="p-3"/>
+
+           <Container>
+                <Row>
+                    <h2>Logo</h2>
+                </Row>
+                <Row>
+                    <LogoVM>
+                        <img src={VMLogo} alt="VM_Logo"/>
+                    </LogoVM>
+                </Row>
+                <div className="p-5"/>
+                <Row>
+                    <LogoVM>
+                        <img src={VMLogoFib} alt="VM_Logo_Fibonacci-Sequence"/>
+                    </LogoVM>
+                </Row>
+           </Container>
+
+           <div className="p-3"/>
+
+           <Container>
+                <Row>
+                    <h2 style={{width: "35%"}}>Watch on the go with your mobile</h2>
+                </Row>
+                <div className="p-4" />
+                <Row>
+                    <Col className="py-2" xs={4}>
+                        <VMMobile>
+                            <img src={Mobile1} alt="Mobile_1"/>
+                        </VMMobile>
+                    </Col>
+                    <Col className="py-2" xs={4}>
+                        <VMMobile>
+                            <img src={Mobile2} alt="Mobile_2"/>
+                        </VMMobile>
+                    </Col>
+                    <Col className="py-2" xs={4}>
+                        <VMMobile>
+                            <img src={Mobile3} alt="Mobile_3"/>
+                        </VMMobile>
+                    </Col>
+                </Row>
+                <div className="p-2" />
+                <Row>
+                    <h2 className="ml-auto" style={{textAlign: "right", width: "50%"}}>Watch through comfort of your home</h2>
+                </Row>
+                <Row>
+                    <Col lg={10}>
+                        <img style={{width: "100%"}} src={SamsungTVLarge} alt="samsung-tv" />
+                    </Col>
+                </Row>
+                <div className="p-2"/>
+           </Container>
         </>
     )
 }
