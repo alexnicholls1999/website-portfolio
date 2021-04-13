@@ -24,20 +24,17 @@ const StyledWorkWrapper = styled.div`
     }
 `;
 
-function Work({showSPA, showVintageMovies, showWebco}) {
+function Work({showVintageMovies, showWebco}) {
     return (
         <>
           <StyledWorkWrapper>
             <div className="p-3"></div>
             <Container>
                 <Row>
-                    <Project projectImg={ProjectA} onClick={(e) => {showSPA(e)}} />
-
-                    <Project projectImg={ProjectB} onClick={(e) => {showVintageMovies(e)}} />    
+                    <Project projectImg={ProjectB} onClick={(e) => {showVintageMovies(e)}} /> 
+                    <Project projectImg={ProjectC} onClick={(e) => {showWebco(e)}}/>   
                 </Row>    
                 <Row>
-                    <Project projectImg={ProjectC} onClick={(e) => {showWebco(e)}}/>
-
                     <Project projectImg={ProjectD} />    
                 </Row>   
 
@@ -54,13 +51,11 @@ function Work({showSPA, showVintageMovies, showWebco}) {
 }
 
 Work.defaultProps = {
-    showSPA: () => {},
     showVintageMovies: () => {},
     showWebco: () => {}
 }
 
 Work.propTypes = {
-    showSPA: PropTypes.func,
     showVintageMovies: PropTypes.func,
     showWebco: PropTypes.func
 }

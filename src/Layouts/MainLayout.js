@@ -10,7 +10,6 @@ import Hero from "../Components/Organisms/Hero";
 import Footer from "../Components/Organisms/Footer";
 
 import ProjectLayout from "./ProjectLayout";
-import SPA from "../Pages/SPA";
 import { useSwipeDown } from "../react-hooks/useSwipeDown";
 import Button from "../Components/Atoms/Buttons/Button";
 
@@ -28,11 +27,9 @@ const StyledWork = styled(a.div)`
 
 function MainLayout({
     children,
-    spa,
     vintagemovies,
     webco,
     yourGym,
-    showSPA,
     showVintageMovies,
     showWebco,
     showYourGym
@@ -49,12 +46,6 @@ function MainLayout({
                 <div className="p-5"></div>
                 <Footer />
             </StyledWork>
-
-            <Modal show={spa}>
-                <ProjectLayout onClose={showSPA}>
-                    <SPA />
-                </ProjectLayout>
-            </Modal>
 
             <Modal show={vintagemovies}>
                 <ProjectLayout img={VMWallpaper} onClose={showVintageMovies}>
@@ -83,11 +74,9 @@ function MainLayout({
 
 MainLayout.defaultProps = {
     children: undefined,
-    spa: false,
     vintagemovies: false,
     webco: false,
     yourGym: false,
-    showSPA: () => {},
     showVintageMovies: () => {},
     showWebco: () => {},
     showYourGym: () => {},
@@ -95,11 +84,9 @@ MainLayout.defaultProps = {
 
 MainLayout.propTypes = {
     children: PropTypes.node.isRequired,
-    spa: PropTypes.bool,
     vintagemovies: PropTypes.bool,
     webco: PropTypes.bool,
     yourGym: PropTypes.bool,
-    showSPA: PropTypes.func.isRequired,
     showVintageMovies: PropTypes.func.isRequired,
     showWebco: PropTypes.func.isRequired,
     showYourGym: PropTypes.func.isRequired,
