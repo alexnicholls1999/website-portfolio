@@ -15,7 +15,10 @@ import { useSwipeDown } from "../react-hooks/useSwipeDown";
 import Button from "../Components/Atoms/Buttons/Button";
 
 import VMWallpaper from "../assets/vintagemovies/VMWallpaper.png";
+import WebcoWallpaper from "../assets/webco/webcowallpaper.png";
+
 import VintageMovies from "../Pages/VintageMovies";
+import Webco from "../Pages/Webco";
 
 const StyledWork = styled(a.div)`
     position: absolute;
@@ -56,6 +59,12 @@ function MainLayout({
             <Modal show={vintagemovies}>
                 <ProjectLayout img={VMWallpaper} onClose={showVintageMovies}>
                     <VintageMovies />
+                </ProjectLayout>
+            </Modal>
+
+            <Modal show={webco}>
+                <ProjectLayout img={WebcoWallpaper} onClose={showWebco}>
+                    <Webco />
                 </ProjectLayout>
             </Modal>
 

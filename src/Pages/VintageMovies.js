@@ -13,6 +13,7 @@ import Mobile1 from "./../assets/vintagemovies/mobile1.png";
 import Mobile2 from "./../assets/vintagemovies/mobile2.png";
 import Mobile3 from "./../assets/vintagemovies/mobile3.png";
 import SamsungTVLarge from "./../assets/vintagemovies/Login_Page_samsung_d8000_front.png"
+import ForwardButton from '../Components/Atoms/Buttons/ForwardButton';
 
 
 const StyledHTA = styled.img`
@@ -52,10 +53,17 @@ const ColorText = styled.div`
     align-items: middle;
 `;
 
+const LogoVMWrapper = styled.div`
+    background: white;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    padding: 10% 0;
+`;
+
 const LogoVM = styled.div`
     margin: 0 auto;
-    display: block;
-    
+
     img {
         width: 100%;
     }
@@ -68,6 +76,11 @@ const VMMobile = styled.div`
     img {
         width: 75%;
     }
+
+`;
+
+const StyledForwardBtnWrapper = styled.div`
+    padding-top: 10px;
 
 `;
 
@@ -158,6 +171,7 @@ function VintageMovies() {
                     </Pallete>
                 </Row>
               </Container>
+              <div className="p-3"/>
               <Container>
                   <Row>
                       <h2>Typography</h2>
@@ -214,9 +228,11 @@ function VintageMovies() {
                     <h2>Logo</h2>
                 </Row>
                 <Row>
-                    <LogoVM>
-                        <img src={VMLogo} alt="VM_Logo"/>
-                    </LogoVM>
+                    <LogoVMWrapper>
+                        <LogoVM>
+                            <img src={VMLogo} alt="VM_Logo"/>
+                        </LogoVM>
+                    </LogoVMWrapper>
                 </Row>
                 <div className="p-5"/>
                 <Row>
@@ -260,7 +276,19 @@ function VintageMovies() {
                     </Col>
                 </Row>
                 <div className="p-2"/>
+
+
+              <Row>
+                <h2 style={{width: "75%"}}>Like to view more information on this project:</h2>
+              </Row>
+              <Row>
+                <StyledForwardBtnWrapper>
+                    <ForwardButton text="Behance" pathname="https://www.behance.net/gallery/81186753/Vintage-Movies-TV-and-Mobile-App"/>
+                    <ForwardButton text="Medium" pathname="https://medium.com/@azini_76170/vintage-movies-smarttv-and-mobile-clickable-prototype-748abe30ef89"/>
+                </StyledForwardBtnWrapper>
+              </Row>
            </Container>
+           <div className="p-3" />
         </>
     )
 }
