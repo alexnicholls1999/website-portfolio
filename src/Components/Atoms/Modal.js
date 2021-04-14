@@ -7,8 +7,7 @@ const ModalWrapper = styled.div`
   position: fixed;
   z-index: 200;
   left: 0;
-  top: 0;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.75);
   display: flex;
@@ -18,13 +17,14 @@ const ModalWrapper = styled.div`
 `;
 
 const StyledModal = styled.div`
-  width: 750px;
+  width: 795px;
   height: 90vh;
   background-color: #0f0f0f;
   position: relative;
   border: 5px;
   box-shadow: 2px 4px 20px 0px rgba(0, 0, 0, 0.75);
   border-radius: 10px;
+
 `;
 
 const StyledMenuModal = styled(a.div)`

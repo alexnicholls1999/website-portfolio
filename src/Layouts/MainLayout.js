@@ -20,6 +20,7 @@ import YourGymWallpaper from "../assets/yourGym/your-gym-wallpaper.png";
 import VintageMovies from "../Pages/VintageMovies";
 import Webco from "../Pages/Webco";
 import YourGym from "../Pages/YourGym";
+import Menu from "../Components/Organisms/Menu";
 
 const StyledWork = styled(a.div)`
     position: absolute;
@@ -74,7 +75,7 @@ function MainLayout({
                 {...bind()}
                 style={{display, bottom: `calc(-100vh + ${height - 100}px)`, y}}
             >
-                <h2>MENU</h2>
+                <Menu />
             </Modal>
         </>
     )
