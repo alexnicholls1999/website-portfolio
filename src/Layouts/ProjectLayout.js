@@ -21,7 +21,7 @@ const ProjectWrapper = styled.div`
 
 const HeroWrapper = styled.div`
   position: relative;
-  height: 35%;
+  height: 60%;
 `;
 
 const ProjectContainer = styled.div`
@@ -31,7 +31,7 @@ const ProjectContainer = styled.div`
 `;
 
 const CloseBtn = styled.h5`
-  color: white;
+  color: ${(props) => props.darkMode ? "black" : "white" };
   position: absolute;
   top: 10px;
   right: 20px;
@@ -40,7 +40,7 @@ const CloseBtn = styled.h5`
 `;
 
 
-function ProjectLayout({ onClose, children, img}) {
+function ProjectLayout({ onClose, children, darkMode, img}) {
   const handleonClose = (e) => {
     onClose && onClose(e);
   };
@@ -50,7 +50,7 @@ function ProjectLayout({ onClose, children, img}) {
       <ProjectWrapper>
         <HeroWrapper>
           <Hero project img={img}/>
-          <CloseBtn onClick={handleonClose}>CLOSE</CloseBtn>
+          <CloseBtn darkMode={darkMode} onClick={handleonClose}>CLOSE</CloseBtn>
         </HeroWrapper>
         <ProjectContainer>{children}</ProjectContainer>
         <BackButton onClick={handleonClose} />
@@ -62,13 +62,15 @@ function ProjectLayout({ onClose, children, img}) {
 ProjectLayout.defaultProps = {
     children: undefined,
     onClose: () => {},
-    img: {}
+    img: {},
+    darkMode: false
 }
 
 ProjectLayout.propTypes = {
     children: PropTypes.node.isRequired,
     onClose: PropTypes.func,
     img: PropTypes.object,
+    darkMode: PropTypes.bool
 }
 
 

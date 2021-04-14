@@ -23,7 +23,7 @@ const StyledHeroBorder = styled.div`
 
 const StyledProjectHero = styled.div`
   background: ${(props) => `url(${props.img}) no-repeat center`};
-  background-size: 100%;
+  background-size: cover;
   width: 100%;
   height: 100%;
   position: absolute;

@@ -15,9 +15,11 @@ import Button from "../Components/Atoms/Buttons/Button";
 
 import VMWallpaper from "../assets/vintagemovies/VMWallpaper.png";
 import WebcoWallpaper from "../assets/webco/webcowallpaper.png";
+import YourGymWallpaper from "../assets/yourGym/your-gym-wallpaper.png";
 
 import VintageMovies from "../Pages/VintageMovies";
 import Webco from "../Pages/Webco";
+import YourGym from "../Pages/YourGym";
 
 const StyledWork = styled(a.div)`
     position: absolute;
@@ -56,6 +58,12 @@ function MainLayout({
             <Modal show={webco}>
                 <ProjectLayout img={WebcoWallpaper} onClose={showWebco}>
                     <Webco />
+                </ProjectLayout>
+            </Modal>
+
+            <Modal show={yourGym}>
+                <ProjectLayout darkMode img={YourGymWallpaper} onClose={showYourGym}>
+                    <YourGym />
                 </ProjectLayout>
             </Modal>
 
