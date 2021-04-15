@@ -13,8 +13,8 @@ const Tile = styled.div`
         :hover {
           transform: scale(1.025);
           transition: 0.5s ease;
-          box-shadow: 0px 5px 17px #107CDC;
-          border: 4px solid #107CDC;
+          box-shadow: 0px 5px 17px ${({ theme }) => theme.colors.blue};
+          border: 4px solid ${({ theme }) => theme.colors.blue};
         }
     }
 `;

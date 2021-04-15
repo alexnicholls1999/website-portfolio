@@ -4,8 +4,8 @@ import styled from "styled-components";
 
 const ServerError = styled.div`
     position: relative;
-    background-color: #CE0000;
-    color: white;
+    background-color: ${({ theme }) => theme.colors.error};
+    color: ${({ theme }) => theme.colors.white};
     margin-bottom: 25px;
     margin-top: -10px;
     text-align: center;

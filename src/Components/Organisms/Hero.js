@@ -7,13 +7,13 @@ import TypeWriter from '../Atoms/TypeWriter';
 
 const StyledHero = styled.div`
   margin-top: -10px;
-  background-color: black;
+  background-color: ${({ theme }) => theme.colors.black};
   color: white;
   padding-bottom: 5%;
 `;
 
 const StyledHeroBorder = styled.div`
-    background-color: black;
+    background-color: ${({ theme }) => theme.colors.black};
     height: 50px;
     transform: skewY(-1deg);
     margin-top: -1%;

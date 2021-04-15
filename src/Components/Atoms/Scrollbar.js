@@ -6,7 +6,7 @@ const StyledScrollBar = styled.span`
     display: flex;
     justify-content: center;
     align-items: center;
-    background: white;
+    background: ${({ theme }) => theme.colors.white};
     height: 3px;
     width: 65px;
     border-radius: 5px;

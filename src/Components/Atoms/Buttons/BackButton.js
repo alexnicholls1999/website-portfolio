@@ -6,7 +6,7 @@ const BackBtn = styled.h6`
   text-align: center;
   padding: 10px;
   padding-bottom: 20px;
-  color: white;
+  color: ${({ theme }) => theme.colors.white};
   cursor: pointer;
 `;
 

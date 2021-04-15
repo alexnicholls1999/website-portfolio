@@ -19,7 +19,7 @@ const ModalWrapper = styled.div`
 const StyledModal = styled.div`
   width: 795px;
   height: 90vh;
-  background-color: #0f0f0f;
+  background-color: ${({ theme }) => theme.colors.matteBlack};
   position: relative;
   border: 5px;
   box-shadow: 2px 4px 20px 0px rgba(0, 0, 0, 0.75);
@@ -35,9 +35,9 @@ const StyledMenuModal = styled(a.div)`
   height: calc(100vh + 140px);
   width: 95%;
   border-radius: 12px 12px 0px;
-  box-shadow: 0px 0px 20px 10px black;
-  background: #0f0f0f;
-  color: white;
+  box-shadow: 0px 0px 20px 10px ${({ theme }) => theme.colors.black};
+  background: ${({ theme }) => theme.colors.matteBlack};
+  color: ${({ theme }) => theme.colors.white};
 
   div {
     height: 60px;

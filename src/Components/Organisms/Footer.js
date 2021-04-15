@@ -7,8 +7,8 @@ import CopyRight from '../Molecules/Footer/CopyRight';
 import SocialMedia from '../Molecules/SocialMedia';
 
 const StyledFooter = styled.footer`
-    background-color: black;
-    color: white;
+    background-color: ${({ theme }) => theme.colors.black};
+    color: ${({ theme }) => theme.colors.white};
     bottom: 0;
     width: 100%;
     padding-top: 5%;

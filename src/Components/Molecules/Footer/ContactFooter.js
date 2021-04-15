@@ -6,7 +6,7 @@ const StyledContactFooter = styled.div`
     flex-direction: row;
     text-align: center;
     padding-top: 50px;
-    color: white;
+    color: ${({ theme }) => theme.colors.white};
 
     ul {
         list-style: none;

@@ -4,7 +4,7 @@ import { faTwitterSquare, faMedium, faLinkedin, faBehanceSquare } from "@fortawe
 import SocialMediaIcon from '../Atoms/SocialMediaIcon';
 
 const StyledSocialMedia = styled.div`
-    color: white;
+    color: ${({ theme }) => theme.colors.white};
     display: flex;
     flex-direction: row;
     justify-content: center;

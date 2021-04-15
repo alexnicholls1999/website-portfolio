@@ -5,9 +5,9 @@ import { useLocation } from "react-router-dom";
 
 const StyledButton = styled.button`
     height: 45px;
-    background: #107CDC;
+    background: ${({ theme }) => theme.colors.blue};
     border-radius: 7px;
-    color: white;
+    color: ${({ theme }) => theme.colors.white};
     display: flex;
     justify-content: center;
     align-items: center;
@@ -18,7 +18,7 @@ const StyledButton = styled.button`
     font-weight: 700;
 
     &:hover {
-        box-shadow: 0px 0px 17px 2px #107CDC;
+        box-shadow: 0px 0px 17px 2px ${({ theme }) => theme.colors.blue};
         transform: scale(1.025);
         transition: 0.5s ease;
     }
@@ -32,11 +32,11 @@ const StyledActionBtn = styled.div`
   width: 150px;
   border-radius: 5px;
   background: #107cdc;
-  box-shadow: 0px 3px 30px 0px #107cdc;
+  box-shadow: 0px 3px 30px 0px ${({ theme }) => theme.colors.blue};
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
+  color: ${({ theme }) => theme.colors.white};
   font-size: 15px;
   font-weight: 700;
 

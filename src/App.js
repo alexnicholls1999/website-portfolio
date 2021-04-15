@@ -11,6 +11,9 @@ import Work from "./Pages/Work";
 import useProjects from "./react-hooks/useProjects";
 import Protected from "./RouteGuards/Protected";
 import RedirectToLogin from "./RouteGuards/RedirectToLogin";
+import { ThemeProvider } from "styled-components";
+import theme from "./config/theme";
+import GlobalStyles from "./config/GlobalStyles";
 
 const initAttemptedRoute = "/";
 
@@ -24,27 +27,30 @@ function App() {
   }
 
   return (
-    <Switch>
-      <Protected authenticated={isAuthenticated} initAttemptedRoute={initAttemptedRoute} exact path="/">
-        <MainLayout 
-          showSPA={showSPA}
-          spa={state.spa}
-          showVintageMovies={showVintageMovies}
-          vintagemovies={state.vintageMovies}
-          showWebco={showWebco}
-          webco={state.webco}
-          yourGym={state.yourgym}
-          showYourGym={showYourGym}
-        >
-          <Work showSPA={showSPA} showVintageMovies={showVintageMovies} showWebco={showWebco} showYourGym={showYourGym}/>
-        </MainLayout>
-      </Protected>
-      <RedirectToLogin authenticated={isAuthenticated} initAttemptedRoute={initAttemptedRoute} path="/login">
-        <LoginLayout>
-          <Login signInEmailUser={signInEmailUser}/>
-        </LoginLayout>
-      </RedirectToLogin>
-    </Switch>
+    <ThemeProvider theme={theme}>
+      <GlobalStyles />
+      <Switch>
+        <Protected authenticated={isAuthenticated} initAttemptedRoute={initAttemptedRoute} exact path="/">
+          <MainLayout 
+            showSPA={showSPA}
+            spa={state.spa}
+            showVintageMovies={showVintageMovies}
+            vintagemovies={state.vintageMovies}
+            showWebco={showWebco}
+            webco={state.webco}
+            yourGym={state.yourgym}
+            showYourGym={showYourGym}
+          >
+            <Work showSPA={showSPA} showVintageMovies={showVintageMovies} showWebco={showWebco} showYourGym={showYourGym}/>
+          </MainLayout>
+        </Protected>
+        <RedirectToLogin authenticated={isAuthenticated} initAttemptedRoute={initAttemptedRoute} path="/login">
+          <LoginLayout>
+            <Login signInEmailUser={signInEmailUser}/>
+          </LoginLayout>
+        </RedirectToLogin>
+      </Switch>
+    </ThemeProvider>
   );
 }
 

@@ -4,11 +4,11 @@ import {Container, Row, Col} from "react-bootstrap";
 import ButtonControl from '../Molecules/ButtonControl';
 
 const StyledHeader = styled.div`
-    background: black;
+    background: ${({ theme }) => theme.colors.black};
     padding-top: 2vh;
 
     h1 {
-        color: white;
+        color: ${({ theme }) => theme.colors.white};
     }
 `;
 

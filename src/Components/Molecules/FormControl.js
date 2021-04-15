@@ -15,7 +15,7 @@ const StyledFormControl = styled.div`
   position: relative;
   width: 250px;
   padding: 5px 0;
-  border-bottom: 2px solid white;
+  border-bottom: 2px solid ${({ theme }) => theme.colors.white};
   @media (min-width: 765px) {
     width: 300px;
   }
@@ -25,7 +25,7 @@ const Eye = styled.i`
   position: absolute;
   top: 5%;
   right: 10px;
-  color: white;
+  color: ${({ theme }) => theme.colors.white};
   :hover {
     cursor: pointer;
   }

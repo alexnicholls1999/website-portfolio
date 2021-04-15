@@ -9,12 +9,12 @@ const StyledLabel = styled.h5`
     font-family: Arial;
     font-size: ${({ shrunk }) => (shrunk ? "12px" : "15px")};
     transition: 0.3s ease-in;
-    color: white;
+    color: ${({ theme }) => theme.colors.white};
 `;
 
 const StyledErrorLabel = styled.p`
     padding-top: 5px;
-    color: red;
+    color: ${({ theme }) => theme.colors.error};
     
     p {
         margin: 0;

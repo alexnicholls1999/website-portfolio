@@ -17,7 +17,7 @@ const StyledForwardButtonLabel = styled.label`
 const StyledArrow = styled.svg`
     height: 30px;
     width: 30px;
-    fill: #107CDC;
+    fill: ${({ theme }) => theme.colors.blue};
 `;
 
 

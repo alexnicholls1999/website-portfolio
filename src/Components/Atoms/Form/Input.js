@@ -13,7 +13,7 @@ const StyledInput = styled.input`
     background: none;
     padding-bottom: .2rem;
     font-size: 1rem;
-    color: white;
+    color: ${({ theme }) => theme.colors.white};
 `;
 
 function Input({inputRef, ...props}) {

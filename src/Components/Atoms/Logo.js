@@ -2,9 +2,9 @@ import React from 'react';
 import AZNLogo from './../../assets/azn-logo.svg'
 import styled from 'styled-components';
 
-const StyledLogo = styled.img`
+const StyledLogo = styled.svg`
     height: 6rem;
-    fill: white !important;
+    fill: ${({ theme }) => theme.colors.white} !important;
     margin: 0 auto;
 `
 
