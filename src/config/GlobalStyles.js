@@ -5,10 +5,6 @@ const GlobalStyles = createGlobalStyle`
 
     * {
         box-sizing: border-box;
-        -webkit-tap-highlight-color: transparent;
-        -webkit-user-select: none;
-        user-select: none;
-        -webkit-user-drag: none;
     }
     
     html,
