@@ -75,6 +75,7 @@ const VMMobile = styled.div`
 
     img {
         width: 75%;
+        height: 100%;
     }
 
 `;
@@ -82,6 +83,10 @@ const VMMobile = styled.div`
 const StyledForwardBtnWrapper = styled.div`
     padding-top: 10px;
 
+`;
+
+const StyledH2 = styled.h2`
+    width: 100%;
 `;
 
 function VintageMovies() {
@@ -246,21 +251,21 @@ function VintageMovies() {
 
            <Container>
                 <Row>
-                    <h2 style={{width: "35%"}}>Watch on the go with your mobile</h2>
+                    <StyledH2>Watch on the go with your mobile</StyledH2>
                 </Row>
                 <div className="p-4" />
                 <Row>
-                    <Col className="py-2" xs={4}>
+                    <Col className="py-2" sm={4} xs={12}>
                         <VMMobile>
                             <img src={Mobile1} alt="Mobile_1"/>
                         </VMMobile>
                     </Col>
-                    <Col className="py-2" xs={4}>
+                    <Col className="py-2" sm={4} xs={12}>
                         <VMMobile>
                             <img src={Mobile2} alt="Mobile_2"/>
                         </VMMobile>
                     </Col>
-                    <Col className="py-2" xs={4}>
+                    <Col className="py-2" sm={4} xs={12}>
                         <VMMobile>
                             <img src={Mobile3} alt="Mobile_3"/>
                         </VMMobile>
@@ -268,7 +273,7 @@ function VintageMovies() {
                 </Row>
                 <div className="p-2" />
                 <Row>
-                    <h2 className="ml-auto" style={{textAlign: "right", width: "50%"}}>Watch through comfort of your home</h2>
+                    <StyledH2 className="ml-auto">Watch through comfort of your home</StyledH2>
                 </Row>
                 <Row>
                     <Col lg={10}>
@@ -279,7 +284,7 @@ function VintageMovies() {
 
 
               <Row>
-                <h2 style={{width: "75%"}}>Like to view more information on this project:</h2>
+                <StyledH2>Like to view more information on this project:</StyledH2>
               </Row>
               <Row>
                 <StyledForwardBtnWrapper>
