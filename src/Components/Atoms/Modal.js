@@ -18,12 +18,16 @@ const ModalWrapper = styled.div`
 
 const StyledModal = styled.div`
   width: 795px;
-  height: 90vh;
+  height: 90%;
   background-color: ${({ theme }) => theme.colors.matteBlack};
   position: relative;
   border: 5px;
   box-shadow: 2px 4px 20px 0px rgba(0, 0, 0, 0.75);
   border-radius: 10px;
+
+  @media(min-width: 768px){ 
+      height: 100%;
+  }
 
 `;
 

@@ -8,8 +8,8 @@ import Project from '../Components/Molecules/Project';
 
 import ProjectA from '../assets/project-tile-images/Project_A.png';
 import ProjectB from '../assets/project-tile-images/Project_B.png';
-import ProjectC from '../assets/project-tile-images/Project_C.gif';
-import ProjectD from '../assets/project-tile-images/Project_D.gif';
+import ProjectC from '../assets/project-tile-images/Project_C.png';
+import ProjectD from '../assets/project-tile-images/Project_D.png';
 
 import CV from '../assets/My_CV_2020.pdf';
 
