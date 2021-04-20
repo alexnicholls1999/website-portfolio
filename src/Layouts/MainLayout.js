@@ -75,7 +75,7 @@ function MainLayout({
                 {...bind()}
                 style={{display, bottom: `calc(-100vh + ${height - 100}px)`, y}}
             >
-                <Menu />
+                <Menu handleCloseClick={() => close()}/>
             </Modal>
         </>
     )

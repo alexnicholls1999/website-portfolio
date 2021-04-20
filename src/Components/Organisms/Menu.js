@@ -1,18 +1,26 @@
 import React from 'react'
+import PropTypes from "prop-types"
 import CloseButton from '../Atoms/Buttons/CloseButton'
-import Scrollbar from '../Atoms/Scrollbar'
 import ButtonControl from '../Molecules/ButtonControl'
 
-function Menu() {
+
+function Menu({handleCloseClick}) {
     return (
         <> 
-            {/* <Scrollbar /> */}
-            <CloseButton />
+            <CloseButton onClick={handleCloseClick}/>
             <br/>
             <h4 style={{fontWeight: "bold"}}>MENU</h4>
             <ButtonControl />
         </>
     )
+}
+
+Menu.defaultProps = {
+    handleCloseClick: () => {}
+}
+
+Menu.propTypes = {
+    handleCloseClick: PropTypes.func.isRequired
 }
 
 export default Menu

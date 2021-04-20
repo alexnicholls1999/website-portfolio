@@ -12,7 +12,7 @@ const StyledCloseButtonIcon = styled.img`
 function CloseButton({onClick}) {
     return (
         <>
-            <StyledCloseButtonIcon src={CloseButtonIcon} />
+            <StyledCloseButtonIcon onClick={onClick} src={CloseButtonIcon} />
         </>
 
     )
