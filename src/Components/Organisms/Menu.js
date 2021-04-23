@@ -8,7 +8,6 @@ function Menu({handleCloseClick}) {
     return (
         <> 
             <CloseButton onClick={handleCloseClick}/>
-            <br/>
             <h4 style={{fontWeight: "bold"}}>MENU</h4>
             <ButtonControl />
         </>

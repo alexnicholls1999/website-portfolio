@@ -6,7 +6,10 @@ import CloseButtonIcon from '../../../assets/CloseCircle.svg';
 
 const StyledCloseButtonIcon = styled.img`
     right: 10px;
-
+    position: absolute;
+    top: 15px;
+    height: 50px;
+    width: 30px;
 `;
 
 function CloseButton({onClick}) {
@@ -14,7 +17,6 @@ function CloseButton({onClick}) {
         <>
             <StyledCloseButtonIcon onClick={onClick} src={CloseButtonIcon} />
         </>
-
     )
 }
 
