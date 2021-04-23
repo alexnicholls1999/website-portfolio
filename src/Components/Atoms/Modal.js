@@ -53,11 +53,11 @@ const StyledMenuModal = styled(a.div)`
   }
 `;
 
-function Modal({ show, menuModal, children, ...props}) {
+function Modal({ show, menuModal, children, onClose, ...props}) {
     return (
         <>
           {!show ? null : (
-            <ModalWrapper>
+            <ModalWrapper onClick={onClose}>
               <StyledModal>{children}</StyledModal>
             </ModalWrapper>
           )}
@@ -73,12 +73,14 @@ function Modal({ show, menuModal, children, ...props}) {
 Modal.defaultProps = {
     show: false,
     menuModal: false,
+    onClose: () => {},
     children: undefined
 };
   
   Modal.propTypes = {
     show: PropTypes.bool.isRequired,
     menuModal: PropTypes.bool.isRequired,
+    onClose: PropTypes.func.isRequired,
     children: PropTypes.node    
 };
 

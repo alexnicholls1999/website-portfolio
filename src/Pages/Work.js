@@ -27,7 +27,7 @@ const StyledWorkWrapper = styled.div`
     }
 `;
 
-function Work({showVintageMovies, showWebco, showYourGym}) {
+function Work({showVintageMovies, showWebco, showYourGym, showDementia}) {
 
     const handleOpenPDF = (e) => {
         window.open(`${CV}`, '_blank');
@@ -44,7 +44,8 @@ function Work({showVintageMovies, showWebco, showYourGym}) {
                     <Project projectImg={ProjectC} onClick={(e) => {showWebco(e)}}/>   
                 </Row>    
                 <Row>
-                    <Project projectImg={ProjectD} onClick={(e) => {showYourGym(e)}} />    
+                    <Project projectImg={ProjectD} onClick={(e) => {showYourGym(e)}} />
+                    <Project projectImg={ProjectD} onClick={(e) => {showDementia(e)}} />
                 </Row>   
 
                 <div className="p-3"></div>
@@ -62,13 +63,15 @@ function Work({showVintageMovies, showWebco, showYourGym}) {
 Work.defaultProps = {
     showVintageMovies: () => {},
     showWebco: () => {},
-    showYourGym: () => {}
+    showYourGym: () => {},
+    showDementia: () => {}
 }
 
 Work.propTypes = {
     showVintageMovies: PropTypes.func,
     showWebco: PropTypes.func,
-    showYourGym: PropTypes.func
+    showYourGym: PropTypes.func,
+    showDementia: PropTypes.func
 }
 
 export default Work;

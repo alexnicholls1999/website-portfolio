@@ -16,11 +16,13 @@ import Button from "../Components/Atoms/Buttons/Button";
 import VMWallpaper from "../assets/vintagemovies/VMWallpaper.png";
 import WebcoWallpaper from "../assets/webco/webcowallpaper.png";
 import YourGymWallpaper from "../assets/yourGym/your-gym-wallpaper.png";
+import DementiaWallpaper from "../assets/dementia/dementiawallpaper.png";
 
 import VintageMovies from "../Pages/VintageMovies";
 import Webco from "../Pages/Webco";
 import YourGym from "../Pages/YourGym";
 import Menu from "../Components/Organisms/Menu";
+import Dementia from "../Pages/Dementia";
 
 const StyledWork = styled(a.div)`
     position: absolute;
@@ -33,9 +35,11 @@ function MainLayout({
     vintagemovies,
     webco,
     yourGym,
+    dementia,
     showVintageMovies,
     showWebco,
-    showYourGym
+    showYourGym,
+    showDementia
 }) {
 
     const { bind, open, close, bgStyle, display, height, y } = useSwipeDown(); 
@@ -50,21 +54,27 @@ function MainLayout({
                 <Footer />
             </StyledWork>
 
-            <Modal show={vintagemovies}>
+            <Modal onClose={showVintageMovies} show={vintagemovies}>
                 <ProjectLayout img={VMWallpaper} onClose={showVintageMovies}>
                     <VintageMovies />
                 </ProjectLayout>
             </Modal>
 
-            <Modal show={webco}>
+            <Modal onClose={showWebco} show={webco}>
                 <ProjectLayout img={WebcoWallpaper} onClose={showWebco}>
                     <Webco />
                 </ProjectLayout>
             </Modal>
 
-            <Modal show={yourGym}>
+            <Modal onClose={showYourGym} show={yourGym}>
                 <ProjectLayout darkMode img={YourGymWallpaper} onClose={showYourGym}>
                     <YourGym />
+                </ProjectLayout>
+            </Modal>
+
+            <Modal onClose={showDementia} show={dementia}>
+                <ProjectLayout darkMode img={DementiaWallpaper} onClose={showDementia}>
+                    <Dementia />
                 </ProjectLayout>
             </Modal>
 
