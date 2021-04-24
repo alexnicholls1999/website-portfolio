@@ -17,6 +17,21 @@ const Tile = styled.div`
           border: 4px solid ${({ theme }) => theme.colors.blue};
         }
     }
+
+    video {
+      position: relative;
+      border-radius: 20px;
+      width: 100%;
+  
+      :hover {
+        transform: scale(1.025);
+        transition: 0.5s ease;
+        box-shadow: 0px 5px 17px ${({ theme }) => theme.colors.blue};
+        border: 4px solid ${({ theme }) => theme.colors.blue};
+      }
+  }
+
+
 `;
 
 export default Tile;

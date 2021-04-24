@@ -8,8 +8,8 @@ import Project from '../Components/Molecules/Project';
 
 import ProjectA from '../assets/project-tile-images/Project_A.png';
 import ProjectB from '../assets/project-tile-images/Project_B.png';
-import ProjectC from '../assets/project-tile-images/Project_C.png';
-import ProjectD from '../assets/project-tile-images/Project_D.png';
+import ProjectC from '../assets/project-tile-images/Project_C.mp4';
+import ProjectD from '../assets/project-tile-images/Project_D.mp4';
 
 import CV from '../assets/My_CV_2020.pdf';
 
@@ -40,12 +40,12 @@ function Work({showVintageMovies, showWebco, showYourGym, showDementia}) {
             <div className="p-3"></div>
             <Container>
                 <Row>
-                    <Project projectImg={ProjectB} onClick={(e) => {showVintageMovies(e)}} /> 
-                    <Project projectImg={ProjectC} onClick={(e) => {showWebco(e)}}/>   
+                    <Project projectSrc={ProjectA} onClick={(e) => {showDementia(e)}} />
+                    <Project projectSrc={ProjectB} onClick={(e) => {showVintageMovies(e)}} />   
                 </Row>    
                 <Row>
-                    <Project projectImg={ProjectD} onClick={(e) => {showYourGym(e)}} />
-                    <Project projectImg={ProjectD} onClick={(e) => {showDementia(e)}} />
+                    <Project animation projectSrc={ProjectC} onClick={(e) => {showWebco(e)}}/> 
+                    <Project animation projectSrc={ProjectD} onClick={(e) => {showYourGym(e)}} />
                 </Row>   
 
                 <div className="p-3"></div>
