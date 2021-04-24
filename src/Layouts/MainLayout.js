@@ -97,6 +97,7 @@ MainLayout.defaultProps = {
     webco: false,
     yourGym: false,
     showVintageMovies: () => {},
+    showDementia: () => {},
     showWebco: () => {},
     showYourGym: () => {},
 }
@@ -107,6 +108,7 @@ MainLayout.propTypes = {
     webco: PropTypes.bool,
     yourGym: PropTypes.bool,
     showVintageMovies: PropTypes.func.isRequired,
+    showDementia: PropTypes.func.isRequired,
     showWebco: PropTypes.func.isRequired,
     showYourGym: PropTypes.func.isRequired,
 }
