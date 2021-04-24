@@ -46,11 +46,14 @@ const Color = styled.div`
 `;
 
 const ColorText = styled.div`
-    color: ${({color}) => (color)};
     text-align: center;
     height: 100%;
     padding: 10%;
     align-items: middle;
+
+    p {
+        color: ${({black}) => (black ? "black" : "white" )};
+    }
 `;
 
 const LogoVMWrapper = styled.div`
@@ -74,7 +77,8 @@ const VMMobile = styled.div`
     justify-content: center;
 
     img {
-        width: 75%;
+        width: 100%;
+        height: 50%;
     }
 
 `;
@@ -139,7 +143,7 @@ function VintageMovies() {
                 <Row className="justify-content-center">
                     <Pallete>
                         <Color color="#2E2E2E">
-                            <ColorText color="white">
+                            <ColorText>
                                 <p>#2E2E2E</p>
                                 <p>RGB (255, 255, 255) </p>
                             </ColorText>
@@ -147,7 +151,7 @@ function VintageMovies() {
                     </Pallete>
                     <Pallete>
                         <Color color="#FFFFFF">
-                            <ColorText color="black">
+                            <ColorText black>
                                 <p>#2E2E2E</p>
                                 <p>RGB (255, 255, 255) </p>
                             </ColorText>
@@ -155,7 +159,7 @@ function VintageMovies() {
                     </Pallete>
                     <Pallete>
                         <Color color="#0B89F5">
-                            <ColorText color="white">
+                            <ColorText>
                                 <p>#2E2E2E</p>
                                 <p>RGB (255, 255, 255) </p>
                             </ColorText>
@@ -163,7 +167,7 @@ function VintageMovies() {
                     </Pallete>
                     <Pallete>
                         <Color color="#000000">
-                            <ColorText color="white">
+                            <ColorText>
                                 <p>#2E2E2E</p>
                                 <p>RGB (255, 255, 255) </p>
                             </ColorText>
@@ -246,21 +250,24 @@ function VintageMovies() {
 
            <Container>
                 <Row>
-                    <h2 style={{width: "35%"}}>Watch on the go with your mobile</h2>
+                    <Col sm={12}>
+                        <h2>Watch on the go with your mobile</h2>
+                    </Col>
+                    
                 </Row>
                 <div className="p-4" />
                 <Row>
-                    <Col className="py-2" xs={4}>
+                    <Col className="py-2" md={4} sm={12}>
                         <VMMobile>
                             <img src={Mobile1} alt="Mobile_1"/>
                         </VMMobile>
                     </Col>
-                    <Col className="py-2" xs={4}>
+                    <Col className="py-2" md={4} sm={12}>
                         <VMMobile>
                             <img src={Mobile2} alt="Mobile_2"/>
                         </VMMobile>
                     </Col>
-                    <Col className="py-2" xs={4}>
+                    <Col className="py-2" md={4} sm={12}>
                         <VMMobile>
                             <img src={Mobile3} alt="Mobile_3"/>
                         </VMMobile>
@@ -268,7 +275,9 @@ function VintageMovies() {
                 </Row>
                 <div className="p-2" />
                 <Row>
-                    <h2 className="ml-auto" style={{textAlign: "right", width: "50%"}}>Watch through comfort of your home</h2>
+                    <Col sm={12}>
+                        <h2>Watch through comfort of your home</h2>
+                    </Col>
                 </Row>
                 <Row>
                     <Col lg={10}>

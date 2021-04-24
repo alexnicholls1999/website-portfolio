@@ -13,7 +13,6 @@ const eyeHidden = <FontAwesomeIcon icon={faEyeSlash}/>
 
 const StyledFormControl = styled.div`
   position: relative;
-  width: 250px;
   padding: 5px 0;
   border-bottom: 2px solid ${({ theme }) => theme.colors.white};
   @media (min-width: 765px) {

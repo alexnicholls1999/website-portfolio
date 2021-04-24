@@ -27,8 +27,7 @@ export default function useShrink(form) {
     useEffect(() => {
         if (form.values.email.length > 0) setIsEmailShrinked(true);
         if (form.values.password.length > 0) setIsPasswordShrinked(true);
-
-    }, [form.values.email, form.values.password ]);
+    }, [form.values.email, form.values.password]);
 
 
     return {

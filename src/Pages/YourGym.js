@@ -6,7 +6,8 @@ import yourGymWork1 from './../assets/yourGym/your-gym-work1.png';
 import yourGymWork2 from './../assets/yourGym/your-gym-work2.png';
 
 const StyledImage = styled.img`
-    width: 100%;
+    height: 50%;
+    width: 100%; 
     background: white;
 `;
 

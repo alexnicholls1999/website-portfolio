@@ -18,12 +18,16 @@ const ModalWrapper = styled.div`
 
 const StyledModal = styled.div`
   width: 795px;
-  height: 90vh;
+  height: 90%;
   background-color: ${({ theme }) => theme.colors.matteBlack};
   position: relative;
   border: 5px;
   box-shadow: 2px 4px 20px 0px rgba(0, 0, 0, 0.75);
   border-radius: 10px;
+
+  @media(min-width: 768px){ 
+      height: 100%;
+  }
 
 `;
 
@@ -49,11 +53,11 @@ const StyledMenuModal = styled(a.div)`
   }
 `;
 
-function Modal({ show, menuModal, children, ...props}) {
+function Modal({ show, menuModal, children, onClose, ...props}) {
     return (
         <>
           {!show ? null : (
-            <ModalWrapper>
+            <ModalWrapper onClick={onClose}>
               <StyledModal>{children}</StyledModal>
             </ModalWrapper>
           )}
@@ -69,12 +73,14 @@ function Modal({ show, menuModal, children, ...props}) {
 Modal.defaultProps = {
     show: false,
     menuModal: false,
+    onClose: () => {},
     children: undefined
 };
   
   Modal.propTypes = {
     show: PropTypes.bool.isRequired,
     menuModal: PropTypes.bool.isRequired,
+    onClose: PropTypes.func.isRequired,
     children: PropTypes.node    
 };
 

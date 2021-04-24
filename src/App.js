@@ -19,7 +19,7 @@ const initAttemptedRoute = "/";
 
 function App() {
 
-  const {state, showSPA, showVintageMovies, showWebco, showYourGym} = useProjects()
+  const {state, showSPA, showVintageMovies, showWebco, showYourGym, showDementia} = useProjects()
   const {isAuthenticated, loading, signInEmailUser} = useAuth(firebase.auth);
 
   if (loading) {
@@ -39,9 +39,11 @@ function App() {
             showWebco={showWebco}
             webco={state.webco}
             yourGym={state.yourgym}
+            dementia={state.dementia}
             showYourGym={showYourGym}
+            showDementia={showDementia}
           >
-            <Work showSPA={showSPA} showVintageMovies={showVintageMovies} showWebco={showWebco} showYourGym={showYourGym}/>
+            <Work showSPA={showSPA} showVintageMovies={showVintageMovies} showWebco={showWebco} showYourGym={showYourGym} showDementia={showDementia}/>
           </MainLayout>
         </Protected>
         <RedirectToLogin authenticated={isAuthenticated} initAttemptedRoute={initAttemptedRoute} path="/login">

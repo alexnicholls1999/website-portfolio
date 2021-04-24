@@ -5,7 +5,8 @@ export default function useProjects() {
     spa: false,
     vintageMovies: false,
     webco: false,
-    yourgym: false
+    yourgym: false,
+    dementia: false
   });
 
   const showSPA = (e) => {
@@ -36,11 +37,19 @@ export default function useProjects() {
       });
   }
 
+  const showDementia = (e) => {
+    setState({
+      ...state,
+      dementia: !state.dementia
+    })
+  }
+
   return {
     state,
     showSPA,
     showVintageMovies,
     showWebco,
-    showYourGym
+    showYourGym,
+    showDementia
   };
 }
