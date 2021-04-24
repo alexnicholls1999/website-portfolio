@@ -61,6 +61,8 @@ function Dementia() {
                         </Col>
                     </Row>
 
+                    <div className="p-3"></div>
+
                     <Row>
                         <Col lg={4}>
                             <StyledImage src={Interviews_1to1} alt="1_to_1_Interviews"/>
@@ -84,6 +86,7 @@ function Dementia() {
 
             <StyledUserPersona src={PersonaB} alt="Persona_B"/>
 
+            <div className="p-4"></div>
 
             <Container>
                 <h2>Ideate</h2>
@@ -91,7 +94,7 @@ function Dementia() {
                 
                 <Row>
                     <Col lg={7}>
-                        <h2 class="mr-auto">HMWs and Brainstorming</h2>
+                        <h3 class="mr-auto">HMWs and Brainstorming</h3>
                         <p class="py-3 mr-auto">A series of “How might we question” (HMWs) provided an insight into some problem statement and help launch brainstorming. Brainstorming providing a range of different ideas which potentially could be implemented in the prototype. </p>
                     </Col>
                     <Col lg={1} />
@@ -100,13 +103,15 @@ function Dementia() {
                     </Col>
                 </Row>
 
+                <div className="p-3"></div>
+
                 <Row>
                     <Col lg={4}>
                         <StyledImage src={Interviews_1to1} alt="1_to_1_Interviews"/>
                     </Col>
                     <Col lg={1} />
                     <Col lg={7}>
-                        <h2 class="text-right ml-auto">StoryBoarding and Rough Sketches</h2>
+                        <h3 class="text-right ml-auto">StoryBoarding and Rough Sketches</h3>
                         <p class="py-3 text-right ml-auto">Brainstorming providing a range of different ideas which potentially could be implemented in the prototype. Storyboarding was used by collecting user journeys and structuring set tasks for a potential solution from a given idea. A rough sketches were then created and implemented for each task. They were evaluated, and the best sketches were chosen within the prototype. </p>
                     </Col>
                 </Row>
@@ -124,6 +129,8 @@ function Dementia() {
                 <p>A clickable wireframe prototype was created using design software MockingBot. The prototype was based on a dementia website to demonstrate a real life, website with content, design features and navigation to help analyse the websites usability during testing. Navigation consisted of two methods, horizontal navigation bar and two buttons for next and previous page links. Design layout consisted of implementing a mixture of videos, images, text, input forms and headings into the layout of each page on the prototype. The main goal was to keep information short, accessible, and simple for users to read by using short sentences and dissecting large amounts of information into key points. Images and videos were then combined with text to help users understand the research provided within each page. </p>
             </Container>
 
+            <div className="p-4"></div>
+
             <Container>
                     <Row>
                         <Col lg={7}>
@@ -136,6 +143,8 @@ function Dementia() {
                         </Col>
                     </Row>
             </Container>
+
+            <div className="p-4"></div>
 
             <Container>
                 <h2>Results</h2>

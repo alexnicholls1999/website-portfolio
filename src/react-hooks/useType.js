@@ -14,26 +14,6 @@ function getMessage(currentState, data) {
     return data[Number(currentState.loopNum) % Number(data.length)];
 }
 
-function typeMessage(currentState, setCurrentState, messages){
-    if (!currentState.isDeleting && currentState.text === currentState.message) {
-        setTimeout(() => {
-            setCurrentState((cs) => ({
-                ...cs,
-                isDeleting: true,
-            }))
-        }, 500)
-    }
-
-    if(currentState.isDeleting && currentState.text === "") {
-        setCurrentState((cs) => ({
-            ...cs,
-            isDeleting: false,
-            loopNum: cs.loopNum + 1,
-            message: getMessage(cs, messages)
-        }));
-    }
-}
-
 export default function useType(messages) {
     const [state, setState] = useState({
         text: "",
@@ -61,7 +41,21 @@ export default function useType(messages) {
     }, [state.isDeleting, state.typingSpeed]);
 
     useEffect(() => {
-        typeMessage(state, setState, messages)
+        if (!state.isDeleting && state.text === state.message) {
+            setTimeout(() => {
+                setState((cs) => ({
+                    ...cs,
+                    isDeleting: true,
+                }))
+            }, 500)
+        } else if (state.isDeleting && state.text === "") {
+            setState((cs) => ({
+                ...cs,
+                isDeleting: false,
+                loopNum: cs.loopNum + 1,
+                message: getMessage(cs, messages)
+            }));
+        }    
     }, [state.text, state.message, state.isDeleting, messages]);
 
     return {
