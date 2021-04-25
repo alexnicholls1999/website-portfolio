@@ -5,7 +5,7 @@ import { a } from "react-spring";
 
 const ModalWrapper = styled.div`
   position: fixed;
-  z-index: 200;
+  z-index: 1;
   left: 0;
   width: 100%;
   height: 100vh;
@@ -20,16 +20,26 @@ const StyledModal = styled.div`
   width: 795px;
   height: 90%;
   background-color: ${({ theme }) => theme.colors.matteBlack};
-  position: relative;
+  position: absolute;
   border: 5px;
   box-shadow: 2px 4px 20px 0px rgba(0, 0, 0, 0.75);
   border-radius: 10px;
+  z-index: 2
 
   @media(min-width: 768px){ 
       height: 100%;
   }
 
 `;
+
+const ModalClose = styled.div`
+  position: fixed;
+  z-index: -1;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+`;
+
 
 const StyledMenuModal = styled(a.div)`
   z-index: 100;
@@ -57,9 +67,10 @@ function Modal({ show, menuModal, children, onClose, ...props}) {
     return (
         <>
           {!show ? null : (
-            <ModalWrapper onClick={onClose}>
-              <StyledModal>{children}</StyledModal>
-            </ModalWrapper>
+              <ModalWrapper>
+                <ModalClose onClick={onClose}/>
+                <StyledModal>{children}</StyledModal>
+              </ModalWrapper>
           )}
           {menuModal && (
             <StyledMenuModal {...props}>

@@ -51,12 +51,12 @@ function Dementia() {
                     </Row>
                     
                     <Row>
-                        <Col lg={7}>
+                        <Col md={7}>
                             <h3 class="mr-auto">Literature Review</h3>
                             <p class="py-3 mr-auto">Literature Review provided background research on the topic and highlighted current problems and design suggestions when designing for those with dementia.</p>
                         </Col>
-                        <Col lg={1} />
-                        <Col lg={4}>
+                        <Col md={1} />
+                        <Col md={4}>
                             <StyledImage src={LiteratureReview} alt="Literature_Review"/>
                         </Col>
                     </Row>
@@ -64,11 +64,11 @@ function Dementia() {
                     <div className="p-3"></div>
 
                     <Row>
-                        <Col lg={4}>
+                        <Col md={4}>
                             <StyledImage src={Interviews_1to1} alt="1_to_1_Interviews"/>
                         </Col>
-                        <Col lg={1} />
-                        <Col lg={7}>
+                        <Col md={1}/>
+                        <Col md={7}>
                             <h3 class="text-right ml-auto">1 to 1 interviews</h3>
                             <p class="py-3 text-right ml-auto">1 to 1 interviews were then conducted using telephone or Zoom (voice communication software) to give a broader aspect on the common problems for those with living with dementia. Consent Forms, 10-point questionnaire and Results Summary were created to approve, collect, and analyse findings.</p>
                         </Col>
@@ -106,11 +106,11 @@ function Dementia() {
                 <div className="p-3"></div>
 
                 <Row>
-                    <Col lg={4}>
+                    <Col md={4}>
                         <StyledImage src={Interviews_1to1} alt="1_to_1_Interviews"/>
                     </Col>
-                    <Col lg={1} />
-                    <Col lg={7}>
+                    <Col md={1} />
+                    <Col md={7}>
                         <h3 class="text-right ml-auto">StoryBoarding and Rough Sketches</h3>
                         <p class="py-3 text-right ml-auto">Brainstorming providing a range of different ideas which potentially could be implemented in the prototype. Storyboarding was used by collecting user journeys and structuring set tasks for a potential solution from a given idea. A rough sketches were then created and implemented for each task. They were evaluated, and the best sketches were chosen within the prototype. </p>
                     </Col>

@@ -3,7 +3,6 @@ import PropTypes from "prop-types"
 import CloseButton from '../Atoms/Buttons/CloseButton'
 import ButtonControl from '../Molecules/ButtonControl'
 
-
 function Menu({handleCloseClick}) {
     return (
         <> 
