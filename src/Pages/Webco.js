@@ -93,39 +93,39 @@ function Webco() {
 
             <Container>
                 <Row>
-                    <Col lg={4}>
+                    <Col md={4} xs={{span: 12, order: 3}}>
                         <StyledImage src={PrimaryLogo} />
                     </Col>
-                    <Col lg={1}></Col>
-                    <Col lg={7}>
-                        <h2 class="text-right ml-auto">Primary Colour</h2>
-                        <p class="py-3 text-right ml-auto">Here is the coloured version (final design) of the Webco Logo that was done as a A5 size. This is white color with a cyan blue background.</p>
+                    <Col md={1} xs={{span: 12, order: 2}}></Col>
+                    <Col md={7} xs={{span: 12, order: 1}}>
+                        <h2 class="ml-auto">Primary Colour</h2>
+                        <p class="py-3 ml-auto">Here is the coloured version (final design) of the Webco Logo that was done as a A5 size. This is white color with a cyan blue background.</p>
                     </Col>
                 </Row>
 
                 <div className="p-3"></div>
 
                 <Row>
-                    <Col lg={7}>
-                      <h2 class="text-left mr-auto">Secondary Colour</h2>
-                      <p class="py-3 text-left mr-auto">Here is the coloured version (final design) of the Webco Logo that was done as a A5 size. This is blue color with a white background.</p>
+                    <Col md={7}>
+                      <h2 class="mr-auto">Secondary Colour</h2>
+                      <p class="py-3 mr-auto">Here is the coloured version (final design) of the Webco Logo that was done as a A5 size. This is blue color with a white background.</p>
                     </Col>
-                    <Col lg={1}></Col>
-                    <Col lg={4}>
+                    <Col md={1}></Col>
+                    <Col md={4}>
                         <StyledImage src={SecondaryLogo} />
                     </Col>
                 </Row>
 
                 <div className="p-3"></div>
 
-                <Row>
-                    <Col lg={4}>
+                <Row className="flex-row-reverse">
+                    <Col md={4} xs={{span: 12, order: 3}}>
                         <StyledImage src={BlackAndWhiteLogo} />
                     </Col>
-                    <Col lg={1}></Col>
-                    <Col lg={7}>
-                        <h2 class="text-right ml-auto">Black & White Colour</h2>
-                        <p class="py-3 text-right ml-auto">Here is the black and white version (final design) of the Webco Logo that was done as a A5 size. This is black color with a white background.</p>
+                    <Col md={1} xs={{span: 12, order: 2}}></Col>
+                    <Col md={7} xs={{span: 12, order: 1}}>
+                        <h2>Black & White Colour</h2>
+                        <p className="py-3">Here is the black and white version (final design) of the Webco Logo that was done as a A5 size. This is black color with a white background.</p>
                     </Col>
                 </Row>
 

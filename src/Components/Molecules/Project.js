@@ -12,7 +12,7 @@ function Project({ onClick, projectSrc, animation}) {
             <FadeIn>
                 <Tile onClick={onClick}>
                     {animation ? (
-                        <video loop autoPlay muted>
+                        <video loop autoPlay muted playsInline>
                             <source src={projectSrc} type="video/MP4" />
                         </video>
                     ) : (
