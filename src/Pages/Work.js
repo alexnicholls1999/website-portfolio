@@ -53,7 +53,7 @@ function Work({showVintageMovies, showWebco, showYourGym, showDementia}) {
                 <FadeIn>
                     <Button text="View CV" onClick={handleOpenPDF}/>
                 </FadeIn>
-            </Container>  
+            </Container>
                     
           </StyledWorkWrapper>  
         </>

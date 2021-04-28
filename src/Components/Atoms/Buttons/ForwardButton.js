@@ -11,7 +11,8 @@ const StyledForwardButton = styled.div`
 `;
 
 const StyledForwardButtonLabel = styled.label`
-    width: 150px;
+    width: 100%;
+    padding-right: 75px;
 `;
 
 const StyledArrow = styled.svg`
@@ -45,7 +46,7 @@ ForwardButton.defaultProps = {
 
 ForwardButton.propTypes = {
     text: PropTypes.string,
-    pathname: PropTypes.string.isRequired
+    pathname: PropTypes.string
 }
 
 export default ForwardButton;

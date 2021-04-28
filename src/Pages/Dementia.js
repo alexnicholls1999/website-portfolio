@@ -7,6 +7,15 @@ import LiteratureReview from "./../assets/dementia/LiteratureReview.png";
 import Interviews_1to1 from "./../assets/dementia/1to1Interviews.png";
 import PersonaA from "./../assets/dementia/UserPersonaA.png";
 import PersonaB from "./../assets/dementia/UserPersonaB.png";
+import BrainStorming from "./../assets/dementia/BrainStorming.png";
+import RoughSketches from "./../assets/dementia/RoughSketches.png";
+import Prototype from "./../assets/dementia/Prototype.png";
+import Test from "./../assets/dementia/Test.png";
+import Interviews_1to1_Graph from "./../assets/dementia/1to1InterviewResultsChart.png";
+import UnmoderatedUsabilityTestingChart from "./../assets/dementia/UnmoderatedUsabilityTestingChart.png";
+import ForwardButton from '../Components/Atoms/Buttons/ForwardButton';
+
+import DissertationReport from './../assets/dementia/Demenita_Dissertation_Report2.pdf';
 
 const StyledThinkingModel = styled.img`
     width: 100%;
@@ -25,6 +34,12 @@ const StyledPrototype = styled.img`
 const StyledImage = styled.img`
     width: 100%;
 `;
+
+const StyledForwardBtnWrapper = styled.div`
+    padding-top: 10px;
+
+`;
+
 
 function Dementia() {
     return (
@@ -46,7 +61,7 @@ function Dementia() {
 
             <Container>
                     <Row>
-                        <h2>Empathsise</h2>
+                        <h2>Empathise </h2>
                         <p> Empathising consists of identifying problems and complications for those with dementia when using websites. </p>
                     </Row>
                     
@@ -99,7 +114,7 @@ function Dementia() {
                     </Col>
                     <Col lg={1} />
                     <Col lg={4}>
-                        <StyledImage src={LiteratureReview} alt="Literature_Review"/>
+                        <StyledImage src={BrainStorming} alt="HMWs_And_Brainstorming"/>
                     </Col>
                 </Row>
 
@@ -107,7 +122,7 @@ function Dementia() {
 
                 <Row>
                     <Col md={4}>
-                        <StyledImage src={Interviews_1to1} alt="1_to_1_Interviews"/>
+                        <StyledImage src={RoughSketches} alt="RoughSketches"/>
                     </Col>
                     <Col md={1} />
                     <Col md={7}>
@@ -121,7 +136,7 @@ function Dementia() {
                 <h2>Prototype</h2>
             </Container>
 
-            <StyledPrototype src={PersonaA} alt="Persona_A"/>
+            <StyledPrototype src={Prototype} alt="Prototype"/>
 
             <div className="p-1"></div>
 
@@ -139,7 +154,7 @@ function Dementia() {
                         </Col>
                         <Col lg={1} />
                         <Col lg={4}>
-                            <StyledImage src={LiteratureReview} alt="Literature_Review"/>
+                            <StyledImage src={Test} alt="Test"/>
                         </Col>
                     </Row>
             </Container>
@@ -150,18 +165,32 @@ function Dementia() {
                 <h2>Results</h2>
             </Container>
 
-            <StyledUserPersona src={PersonaA} alt="Persona_A"/>
+            <StyledUserPersona src={Interviews_1to1_Graph} alt="1to1_interviews_graph"/>
 
             <div className="p-4"></div>
 
-            <StyledUserPersona src={PersonaB} alt="Persona_B"/>
+            <StyledUserPersona src={UnmoderatedUsabilityTestingChart} alt="UsabilityChart"/>
 
             <div className="p-3"></div>
 
             <Container>
-                <h2>Conclusion</h2>
-                <p>Dementia affects people differently – the type and stage of dementia will impact people's ability to engage with websites as will as other health conditions and general technological ability prior to diagnosis. Generally, those living with dementia need help processing information, navigation and orientation. Understanding their challenges may help others with different disabilities, e.g. learning disabilities and brain injury. Designers must include those living with dementia in design process. A MVP approach is beneficial when exploring the quality of design. No significant gaps emerged from this study but the findings are complementary and add further detail to existing guidance. Designers would benefit from a greater understanding of dementia to help them better understand users needs. </p>
+                <Row>
+                    <h2>Conclusion</h2>
+                    <p>Dementia affects people differently – the type and stage of dementia will impact people's ability to engage with websites as will as other health conditions and general technological ability prior to diagnosis. Generally, those living with dementia need help processing information, navigation and orientation. Understanding their challenges may help others with different disabilities, e.g. learning disabilities and brain injury. Designers must include those living with dementia in design process. A MVP approach is beneficial when exploring the quality of design. No significant gaps emerged from this study but the findings are complementary and add further detail to existing guidance. Designers would benefit from a greater understanding of dementia to help them better understand users needs. </p>
+                </Row>
+                <div className="p-3"></div>
+                <Row>
+                    <h2 style={{width: "75%"}}>Like to view more information on this project:</h2>
+                </Row>
+
+                <Row>
+                    <StyledForwardBtnWrapper>
+                        <ForwardButton text="Dissertation Report.pdf"/>
+                    </StyledForwardBtnWrapper>
+                </Row>
             </Container>
+
+
         </>
     )
 }
