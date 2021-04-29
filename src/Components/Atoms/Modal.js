@@ -17,17 +17,17 @@ const ModalWrapper = styled.div`
 `;
 
 const StyledModal = styled.div`
-  width: 795px;
+  width: 90%;
   height: 90%;
   background-color: ${({ theme }) => theme.colors.matteBlack};
   position: absolute;
   border: 5px;
   box-shadow: 2px 4px 20px 0px rgba(0, 0, 0, 0.75);
   border-radius: 10px;
-  z-index: 2
+  z-index: 2;
 
-  @media(min-width: 768px){ 
-      height: 100%;
+  @media (min-width: 768px) {
+    width: 795px !important;
   }
 
 `;
