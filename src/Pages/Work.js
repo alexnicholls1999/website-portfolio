@@ -30,7 +30,7 @@ const StyledWorkWrapper = styled.div`
 function Work({showVintageMovies, showWebco, showYourGym, showDementia}) {
 
     const handleOpenPDF = (e) => {
-        window.open(`${CV}`, '_blank');
+        window.open(`${CV}`);
         e.preventDefault();
     }
 

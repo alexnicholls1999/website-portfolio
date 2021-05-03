@@ -92,7 +92,7 @@ function Webco() {
             <div className="p-3"></div>
 
             <Container>
-                <Row>
+                <Row >
                     <Col md={4} xs={{span: 12, order: 3}}>
                         <StyledImage src={PrimaryLogo} />
                     </Col>
@@ -105,7 +105,7 @@ function Webco() {
 
                 <div className="p-3"></div>
 
-                <Row>
+                <Row className="flex-row-reverse">
                     <Col md={7}>
                       <h2 class="mr-auto">Secondary Colour</h2>
                       <p class="py-3 mr-auto">Here is the coloured version (final design) of the Webco Logo that was done as a A5 size. This is blue color with a white background.</p>
@@ -118,7 +118,7 @@ function Webco() {
 
                 <div className="p-3"></div>
 
-                <Row className="flex-row-reverse">
+                <Row>
                     <Col md={4} xs={{span: 12, order: 3}}>
                         <StyledImage src={BlackAndWhiteLogo} />
                     </Col>

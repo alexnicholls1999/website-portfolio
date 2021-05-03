@@ -78,17 +78,19 @@ function Dementia() {
 
                     <div className="p-3"></div>
 
-                    <Row>
-                        <Col md={4}>
+                    <Row className="flex-row-reverse">
+                        <Col md={4} xs={{span: 12, order: 3}}>
                             <StyledImage src={Interviews_1to1} alt="1_to_1_Interviews"/>
                         </Col>
-                        <Col md={1}/>
-                        <Col md={7}>
-                            <h3 class="text-right ml-auto">1 to 1 interviews</h3>
-                            <p class="py-3 text-right ml-auto">1 to 1 interviews were then conducted using telephone or Zoom (voice communication software) to give a broader aspect on the common problems for those with living with dementia. Consent Forms, 10-point questionnaire and Results Summary were created to approve, collect, and analyse findings.</p>
+                        <Col md={1} xs={{span: 12, order: 2}}/>
+                        <Col md={7} xs={{span: 12, order: 1}}>
+                            <h3 class="ml-auto">1 to 1 interviews</h3>
+                            <p class="py-3 ml-auto">1 to 1 interviews were then conducted using telephone or Zoom (voice communication software) to give a broader aspect on the common problems for those with living with dementia. Consent Forms, 10-point questionnaire and Results Summary were created to approve, collect, and analyse findings.</p>
                         </Col>
                     </Row>
             </Container>
+
+            <div className="p-3"></div>
 
             <Container>
                     <h2>Define</h2>
@@ -107,10 +109,10 @@ function Dementia() {
                 <h2>Ideate</h2>
                 <p> Ideation phase consisted of different UX design methodologies to inspire a range of ideas to provide new solutions. </p>
                 
-                <Row>
+                <Row className="flex-row-reverse">
                     <Col lg={7}>
-                        <h3 class="mr-auto">HMWs and Brainstorming</h3>
-                        <p class="py-3 mr-auto">A series of “How might we question” (HMWs) provided an insight into some problem statement and help launch brainstorming. Brainstorming providing a range of different ideas which potentially could be implemented in the prototype. </p>
+                        <h3 className="mr-auto">HMWs and Brainstorming</h3>
+                        <p className="py-3 mr-auto">A series of “How might we question” (HMWs) provided an insight into some problem statement and help launch brainstorming. Brainstorming providing a range of different ideas which potentially could be implemented in the prototype. </p>
                     </Col>
                     <Col lg={1} />
                     <Col lg={4}>
@@ -121,16 +123,18 @@ function Dementia() {
                 <div className="p-3"></div>
 
                 <Row>
-                    <Col md={4}>
+                    <Col md={4} xs={{span: 12, order: 3}}>
                         <StyledImage src={RoughSketches} alt="RoughSketches"/>
                     </Col>
-                    <Col md={1} />
-                    <Col md={7}>
-                        <h3 class="text-right ml-auto">StoryBoarding and Rough Sketches</h3>
-                        <p class="py-3 text-right ml-auto">Brainstorming providing a range of different ideas which potentially could be implemented in the prototype. Storyboarding was used by collecting user journeys and structuring set tasks for a potential solution from a given idea. A rough sketches were then created and implemented for each task. They were evaluated, and the best sketches were chosen within the prototype. </p>
+                    <Col md={1} xs={{span: 12, order: 2}}/>
+                    <Col md={7} xs={{span: 12, order: 1}}>
+                        <h3 className="ml-auto">StoryBoarding and Rough Sketches</h3>
+                        <p className="py-3 ml-auto">Brainstorming providing a range of different ideas which potentially could be implemented in the prototype. Storyboarding was used by collecting user journeys and structuring set tasks for a potential solution from a given idea. A rough sketches were then created and implemented for each task. They were evaluated, and the best sketches were chosen within the prototype. </p>
                     </Col>
                 </Row>
             </Container>
+
+            <div className="p-3"></div>
                 
             <Container>
                 <h2>Prototype</h2>
@@ -178,19 +182,19 @@ function Dementia() {
                     <h2>Conclusion</h2>
                     <p>Dementia affects people differently – the type and stage of dementia will impact people's ability to engage with websites as will as other health conditions and general technological ability prior to diagnosis. Generally, those living with dementia need help processing information, navigation and orientation. Understanding their challenges may help others with different disabilities, e.g. learning disabilities and brain injury. Designers must include those living with dementia in design process. A MVP approach is beneficial when exploring the quality of design. No significant gaps emerged from this study but the findings are complementary and add further detail to existing guidance. Designers would benefit from a greater understanding of dementia to help them better understand users needs. </p>
                 </Row>
+
                 <div className="p-3"></div>
+
                 <Row>
                     <h2 style={{width: "75%"}}>Like to view more information on this project:</h2>
                 </Row>
 
                 <Row>
                     <StyledForwardBtnWrapper>
-                        <ForwardButton text="Dissertation Report.pdf"/>
+                        <ForwardButton text="Dissertation Report.pdf" pathname={DissertationReport}/>
                     </StyledForwardBtnWrapper>
                 </Row>
             </Container>
-
-
         </>
     )
 }

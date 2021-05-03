@@ -25,9 +25,14 @@ const StyledArrow = styled.svg`
 function ForwardButton({text, pathname}) {
 
     const onHandleClick = (e) => {
-        window.open(`${pathname}`)
+        window.open(pathname);
         e.preventDefault();
     }
+
+    // const onHandleClick = (e) => {
+    //     window.open(`${CV}`, '_blank');
+    //     e.preventDefault();
+    // }
 
     return (
         <StyledForwardButton onClick={onHandleClick}>
